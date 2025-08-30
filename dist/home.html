@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<style>
+		body {
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+		}
+
+		.loaded body {
+			opacity: 1;
+			visibility: visible;
+		}
+	</style>
+	<meta name="description" content="TENET — the Future
+	of Interactive Media">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20250830085542">
+	<script src="js/app.min.js?_v=20250830085542" defer></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- TODO add lang -->
+		<header class="header">
+			<div class="header__container ">
+				<a href="#" class="header__logo">
+					<img src="img/logo.svg" alt="logo">
+					<img src="img/logo-black.svg" alt="logo">
+				</a>
+				<div class="header__menu menu">
+					<button type="button" aria-label="burger-menu" class="menu__icon icon-menu">
+						<span></span>
+					</button>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="" class="menu__link link">About Us</a>
+							</li>
+							<li class="menu__item">
+								<a href="" class="menu__link link">Blog</a>
+							</li>
+							<li class="menu__item">
+								<a href="" class="menu__link link">Docs</a>
+							</li>
+							<li class="menu__item menu__item--hide ">
+								<a href="" class="menu__link link">Contact Us</a>
+							</li>
+						</ul>
+						<div class="menu__actions">
+							<div class="menu__lang lang">
+								EN
+							</div>
+							<div class="menu__buttons">
+								<button class="menu__button button button--yellow-border">
+									Join Beta
+								</button>
+								<button class="menu__button button button--yellow">
+									Watch Demo
+								</button>
+							</div>
+						</div>
+						<div class="menu__sublinks">
+							<a href="menu__sublink">Terms of Use</a>
+							<a href="menu__sublink">Privacy Policy</a>
+						</div>
+						<ul class="menu__socials">
+							<li class="socials__item">
+								<a href="#" class="socials__link">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+										<g clip-path="url(#a)">
+											<path fill="#000" fill-rule="evenodd" d="M1.8 1.8C0 3.5 0 6.3 0 12c0 5.7 0 8.5 1.8 10.2C3.5 24 6.3 24 12 24c5.7 0 8.5 0 10.2-1.8C24 20.5 24 17.7 24 12c0-5.7 0-8.5-1.8-10.2C20.5 0 17.7 0 12 0 6.3 0 3.5 0 1.8 1.8Z" clip-rule="evenodd" />
+											<path fill="#fff" d="M8 18.7H5v-9h3v9Zm7.5-9.2c2 0 3.4 1.3 3.4 4v5.2h-3V14c0-1.2-.4-2-1.5-2a1.6 1.6 0 0 0-1.7 1.6v5.2h-3v-9h3V11a3 3 0 0 1 2.8-1.5Zm-9-4.1a1.6 1.6 0 1 1 0 3 1.6 1.6 0 0 1 0-3Z" />
+										</g>
+										<defs>
+											<clipPath id="a">
+												<path fill="#fff" d="M0 0h24v24H0z" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+							</li>
+							<li class="socials__item">
+								<a href="#" class="socials__link">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+										<g clip-path="url(#a)">
+											<mask id="b" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+												<path fill="#fff" d="M24 0H0v24h24V0Z" />
+											</mask>
+											<g mask="url(#b)">
+												<path fill="#000" fill-rule="evenodd" d="M1.8 1.8C0 3.5 0 6.3 0 12c0 5.7 0 8.5 1.8 10.2C3.5 24 6.3 24 12 24c5.7 0 8.5 0 10.2-1.8C24 20.5 24 17.7 24 12c0-5.7 0-8.5-1.8-10.2C20.5 0 17.7 0 12 0 6.3 0 3.5 0 1.8 1.8ZM18.2 6H16l-3.5 3.8-3-3.8H5l5.3 6.6-5 5.4h2.1l3.9-4.2 3.4 4.2H19l-5.5-7 4.7-5Zm-1.7 10.8h-1.2L7.5 7.2h1.3l7.7 9.6Z" clip-rule="evenodd" />
+											</g>
+										</g>
+										<defs>
+											<clipPath id="a">
+												<path fill="#fff" d="M0 0h24v24H0z" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+							</li>
+							<li class="socials__item">
+								<a href="#" class="socials__link">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+										<g clip-path="url(#a)">
+											<path fill="#000" d="M24 12A12 12 0 1 0 9.1 23.6v-8H6.6V12h2.5v-1.6c0-4 1.8-6 5.9-6l2.6.3v3.4h-1.4c-2 0-2.7.7-2.7 2.6V12h3.9l-.7 3.7h-3.2v8.2A12 12 0 0 0 24 12Z" />
+											<path fill="#fff" d="m16.7 15.7.7-3.7h-4v-1.3c0-2 .8-2.7 2.8-2.7h1.4V4.8L15 4.4c-4 0-5.9 2-5.9 6V12H6.6v3.7h2.5v8a12 12 0 0 0 4.4.2v-8.2h3.2Z" />
+										</g>
+										<defs>
+											<clipPath id="a">
+												<path fill="#fff" d="M0 0h24v24H0z" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+		</header>
+		<main class="page ">
+			<section class="hero" aria-labelledby="hero">
+				<div class="hero__container">
+					<h1 class="hero__title" id="hero">
+						TENET — the Future
+						<br>
+						of Interactive Media
+					</h1>
+					<p class="hero__text">
+						<span>TENET</span> is a next-generation interactive media platform that enables millions of viewers to
+						influence live
+						content in real
+						time — voting, commenting, and choosing story directions — while giving broadcasters full control of the
+						process, access
+						to real-time analytics, and the ability to personalize content for specific viewer segments.
+					</p>
+					<button class="hero__button button button--yellow">Watch Demo</button>
+				</div>
+				<iframe class="hero__bg"></iframe>
+				<!--  src='https://my.spline.design/cubetest1-sx06s9Xp4eo6nmjP0w4LVojh/'
+					frameborder='0' -->
+			</section>
+			<!-- TODO add animation -->
+			<!-- TODO add other card bg, add animation, ad active navigation  -->
+			<!-- узнать за сетку( последний елемент не по паттерну, может сделать через модификатор?) -->
+			<!-- <section class="color-section color-section--white" aria-labelledby="core">
+				<div class="color-section__container">
+					<div class="color-section__header">
+						<div class="color-section__badge badge">
+							Core Features
+						</div>
+						<h2 class="color-section__title title-display" id="core">
+							Key capabilities that make our productunique
+						</h2>
+					</div>
+					<div class="color-section__content sticky-about">
+						<div class="sticky-about__menu menu-about">
+							<ul class="menu-about__list">
+								<li class="menu-about__item">
+									<a href="#interactivity" class="menu-about__link active">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28">
+											<path fill="#C4A141"
+												d="M23.3 18.7c-.7 0-1.4.2-2 .6l-2.8-1.7.2-1.3a4.7 4.7 0 0 0-3.5-4.5V9.1a3.5 3.5 0 1 0-2.4 0v2.7a4.7 4.7 0 0 0-3.5 4.5l.2 1.3-2.8 1.7a3.5 3.5 0 0 0-5.3 1.5 3.5 3.5 0 1 0 6.6.4l2.7-1.6a4.7 4.7 0 0 0 6.6 0l2.7 1.6a3.5 3.5 0 1 0 3.3-2.5ZM4.7 23.3a1.2 1.2 0 1 1 0-2.3 1.2 1.2 0 0 1 0 2.3ZM14 4.7A1.2 1.2 0 1 1 14 7a1.2 1.2 0 0 1 0-2.3Zm0 14a2.3 2.3 0 1 1 0-4.7 2.3 2.3 0 0 1 0 4.7Zm9.3 4.6a1.2 1.2 0 1 1 0-2.3 1.2 1.2 0 0 1 0 2.3Z" />
+										</svg>
+										<span>interactivity</span>
+									</a>
+								</li>
+								<li class="menu-about__item">
+									<a href="#beyond" class="menu-about__link">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28">
+											<path fill="#C4A141"
+												d="M24.5 2.3h-14a1.2 1.2 0 0 0-1.2 1.2v4.7H7a1.2 1.2 0 0 0-1.2 1.1V14H3.5a1.2 1.2 0 0 0-1.2 1.2v9.3a1.2 1.2 0 0 0 1.2 1.2h9.3a1.2 1.2 0 0 0 1.2-1.2v-2.3h4.7a1.2 1.2 0 0 0 1.1-1.2v-2.3h4.7a1.2 1.2 0 0 0 1.2-1.2v-14a1.2 1.2 0 0 0-1.2-1.2Zm-12.8 21h-7v-7h7v7Zm5.8-3.5H14v-4.6a1.2 1.2 0 0 0-1.2-1.2H8.2v-3.5h9.3v9.3Zm5.8-3.5h-3.5v-7a1.2 1.2 0 0 0-1.1-1.1h-7V4.7h11.6v11.6Z" />
+										</svg>
+										<span>Beyond</span>
+									</a>
+								</li>
+								<li class="menu-about__item">
+									<a href="#analytics" class="menu-about__link">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28">
+											<path fill="#C4A141"
+												d="M14 7a1.2 1.2 0 0 0-1.2 1.2v11.6a1.2 1.2 0 1 0 2.4 0V8.2A1.2 1.2 0 0 0 14 7Zm-5.8 7A1.2 1.2 0 0 0 7 15.2v4.6a1.2 1.2 0 1 0 2.3 0v-4.6A1.2 1.2 0 0 0 8.2 14Zm11.6-2.3a1.2 1.2 0 0 0-1.1 1.1v7a1.2 1.2 0 1 0 2.3 0v-7a1.2 1.2 0 0 0-1.2-1.1Zm2.4-9.4H5.8a3.5 3.5 0 0 0-3.5 3.5v16.4a3.5 3.5 0 0 0 3.5 3.5h16.4a3.5 3.5 0 0 0 3.5-3.5V5.8a3.5 3.5 0 0 0-3.5-3.5Zm1.1 19.9a1.2 1.2 0 0 1-1.1 1.1H5.8a1.2 1.2 0 0 1-1.1-1.1V5.8a1.2 1.2 0 0 1 1.1-1.1h16.4a1.2 1.2 0 0 1 1.1 1.1v16.4Z" />
+										</svg>
+										<span>Analytics</span>
+									</a>
+								</li>
+								<li class="menu-about__item">
+									<a href="#data" class="menu-about__link">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28">
+											<path fill="#C4A141"
+												d="M9.3 19.3a1.2 1.2 0 1 0 0 2.3 1.2 1.2 0 0 0 0-2.3Zm4.7-17C9.3 2.3 4.7 4 4.7 7v14c0 3 4.6 4.7 9.3 4.7 4.7 0 9.3-1.6 9.3-4.7V7c0-3-4.6-4.7-9.3-4.7ZM21 21c0 .8-2.7 2.3-7 2.3S7 21.8 7 21v-3.8a17 17 0 0 0 14 0V21Zm0-7c0 .8-2.7 2.3-7 2.3S7 14.8 7 14v-3.8a17 17 0 0 0 14 0V14Zm-7-4.7C9.7 9.3 7 7.8 7 7c0-.8 2.7-2.3 7-2.3s7 1.5 7 2.3c0 .8-2.7 2.3-7 2.3Zm-4.7 3a1.2 1.2 0 1 0 0 2.3 1.2 1.2 0 0 0 0-2.3Z" />
+										</svg>
+										<span>Big Data</span>
+									</a>
+								</li>
+								<li class="menu-about__item">
+									<a href="#personalization" class="menu-about__link">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28">
+											<path fill="#C4A141"
+												d="M25 10ZM14 4.8a9.3 9.3 0 0 1 8 4.6h-1.3a3.5 3.5 0 0 0-5.4.3c-.4-.2-.9-.3-1.3-.3s-.9.1-1.3.3a3.5 3.5 0 0 0-5.4-.3H6a9.3 9.3 0 0 1 8-4.7Zm5.3 7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Zm-8.2 0a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0ZM14 23.3a9.3 9.3 0 0 1-9-11.6h1.4a3.5 3.5 0 1 0 7 .2 1.2 1.2 0 0 1 1.2 0 3.5 3.5 0 0 0 7-.2H23a9.3 9.3 0 0 1-9 11.7Zm2.8-6.7a4.4 4.4 0 0 1-5.6 0 1.2 1.2 0 0 0-1.4 1.8 6.6 6.6 0 0 0 8.4 0 1.2 1.2 0 0 0-1.4-1.8Z" />
+										</svg>
+										<span>Personalization</span>
+									</a>
+								</li>
+								<li class="menu-about__item">
+									<a href="#security" class="menu-about__link">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28">
+											<path fill="#C4A141"
+												d="M22.9 4.3a1.2 1.2 0 0 0-1-.3 9.3 9.3 0 0 1-7.2-1.5 1.2 1.2 0 0 0-1.4 0A9.3 9.3 0 0 1 6.1 4a1.2 1.2 0 0 0-1.4 1.2v8.7A10.5 10.5 0 0 0 9 22.4l4.2 3a1.2 1.2 0 0 0 1.4 0l4.2-3a10.5 10.5 0 0 0 4.4-8.5V5.2a1.2 1.2 0 0 0-.4-1ZM21 13.9a8.2 8.2 0 0 1-3.4 6.6L14 23.1l-3.6-2.6A8.2 8.2 0 0 1 7 14V6.5c2.4.2 4.9-.3 7-1.6 2.1 1.3 4.6 1.8 7 1.6V14Z" />
+										</svg>
+										<span>Security</span></a>
+								</li>
+							</ul>
+						</div>
+						<section class="sticky-about__section section-about">
+							<div class="section-about__body" id="interactivity">
+								<svg class="section-about__bg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1920 415">
+									<path fill="#F9F4E6"
+										d="M-167.8 413.9C-116.4 326.7-55.6 228 51.6 206.6c49.2-9.9 94.6 3.6 134.9 32.3 37 26.3 68 60.1 105.7 85.4 34.6 23.1 74.9 35.5 116.1 24 43-11.8 77.4-42.8 106.2-75.5 35.7-40.4 67.3-87.8 115.5-114.4 40.6-22.4 92-29 130.4 1.5 56 44.5 59 126.7 105.2 178.8 23.8 26.7 58 39.6 93.4 33.3 40.5-7.2 76.4-34.3 99.3-67.8 57.5-84 53.8-205.5 138.1-272 39.6-31.3 90-34.7 136.8-19.6 48 15.7 87.8 46.8 125.2 79.7 39.4 34.7 78 71.6 125.7 94.7 45.4 22 96.2 30.7 146.4 29.8 105-2 202.2-45.8 292.3-96.2a3740 3740 0 0 0 68.2-39.3c1.9-1.1.4-4.3-1.5-3.1-93 54.6-189.3 111.2-297.3 129.3a370.3 370.3 0 0 1-159.2-5.8c-52.9-14.7-96.5-45.5-137.5-81.1-39-33.9-76.2-70.6-122.3-94.7-38-19.8-82.5-32.3-125.2-22.5-97.5 22.3-124.7 133.5-152.8 214.6-17.3 49.6-40.1 99.3-85.3 129.3-38 25.2-87.9 32.9-126 3.7-28.5-21.6-43.5-56.1-57.2-88-13.3-31.2-25.8-64.4-48.2-90.4a105.2 105.2 0 0 0-97.5-35.8c-47 7.2-84.9 37.4-116 71.6-35 38.6-64.5 82.7-108 112.6-40.7 28-88.8 37.3-134.8 16.4C241.9 300.9 193.3 208 99 200.2c-99.4-8.3-177.4 68-228.2 144.3-14.6 22-28 44.7-41.4 67.4-1.2 1.9 1.6 3.9 2.8 2Z" />
+								</svg>
+								<div class="section-about__header">
+									<h2 class="section-about__title">
+										Interactive Capabilities
+									</h2>
+									<p class="section-about__description">
+										Fusce pellentesque placerat quam non posuere. Donec quam tortor, semper vel vulputate sed,
+										condimentum
+										at odio. Nulla
+										sit amet nulla dapibus, dignissim diam eget,
+									</p>
+								</div>
+								<ul class="section-about__list">
+									<li class="section-about__item">
+										<article class="article-about">
+											<img src="img/home/about/bg.svg" alt="" class="article-about__bg">
+											<h3 class="article-about__title">Real-time viewer react and feedback</h3>
+											<p class="article-about__text">Let audiences shape outcomes, react on direction, or influence
+												what
+												happens next — all while watching live.</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Audience-driven content decisions
+											</h3>
+											<p class="article-about__text">
+												Stories and formats evolve based on how viewers interact, creating
+												shared authorship between creator and audience.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">Dynamic feedback loops</h3>
+											<p class="article-about__text">
+												Live reactions influence pacing, structure, or even the order in which
+												segments are shown.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">Integrated social media interaction</h3>
+											<p class="article-about__text">
+												Comments, hashtags, and trends are displayed in the stream, bridging media streaming and
+												social
+												discourse.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Live audience sentiment analysis
+											</h3>
+											<p class="article-about__text">
+												AI processes tone and reaction speed to understand viewer emotion in real time.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">D
+												Sensor-based audience mood tracking
+											</h3>
+											<p class="article-about__text">
+												Motion, biometric, and environmental sensor inputs reflect emotional and physical engagement
+												levels.
+											</p>
+										</article>
+									</li>
+								</ul>
+							</div>
+
+						</section>
+						<section class="sticky-about__section section-about">
+							<div class="section-about__body" id="beyond">
+								<svg class="section-about__bg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1920 523">
+									<path fill="#F9F4E6"
+										d="M-149.3 520.9c-18.4-93.2 27.5-191.1 112.8-234a218.3 218.3 0 0 1 126.3-21.7c53 7.2 100.2 34.3 147.2 58a513 513 0 0 0 124.2 45.6 495.5 495.5 0 0 0 353-59.1c36.7-22 69.6-49.2 99-80.2C849 192 880.6 150.1 920 116c33.8-29.4 74.6-52.4 119.5-58.4 47-6.2 90 10.5 121.5 45.8 29.2 32.8 47.4 73.6 71.4 110 24.6 37.4 57 68.5 95 92 75.5 46.8 166.9 63 254.4 51.8 193.3-24.6 344.6-161.7 472.6-298 17.6-18.6 35-37.5 52.4-56.4 1.6-1.7-1.3-3.9-2.8-2.2-133.5 144.9-279.4 300.9-479.6 345.5-91.5 20.4-188.8 12.6-272.7-31-42.4-22-80.2-53-108.2-91.8-25.7-35.7-43.5-76.5-70.6-111.2-25-32-58.6-55.3-99.9-59-40.7-3.5-81.4 10.2-116 31-41.3 25-73.9 61.7-105.5 97.6-31.7 36-63.6 71.7-102.4 100.4C610.1 384.8 417.3 404.7 261 331c-47.6-22.5-93-50.8-144.3-64.1a218.8 218.8 0 0 0-269.5 254.5c.4 2.2 4 1.8 3.5-.5Z" />
+								</svg>
+								<div class="section-about__header">
+									<h2 class="section-about__title">
+										Beyond SMS and Second Screen
+									</h2>
+									<p class="section-about__description">
+										Fusce pellentesque placerat quam non posuere. Donec quam tortor, semper vel vulputate sed,
+										condimentum
+										at odio. Nulla
+										sit amet nulla dapibus, dignissim diam eget,
+									</p>
+								</div>
+								<ul class="section-about__list">
+									<li class="section-about__item">
+										<article class="article-about">
+											<img src="img/home/about/bg.svg" alt="" class="article-about__bg">
+											<h3 class="article-about__title">
+												Unified viewer experience on primary device
+											</h3>
+											<p class="article-about__text">
+												Interactions happen directly in the stream, eliminating the drop-off from second-screen
+												fatigue.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Interactive overlays within broadcasts
+											</h3>
+											<p class="article-about__text">
+												<span>TENET</span> enables clickable choices, branching stories, and real-time pop-ups in one
+												environment.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Real-time multi-layer content interactivity
+											</h3>
+											<p class="article-about__text">
+												User reactions, ads, and narrative choices coexist without disruption or confusion.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Interactive experiences informed by user data
+											</h3>
+											<p class="article-about__text">
+												Each user sees content customized by their prior interactions and biometric profile.
+											</p>
+										</article>
+									</li>
+
+								</ul>
+							</div>
+						</section>
+						<section class="sticky-about__section section-about">
+							<div class="section-about__body" id="analytics">
+								<svg class="section-about__bg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1920 337">
+									<path fill="#F9F4E6"
+										d="M-169.6 300c138.9-91 321-108.5 475.9-49.6a498.2 498.2 0 0 1 58.1 26.5c21.7 11.6 42 25.6 63.6 37.4 34.8 19 77.3 31.8 115 12.6a67.6 67.6 0 0 0 34-41c6.9-21.6 6-45 14-66.3 16-43 64.5-64.9 108-65.1 50.6-.3 97.7 23 142 45 42.4 21 85.8 42.8 133 49.6 38.9 5.6 81 .8 114-21.5 31.5-21.3 50.1-55.8 66-89.4 16.5-35.2 30.5-74.3 57.8-103C1242 3.3 1284-2.5 1324.7 10c39 12 74 34.5 111 51a707.5 707.5 0 0 0 119.3 41 747.4 747.4 0 0 0 482-42.8 701 701 0 0 0 54-27.3c2-1 .4-4-1.5-3-147.6 82.6-324 109.5-490 79.2-41.4-7.6-82-18.7-121.5-33.3-39.4-14.7-75.7-34.6-113.6-52.5-34-16-72.8-29.6-110.3-18-34.1 10.6-56.5 38.6-73 68.9-19.3 35.3-32.2 74-54.2 107.9-23.5 36.3-57.4 59.7-100.8 65.3-101 13.1-181.4-62.1-273.7-87.6-40-11-83.3-11.3-120.2 9.7-16.7 9.5-31.3 23-40.2 40.2-10.1 19.5-10.8 41.5-15 62.7-4.6 23.3-15.5 43-37.8 53.5-19.3 9-42 10-62.5 5.5-26.2-5.9-49.7-20-72.4-34a652 652 0 0 0-58.8-32.9 539.7 539.7 0 0 0-465.4 4 499.3 499.3 0 0 0-51.4 29.5c-1.8 1.1-.3 4.2 1.6 3Z" />
+								</svg>
+								<div class="section-about__header">
+									<h2 class="section-about__title">
+										Advanced Audience Analytics
+									</h2>
+									<p class="section-about__description">
+										Fusce pellentesque placerat quam non posuere. Donec quam tortor, semper vel vulputate sed,
+										condimentum
+										at odio. Nulla
+										sit amet nulla dapibus, dignissim diam eget,
+									</p>
+								</div>
+								<ul class="section-about__list">
+									<li class="section-about__item">
+										<article class="article-about">
+											<img src="img/home/about/bg.svg" alt="" class="article-about__bg">
+											<h3 class="article-about__title">
+												Real-time analytics and audience segmentation
+											</h3>
+											<p class="article-about__text">
+												TENET provides deep insight into who’s watching, how they’re reacting, and why.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Immediate data-driven content adjustments
+											</h3>
+											<p class="article-about__text">
+												Producers receive live alerts and heatmaps to modify pacing or programming instantly.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Predictive analytics for viewer trends
+											</h3>
+											<p class="article-about__text">
+												The system forecasts what viewers will want to see next, helping with planning and A/B
+												testing.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Detailed viewer engagement reporting
+											</h3>
+											<p class="article-about__text">
+												Post-broadcast, gain rich insights into when, where, and how users engaged—and why they
+												dropped
+												off.
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Sensor data integration for deeper insights
+											</h3>
+											<p class="article-about__text">
+												Heart rate peaks, device movement, and reaction lag inform deeper emotional analysis.
+											</p>
+										</article>
+									</li>
+
+								</ul>
+							</div>
+
+						</section>
+						<section class="sticky-about__section section-about">
+							<div class="section-about__body" id="data">
+								<svg class="section-about__bg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1920 473">
+									<path fill="#F9F4E6"
+										d="M-171.4 383.7a362.3 362.3 0 0 0 284.2 85.5c104.9-13.7 198-78.1 252.8-168 26.4-43.3 47.7-96 48.5-147.2.3-22.6-3.8-47.5-19-65.1a50.5 50.5 0 0 0-48.8-17.3c-33 7.4-57.3 44.7-52.6 77.8 6.8 47.1 57.7 74.2 101 77.5 55.6 4.3 107.7-23 158-42.5 26.7-10.4 54.5-19.5 83.2-21.7 31.7-2.5 62.2 5 89.8 20.4 95.4 53.2 155.6 197.8 282 181.7a101.2 101.2 0 0 0 60-28.1c17-17.3 25-40.3 30.3-63.4 5.6-25 8.3-50.8 17.1-75a92.7 92.7 0 0 1 54.3-56.7c58.7-22.6 118.7 7.1 173.2 27.6a664.9 664.9 0 0 0 143 36.3 725.8 725.8 0 0 0 293.1-20.2A709.6 709.6 0 0 0 2038.1 52a659.4 659.4 0 0 0 53.4-49c1.5-1.6-.7-4.2-2.2-2.6A686.6 686.6 0 0 1 1851.9 157a731.7 731.7 0 0 1-282.3 51.5c-48-.9-96-6.6-142.8-17.4-23-5.4-45.9-12-68.3-19.8-26.5-9.3-52.3-21-79-29.6-45.2-14.6-101.2-20-140 13.4-37.2 32.2-35.7 86.1-48 130-6.9 24.2-19 46.7-40.6 60.8a114.1 114.1 0 0 1-70.2 16c-61-4.2-107.4-47.4-147.7-89.4-38.8-40.6-78.3-85.3-132.6-105-50-18-101.5-4.8-149.2 13.7-50.4 19.6-103 47.3-158.7 42-44.8-4.3-103-38.3-95.3-91 5.4-37.3 47.7-75.1 84.8-50.6 22.4 14.9 28.6 44.3 28.7 69.5 0 26-6.4 52-14.5 76.4a358.9 358.9 0 0 1-210.8 220.2c-96 35.9-207.4 25-296.3-25.2a342.1 342.1 0 0 1-58.5-41.8c-1.7-1.4-3.6 1.4-2 2.9Z" />
+								</svg>
+								<div class="section-about__header">
+									<h2 class="section-about__title">
+										Big Data Power
+									</h2>
+									<p class="section-about__description">
+										Fusce pellentesque placerat quam non posuere. Donec quam tortor, semper vel vulputate sed,
+										condimentum
+										at odio. Nulla
+										sit amet nulla dapibus, dignissim diam eget,
+									</p>
+								</div>
+								<ul class="section-about__list">
+									<li class="section-about__item">
+										<article class="article-about">
+											<img src="img/home/about/bg.svg" alt="" class="article-about__bg">
+											<h3 class="article-about__title">
+												Real-time processing of massive interaction datasets
+											</h3>
+											<p class="article-about__text">
+												Our system processes billions of live viewer inputs per stream with no lag.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Scalable cloud-based architecture
+											</h3>
+											<p class="article-about__text">
+												From indie channels to major networks, the infrastructure adapts to fit your needs.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Real-time data visualization for operators
+											</h3>
+											<p class="article-about__text">
+												Producers see emotion and action as it happens via intuitive dashboards.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Integration and analysis of external data
+											</h3>
+											<p class="article-about__text">
+												Combine CRM, advertising, and third-party insights into a single, actionable interface.
+											</p>
+										</article>
+									</li>
+
+								</ul>
+							</div>
+
+						</section>
+						<section class="sticky-about__section section-about">
+							<div class="section-about__body" id="personalization">
+								<svg class="section-about__bg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1920 441">
+									<path fill="#F9F4E6"
+										d="M-169.3 406.4c110.5-52.8 226.7-107.6 352.1-103.2A342 342 0 0 1 269 317a434.2 434.2 0 0 1 92.6 42.8c52.5 30.6 104.6 66 165.4 77.7 49.4 9.4 104.6-.5 140.3-38.3a111 111 0 0 0 28.6-62.6c3.6-26.1 1.6-53 6.8-78.9 5.1-25.5 19.2-47.3 43.3-58.4 22.3-10.2 47.9-10.7 71.9-9.4 26 1.5 51.6 5.7 77.5 7.4a608.8 608.8 0 0 0 176.6-14c27.4-6.2 55.4-13.9 79.8-28.3 38.4-22.5 71-72.8 46.3-117-25.2-44.8-85.4-46.3-125.8-23.7a184.6 184.6 0 0 0-84.4 108.5c-11.4 39.1-10 84.3 15.3 118 30.1 40 82.1 49 129 41.3 54.3-9 99.7-38 145.3-66.8 47-29.8 96.8-58.8 154-60.4 54.8-1.6 107.2 19 156.8 40 49.5 20.8 98.6 42.5 151.8 51.8a444.2 444.2 0 0 0 290.8-50 419 419 0 0 0 60.5-41.2c1.8-1.5-.8-4.2-2.6-2.7a434.1 434.1 0 0 1-427 68.3c-49-18.3-96-42.4-146.3-57.4-48-14.3-97.5-17.6-145.4-1-49 16.9-91.1 48.4-135.3 74.8-45 26.9-97 48.3-150.4 42.8-49.9-5.1-90-39.5-98-89.6-7.2-44.3 8.6-91.8 35.5-127 32.3-42.3 89.7-77.8 142.7-51.6a65.6 65.6 0 0 1 38 63.1c-1.8 26.7-17.4 50.7-38.1 66.9-23.6 18.3-52.8 27.6-81.4 34.8a607.4 607.4 0 0 1-172.2 17.5c-26.1-1-51.9-4.7-77.8-7-40.2-3.7-89.2-4.2-117 30.4-30.5 38.3-15.5 92.2-27.5 136.4-14.5 53.3-70.9 82.7-123.3 83.2-61 .5-116.4-30-167.3-60.3-52-30.9-103.3-61.3-163.6-72.2C122.3 285 10.5 320.6-91 365.7c-27 12-53.5 24.7-80.1 37.4-2.2 1-.4 4.3 1.7 3.3Z" />
+								</svg>
+								<div class="section-about__header">
+									<h2 class="section-about__title">
+										Real-Time Content Personalization
+									</h2>
+									<p class="section-about__description">
+										Fusce pellentesque placerat quam non posuere. Donec quam tortor, semper vel vulputate sed,
+										condimentum
+										at odio. Nulla
+										sit amet nulla dapibus, dignissim diam eget,
+									</p>
+								</div>
+								<ul class="section-about__list">
+									<li class="section-about__item">
+										<article class="article-about">
+											<img src="img/home/about/bg.svg" alt="" class="article-about__bg">
+											<h3 class="article-about__title">
+												AI-driven personalized experiences
+											</h3>
+											<p class="article-about__text">
+												<span>TENET</span> curates the stream for each viewer based on behavior, preferences, and
+												biofeedback.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Automated content recommendations
+											</h3>
+											<p class="article-about__text">
+												Viewers are nudged toward what they enjoy most, increasing retention and satisfaction.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Personalized viewer dashboards
+											</h3>
+											<p class="article-about__text">
+												Every user controls their content journey and interaction level in real time.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Adaptive advertising
+											</h3>
+											<p class="article-about__text">
+												Ads adapt live based on reactions—changing tone, length, or even the product.
+												off.
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Smart device-enhanced personalization
+											</h3>
+											<p class="article-about__text">
+												Smartwatches and phones contribute ambient data to tune the user’s experience.
+											</p>
+										</article>
+									</li>
+
+								</ul>
+							</div>
+
+						</section>
+						<section class="sticky-about__section section-about">
+							<div class="section-about__body" id="security">
+								<svg class="section-about__bg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1920 544">
+									<path fill="#F9F4E6"
+										d="M-171.7 437.5c50.3-76.2 126.4-132.8 212-163.4 85.6-30.7 181.2-35.8 268.4-8.9 43 13.3 83.9 35.4 129 41 22.8 2.8 46.3.2 66.3-11.7 27-15.8 42.1-44.2 57-70.6 13.3-23.7 27.3-46.4 48-64.4a172.4 172.4 0 0 1 205.2-16.9c45.7 28.4 69.2 74.5 86.6 123.7 9.6 27.3 18 55 30.1 81.3a347.5 347.5 0 0 0 186.4 175.5c47.3 18.6 110.3 28.3 149.4-12.2 37.5-38.8 32.2-101.5 21.1-149.7-10.5-45.7-28-90.7-26.5-138.4 1.4-46 24.5-86.1 66-107 44.3-22.1 95.9-20.8 141.8-5.2 104.8 35.6 183.3 134.7 297.4 145.2 119.2 11 212.8-82.6 272.9-174.2 17.2-26.3 33-53.5 48.9-80.6 1.2-2.2 4.7-.4 3.4 1.8-56.6 97.3-120.4 203.2-231.7 243.8a217.3 217.3 0 0 1-147.3 1.3c-50.9-17.7-95-49.1-139.7-78.2-47.4-31-99.4-62.2-157.2-66.5-50.7-3.7-108.4 14.2-135 60.6-25.3 44.2-15.1 97.5-3 144.1 12 46.7 26.8 93.2 20.2 142-6.3 46.6-36.4 84.1-84.1 91.6-49 7.7-100.2-12-142-35.8a354.4 354.4 0 0 1-120-112.4c-15.1-23-27-47.7-36.6-73.4-9.8-26.2-17.6-53.1-28.3-79a210 210 0 0 0-46-72.6 169.4 169.4 0 0 0-224.8-9.8c-23 18.7-38.2 43.1-52.6 68.7-13.1 23.3-26.5 47.7-48.2 64.3-35.1 27-80.3 21.4-120 9-44-13.8-85.3-33.6-131-42.1a438.4 438.4 0 0 0-388.9 125.9 390.5 390.5 0 0 0-43.7 55c-1.4 2.1-4.9.3-3.5-1.8Z" />
+								</svg>
+								<div class="section-about__header">
+									<h2 class="section-about__title">
+										Security & GDPR Compliance
+									</h2>
+									<p class="section-about__description">
+										Fusce pellentesque placerat quam non posuere. Donec quam tortor, semper vel vulputate sed,
+										condimentum
+										at odio. Nulla
+										sit amet nulla dapibus, dignissim diam eget,
+									</p>
+								</div>
+								<ul class="section-about__list">
+									<li class="section-about__item">
+										<article class="article-about">
+											<img src="img/home/about/bg.svg" alt="" class="article-about__bg">
+											<h3 class="article-about__title">
+												Built-in GDPR compliance
+											</h3>
+											<p class="article-about__text">
+												The platform was designed in accordance with the General Data Protection Regulation to meet
+												the
+												legal standards for data
+												processing within theEU.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Secure processing of personal data and interactive activity logs
+											</h3>
+											<p class="article-about__text">
+												<span>TENET</span> ensures proper handling of user-submitted data during live interactions,
+												such
+												as voting or feedback, with
+												attention to user privacy and auditability.
+											</p>
+										</article>
+									</li>
+									<li class="section-about__item">
+										<article class="article-about">
+											<h3 class="article-about__title">
+												Ready for regulator cooperation and certification
+											</h3>
+											<p class="article-about__text">
+												The platform is structured to support further standardization efforts with ISO and other
+												international bodies, aligning
+												with future compliance requirements in broadcasting.
+											</p>
+										</article>
+									</li>
+								</ul>
+							</div>
+
+						</section>
+					</div>
+				</div>
+			</section> -->
+
+
+			<section class="color-section color-section--yellow" aria-labelledby="monetization">
+				<div class="color-section__container">
+					<div class="color-section__header">
+						<div class="color-section__badge badge">
+							Monetization
+						</div>
+						<h2 class="color-section__title title-display" id="monetization">
+							Flexible Options to Grow Your Revenue Stream
+						</h2>
+					</div>
+					<div class="color-section__content">
+						<section class="monetization" aria-labelledby="monetization">
+							<div class="monetization__header ">
+								<img class="monetization__decor" src="img/home/monetization/decor.svg" alt="decor">
+								<h2 class="monetization__title" id="monetization">
+									Monetization Opportunities
+								</h2>
+								<div class="monetization__text">
+									Fusce pellentesque placerat quam non posuere. Donec quam tortor, semper vel vulputate sed,
+									condimentum at odio. Nulla
+									sit amet nulla dapibus, dignissim diam eget, convallis enim.
+								</div>
+							</div>
+
+							<div class="monetization__slider swiper-monetization">
+								<ul class="monetization__wrapper swiper-wrapper">
+									<li class="monetization__slide   swiper-slide">
+										<article class="monetization-slide">
+											<svg class="monetization-slide__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 31 34">
+												<path fill="url(#a)" d="M29.3.3A1.7 1.7 0 0 0 27.7 2v1A15 15 0 0 1 16 8.8H6a5 5 0 0 0-5 5V17a5 5 0 0 0 5 5h.8l-4 9.3a1.7 1.7 0 0 0 1.5 2.4H11a1.7 1.7 0 0 0 1.5-1L17.1 22a15 15 0 0 1 10.6 5.5v1a1.7 1.7 0 0 0 3.3 0V2A1.7 1.7 0 0 0 29.3.3ZM6 18.7A1.7 1.7 0 0 1 4.3 17v-3.3A1.7 1.7 0 0 1 6 12h1.7v6.7H6Zm3.9 11.6h-3l3.5-8.3h3L10 30.3ZM27.7 23A18.4 18.4 0 0 0 16 18.7h-5V12h5c4.2 0 8.4-1.5 11.7-4.2v15Z" />
+												<defs>
+													<linearGradient id="a" x1="28.5" x2="3.1" y1="0" y2="31.1" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#F7E0A1" />
+														<stop offset="1" stop-color="#D8B65A" />
+													</linearGradient>
+												</defs>
+											</svg>
+											<h3 class="monetization-slide__title">
+												Interactive targeted advertising
+											</h3>
+											<p class="monetization-slide__text">
+												Deliver relevant, measurable ads in real time, directly influenced by user behavior and
+												engagement.
+											</p>
+										</article>
+									</li>
+									<li class="monetization__slide   swiper-slide">
+										<article class="monetization-slide">
+											<svg class="monetization-slide__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48">
+												<circle cx="24" cy="24" r="24" fill="url(#a)" />
+												<defs>
+													<linearGradient id="a" x1="36.5" x2="11" y1="3.5" y2="44.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#FCF4DF" />
+														<stop offset=".8" stop-color="#E0C57C" />
+													</linearGradient>
+												</defs>
+											</svg>
+											<h3 class="monetization-slide__title">
+												Web3 subscriptions andNFTs
+											</h3>
+											<p class="monetization-slide__text">
+												Enable token-based access and collectibles that deepen viewer connection and open new revenue
+												streams.
+											</p>
+										</article>
+									</li>
+								</ul>
+								<div class="monetization__navigation navigation">
+									<div class="navigation__buttons">
+										<button type="button" class="navigation__button navigation__button--prev " aria-label="button prev">
+											<svg xmlns="http://www.w3.org/2000/svg" width="35" height="34" fill="none">
+												<g clip-path="url(#a)">
+													<path fill="#fff" d="M17.8 9.2a1 1 0 0 1 0 1.4L12.4 16h11.8a1 1 0 0 1 0 2H12.4l5.4 5.3a1 1 0 0 1-1.4 1.4l-7-7-.3-.3a1 1 0 0 1 .2-1.1l7-7.1a1 1 0 0 1 1.5 0Z" />
+												</g>
+												<defs>
+													<clipPath id="a">
+														<path fill="#fff" d="M0 0h24v24H0z" transform="scale(-1 1) rotate(-45 3.5 49.6)" />
+													</clipPath>
+												</defs>
+											</svg>
+										</button>
+										<button type="button" class="navigation__button navigation__button--next" aria-label="button next">
+											<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="none">
+												<g clip-path="url(#a)">
+													<path fill="#fff" d="M16.3 9.2a1 1 0 0 0 0 1.4l5.4 5.4H10a1 1 0 0 0 0 2h11.7l-5.4 5.3a1 1 0 0 0 1.4 1.4l7.1-7 .2-.3a1 1 0 0 0-.2-1.1l-7-7.1a1 1 0 0 0-1.5 0Z" />
+												</g>
+												<defs>
+													<clipPath id="a">
+														<path fill="#fff" d="M0 0h24v24H0z" transform="rotate(-45 20.5 8.4)" />
+													</clipPath>
+												</defs>
+											</svg>
+										</button>
+									</div>
+									<div class="navigation__scrollbar"></div>
+									<div class="navigation__pagination"></div>
+								</div>
+
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+			<!-- <section class="color-section color-section--black" aria-labelledby="tech">
+				<div class="color-section__container">
+					<div class="color-section__badge badge">
+						Tech
+					</div>
+					<h2 class="color-section__title title-display" id="tech">
+						Future-Proof Engineering You Can Rely On
+					</h2>
+				</div>
+			</section> -->
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+
+</body>
+
+</html>
