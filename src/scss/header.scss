@@ -249,11 +249,7 @@
 		}
 		@media (max-width: $tablet) {
 			order: 5;
-
 			padding-top: toRem(24);
-			display: flex;
-			align-items: center;
-			gap: toRem(28);
 		}
 	}
 }
@@ -315,19 +311,6 @@
 				bottom: calc(50% - toRem(1.5));
 				transform: rotate(45deg);
 			}
-		}
-	}
-}
-
-.socials {
-	// .socials__item
-	&__item {
-	}
-	// .socials__link
-	&__link {
-		& svg {
-			width: toRem(24);
-			height: toRem(24);
 		}
 	}
 }

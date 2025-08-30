@@ -45,12 +45,14 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 //======== Брейк-поїнти========
 $pc: toEm($containerWidth); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
 $tablet: toEm(991.98); // Планшети, деякі телефони в горизонтальному положенні
-$mobile: toEm(767.98); // Телефони L
+$mobile: toEm(768.98); // Телефони L
+$mobileMd: toEm(640.98); // Телефони L
 $mobileSmall: toEm(479.98); // Телефони S
 
 $pcWidth: $containerWidth;
 $tabletWidth: 991.98;
 $mobileWidth: 768.98;
+$mobileMdWidth: 640.98;
 $mobileSmallWidth: 479.98;
 
 // Тип адаптива:

@@ -1,3 +1,116 @@
-//====================================================================================================
+.footer {
+	// background-color: var(--white);
+	// color: var(--black);
+	position: relative;
+	@media (min-width: $tablet) {
+		padding-block: toRem(100) toRem(80);
+	}
+	@media (max-width: $tablet) {
+		padding-block: toRem(100) toRem(40);
+	}
+	// .footer__container
+	&__container {
+		position: relative;
+		z-index: 1;
+		& > :not(:last-child) {
+			margin-bottom: toRem(80);
+		}
+	}
+	// .footer__top
+	&__top {
+	}
+	// .footer__bottom
+	&__bottom {
+	}
 
-//====================================================================================================
+	// .footer__bg
+	&__bg {
+		position: absolute;
+		width: toRem(360);
+		height: toRem(180);
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+.top-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: toRem(80);
+
+	@media (max-width: $mobileMd) {
+		flex-direction: column;
+	}
+	// .top-footer__logo
+	&__logo {
+		width: toRem(164);
+		height: toRem(46);
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	// .top-footer__menu
+	&__menu {
+	}
+}
+.menu-footer {
+	// .menu-footer__list
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: toRem(32) toRem(28);
+		@media (max-width: $mobileMd) {
+			flex-direction: column;
+		}
+	}
+	// .menu-footer__item
+	&__item {
+	}
+	// .menu-footer__link
+	&__link {
+	}
+}
+// !!
+
+.bottom-footer {
+	&,
+	&__actions {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(80);
+		@media (max-width: $mobileMd) {
+			flex-direction: column-reverse;
+		}
+	}
+	// .bottom-footer__actions
+	&__actions {
+	}
+	// .bottom-footer__copy
+	&__copy {
+		font-size: toRem(14);
+		& span {
+			font-weight: 700;
+		}
+	}
+	// .bottom-footer__list
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: toRem(24);
+		font-size: toRem(14);
+		color: var(--grey1);
+	}
+	// .bottom-footer__item
+	&__item {
+	}
+	// .bottom-footer__link
+	&__link {
+	}
+	// .bottom-footer__socials
+	&__socials {
+	}
+}

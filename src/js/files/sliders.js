@@ -26,6 +26,43 @@ import "../../scss/libs/swiper.scss";
 
 // Ініціалізація слайдерів
 function initSliders() {
+
+	if (document.querySelector('.swiper-cases') && window.innerWidth > 480) {
+		new Swiper('.swiper-cases', {
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 24,
+			grabCursor: true,
+			//autoHeight: true,
+			speed: 1400,
+
+			// Скорость прокрутки
+			//touchRatio: 0,
+			//simulateTouch: false,
+			// loop: true,
+			//preloadImages: false,
+			lazy: true,
+			effect: 'slide',
+			transitionTimingFunction: 'ease-in-out',
+
+			navigation: {
+				prevEl: '.swiper-cases .navigation__button--prev',
+				nextEl: '.swiper-cases .navigation__button--next',
+			},
+			breakpoints: {
+				480: {
+					slidesPerView: 1.8,
+				},
+				992: {
+					slidesPerView: 3,
+				},
+			},
+			// Події
+			on: {}
+		});
+	}
 	// Список слайдерів
 	// Перевіряємо, чи є слайдер на сторінці
 	if (document.querySelector('.swiper')) { // Вказуємо склас потрібного слайдера
@@ -108,90 +145,178 @@ function initSliders() {
 			}
 		});
 	}
-	if (document.querySelector('.swiper-monetization')) { // Вказуємо склас потрібного слайдера
-		// Створюємо слайдер
-		new Swiper('.swiper-monetization', { // Вказуємо склас потрібного слайдера
-			// Підключаємо модулі слайдера
-			// для конкретного випадку
-			modules: [Navigation, Scrollbar, Pagination],
-			// Autoplay
-			observer: true,
-			observeParents: true,
-			// slidesPerView: 1.1,
-			slidesPerView: 1.3,
-			spaceBetween: 16,
-			autoHeight: true,
-			speed: 1400,
+	// if (window.innerWidth < 560) {
 
-			// Скорость прокрутки
-			//touchRatio: 0,
-			//simulateTouch: false,
-			// loop: true,
-			//preloadImages: false,
-			//lazy: true,
+	// 	const colorSwipers = document.querySelectorAll('.swiper-color-section')
+	// 	if (colorSwipers.length) {
+	// 		colorSwipers.forEach(swiper => {
+	// 			// Вказуємо склас потрібного слайдера
+	// 			// Створюємо слайдер
+	// 			new Swiper(swiper, { // Вказуємо склас потрібного слайдера
+	// 				// Підключаємо модулі слайдера
+	// 				// для конкретного випадку
+	// 				modules: [Navigation, Scrollbar, Pagination],
+	// 				// Autoplay
+	// 				observer: true,
+	// 				observeParents: true,
+	// 				slidesPerView: 1.2,
+	// 				spaceBetween: 16,
+	// 				// autoHeight: true,
+	// 				speed: 1400,
 
-			// Ефекти
-			// effect: 'fade',
-			effect: 'slide', // Можно использовать fade, cube и другие эффекты
-			transitionTimingFunction: 'ease-in-out',
-			// autoplay: {
-			// 	delay: 4000,      // Минимальная задержка
-			// 	disableOnInteraction: false, // Не останавливать при взаимодействии
-			// },
+	// 				// Скорость прокрутки
+	// 				//touchRatio: 0,
+	// 				//simulateTouch: false,
+	// 				// loop: true,
+	// 				//preloadImages: false,
+	// 				//lazy: true,
 
-			// Пагінація
-			// pagination: {
-			// 	el: '.swiper-advisory .navigation__pagination',
-			// 	clickable: true,
-			// },
-			pagination: {
-				// el: '.swiper-pagination',
-				el: '.swiper-monetization .navigation__pagination',
-				type: 'fraction', // Используем нумерацию вместо буллетов
-				renderFraction: function (currentClass, totalClass) {
-					return '<span class="' + currentClass + '"></span>' +
-						' / ' +
-						'<span class="' + totalClass + '"></span>';
+	// 				// Ефекти
+	// 				// effect: 'fade',
+	// 				effect: 'slide', // Можно использовать fade, cube и другие эффекты
+	// 				transitionTimingFunction: 'ease-in-out',
+	// 				// autoplay: {
+	// 				// 	delay: 4000,      // Минимальная задержка
+	// 				// 	disableOnInteraction: false, // Не останавливать при взаимодействии
+	// 				// },
+
+	// 				// Пагінація
+	// 				// pagination: {
+	// 				// 	el: '.swiper-advisory .navigation__pagination',
+	// 				// 	clickable: true,
+	// 				// },
+	// 				pagination: {
+	// 					// el: '.swiper-pagination',
+	// 					el: '.swiper-color-section .navigation__pagination',
+	// 					type: 'fraction', // Используем нумерацию вместо буллетов
+	// 					renderFraction: function (currentClass, totalClass) {
+	// 						return '<span class="' + currentClass + '"></span>' +
+	// 							' / ' +
+	// 							'<span class="' + totalClass + '"></span>';
+	// 					}
+	// 				},
+	// 				// Скроллбар
+	// 				scrollbar: {
+	// 					el: '.swiper-color-section .navigation__scrollbar',
+	// 					draggable: true,
+	// 				},
+
+	// 				// Кнопки "вліво/вправо"
+	// 				navigation: {
+	// 					prevEl: '.swiper-color-section .navigation__button--prev',
+	// 					nextEl: '.swiper-color-section .navigation__button--next',
+	// 				},
+	// 				// Брейкпоінти
+	// 				breakpoints: {
+	// 					550: {
+	// 						// slidesPerView: 1.4,
+	// 						slidesPerView: 3.1,
+	// 					},
+	// 					// 768: {
+	// 					// 	slidesPerView: 2.2,
+	// 					// },
+	// 					// 992: {
+	// 					// 	slidesPerView: 4,
+	// 					// },
+	// 					1268: {
+	// 						// slidesPerView: 4.8,
+	// 						slidesPerView: 5,
+	// 					},
+	// 				},
+	// 				// Події
+	// 				on: {
+	// 					// slideChange: function () {
+	// 					// 	const progressBar = document.querySelector('.navigation__progress');
+	// 					// 	const progressBarThumb = progressBar.querySelector('span')
+	// 					// 	const progress = (this.realIndex + 1) / this.slides.length; // Прогресс
+	// 					// 	progressBarThumb.style.width = `${progress * 100}%`; // Изменение ширины прогресс-бара
+	// 					// }
+	// 				}
+	// 			});
+	// 		});
+	// 	}
+
+	// }
+
+	if (window.innerWidth < 640) {
+		const colorSwipers = document.querySelectorAll('.swiper-color-section');
+
+		if (colorSwipers.length) {
+			colorSwipers.forEach((swiperElement, index) => {
+				// Проверяем, не инициализирован ли уже этот слайдер
+				if (swiperElement.swiper) {
+					return; // Пропускаем уже инициализированные
 				}
-			},
-			// Скроллбар
-			scrollbar: {
-				el: '.swiper-monetization .navigation__scrollbar',
-				draggable: true,
-			},
 
-			// Кнопки "вліво/вправо"
-			navigation: {
-				prevEl: '.swiper-monetization .navigation__button--prev',
-				nextEl: '.swiper-monetization .navigation__button--next',
-			},
-			// Брейкпоінти
-			breakpoints: {
-				550: {
-					// slidesPerView: 1.4,
-					slidesPerView: 3.1,
-				},
-				// 768: {
-				// 	slidesPerView: 2.2,
-				// },
-				// 992: {
-				// 	slidesPerView: 4,
-				// },
-				1268: {
-					// slidesPerView: 4.8,
-					slidesPerView: 5,
-				},
-			},
-			// Події
-			on: {
-				// slideChange: function () {
-				// 	const progressBar = document.querySelector('.navigation__progress');
-				// 	const progressBarThumb = progressBar.querySelector('span')
-				// 	const progress = (this.realIndex + 1) / this.slides.length; // Прогресс
-				// 	progressBarThumb.style.width = `${progress * 100}%`; // Изменение ширины прогресс-бара
-				// }
-			}
-		});
+				// Генерируем уникальные классы для каждого слайдера
+				const uniqueId = `color-swiper-${index}`;
+				swiperElement.setAttribute('data-swiper-id', uniqueId);
+
+				// Находим элементы навигации внутри текущего контейнера
+				const pagination = swiperElement.querySelector('.navigation__pagination');
+				const scrollbar = swiperElement.querySelector('.navigation__scrollbar');
+				// const prevBtn = swiperElement.querySelector('.navigation__button--prev');
+				// const nextBtn = swiperElement.querySelector('.navigation__button--next');
+
+				// Создаем слайдер с уникальными селекторами
+				new Swiper(swiperElement, {
+					// Подключаем модули слайдера
+					modules: [Navigation, Scrollbar, Pagination],
+
+					// Основные настройки
+					observer: true,
+					observeParents: true,
+					slidesPerView: 1.2,
+					spaceBetween: 16,
+					speed: 1400,
+					effect: 'slide',
+					transitionTimingFunction: 'ease-in-out',
+
+					// Пагинация (если элемент существует)
+					pagination: pagination ? {
+						el: pagination,
+						type: 'fraction',
+						renderFraction: function (currentClass, totalClass) {
+							return '<span class="' + currentClass + '"></span>' +
+								' / ' +
+								'<span class="' + totalClass + '"></span>';
+						}
+					} : false,
+
+					// Скроллбар (если элемент существует)
+					scrollbar: scrollbar ? {
+						el: scrollbar,
+						draggable: true,
+					} : false,
+
+					// Навигация (если элементы существуют)
+					// navigation: (prevBtn && nextBtn) ? {
+					// 	prevEl: prevBtn,
+					// 	nextEl: nextBtn,
+					// } : false,
+
+					// Брейкпоинты
+					// breakpoints: {
+					// 	550: {
+					// 		slidesPerView: 3.1,
+					// 	},
+					// 	1268: {
+					// 		slidesPerView: 5,
+					// 	},
+					// },
+
+					// События
+					on: {
+						init: function () {
+							console.log(`Swiper ${uniqueId} initialized`);
+						},
+						slideChange: function () {
+							// Код при смене слайда
+						}
+					}
+				});
+			});
+		}
 	}
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)

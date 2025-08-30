@@ -4078,6 +4078,31 @@
         });
     }
     function initSliders() {
+        if (document.querySelector(".swiper-cases") && window.innerWidth > 480) new swiper_core_Swiper(".swiper-cases", {
+            modules: [ Navigation ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 24,
+            grabCursor: true,
+            speed: 1400,
+            lazy: true,
+            effect: "slide",
+            transitionTimingFunction: "ease-in-out",
+            navigation: {
+                prevEl: ".swiper-cases .navigation__button--prev",
+                nextEl: ".swiper-cases .navigation__button--next"
+            },
+            breakpoints: {
+                480: {
+                    slidesPerView: 1.8
+                },
+                992: {
+                    slidesPerView: 3
+                }
+            },
+            on: {}
+        });
         if (document.querySelector(".swiper")) new swiper_core_Swiper(".swiper", {
             modules: [ Navigation ],
             observer: true,
@@ -4091,41 +4116,43 @@
             },
             on: {}
         });
-        if (document.querySelector(".swiper-monetization")) new swiper_core_Swiper(".swiper-monetization", {
-            modules: [ Navigation, Scrollbar, Pagination ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1.3,
-            spaceBetween: 16,
-            autoHeight: true,
-            speed: 1400,
-            effect: "slide",
-            transitionTimingFunction: "ease-in-out",
-            pagination: {
-                el: ".swiper-monetization .navigation__pagination",
-                type: "fraction",
-                renderFraction: function(currentClass, totalClass) {
-                    return '<span class="' + currentClass + '"></span>' + " / " + '<span class="' + totalClass + '"></span>';
-                }
-            },
-            scrollbar: {
-                el: ".swiper-monetization .navigation__scrollbar",
-                draggable: true
-            },
-            navigation: {
-                prevEl: ".swiper-monetization .navigation__button--prev",
-                nextEl: ".swiper-monetization .navigation__button--next"
-            },
-            breakpoints: {
-                550: {
-                    slidesPerView: 3.1
-                },
-                1268: {
-                    slidesPerView: 5
-                }
-            },
-            on: {}
-        });
+        if (window.innerWidth < 640) {
+            const colorSwipers = document.querySelectorAll(".swiper-color-section");
+            if (colorSwipers.length) colorSwipers.forEach(((swiperElement, index) => {
+                if (swiperElement.swiper) return;
+                const uniqueId = `color-swiper-${index}`;
+                swiperElement.setAttribute("data-swiper-id", uniqueId);
+                const pagination = swiperElement.querySelector(".navigation__pagination");
+                const scrollbar = swiperElement.querySelector(".navigation__scrollbar");
+                new swiper_core_Swiper(swiperElement, {
+                    modules: [ Navigation, Scrollbar, Pagination ],
+                    observer: true,
+                    observeParents: true,
+                    slidesPerView: 1.2,
+                    spaceBetween: 16,
+                    speed: 1400,
+                    effect: "slide",
+                    transitionTimingFunction: "ease-in-out",
+                    pagination: pagination ? {
+                        el: pagination,
+                        type: "fraction",
+                        renderFraction: function(currentClass, totalClass) {
+                            return '<span class="' + currentClass + '"></span>' + " / " + '<span class="' + totalClass + '"></span>';
+                        }
+                    } : false,
+                    scrollbar: scrollbar ? {
+                        el: scrollbar,
+                        draggable: true
+                    } : false,
+                    on: {
+                        init: function() {
+                            console.log(`Swiper ${uniqueId} initialized`);
+                        },
+                        slideChange: function() {}
+                    }
+                });
+            }));
+        }
     }
     window.addEventListener("load", (function(e) {
         initSliders();
