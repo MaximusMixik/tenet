@@ -1,0 +1,33 @@
+@@include('html/_head.htm',{
+"title":"404"
+})
+
+<body>
+	<div class="wrapper ">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="error">
+				<div class="error__container">
+					<div class="error__content ">
+						<div class="error__image">
+							<img src="@img/404/404.svg" alt="error image">
+						</div>
+						<h1 class="error__title heading-2">
+							Seite nicht gefunden
+						</h1>
+						<div class="error__text">
+							Die Seite ist veraltet, wurde gelöscht oder existiert nicht.
+						</div>
+						<a href="home.html" class="error__button button button--blue">
+							Zurück zur Startseite
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
