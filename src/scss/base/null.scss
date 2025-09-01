@@ -59,9 +59,11 @@ label {
 button,
 select,
 option {
+	-webkit-tap-highlight-color: transparent;
 	cursor: pointer;
 }
 a {
+	-webkit-tap-highlight-color: transparent;
 	display: inline-block;
 	color: inherit;
 	text-decoration: none;
@@ -69,7 +71,9 @@ a {
 ul li {
 	list-style: none;
 }
+svg,
 img {
+	max-width: 100%;
 	vertical-align: top;
 }
 h1,

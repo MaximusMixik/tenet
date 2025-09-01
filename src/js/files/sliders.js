@@ -27,7 +27,7 @@ import "../../scss/libs/swiper.scss";
 // Ініціалізація слайдерів
 function initSliders() {
 
-	if (document.querySelector('.swiper-cases') && window.innerWidth > 480) {
+	if (document.querySelector('.swiper-cases') && window.innerWidth > 640) {
 		new Swiper('.swiper-cases', {
 			modules: [Navigation],
 			observer: true,

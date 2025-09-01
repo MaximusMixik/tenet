@@ -4,7 +4,6 @@
 
 <body>
 	<div class="wrapper">
-		<!-- TODO add lang -->
 		@@include('html/_header.htm',{})
 		<main class="page ">
 			<section class="hero" aria-labelledby="hero">
@@ -24,20 +23,19 @@
 					</p>
 					<button class="hero__button button button--yellow">Watch Demo</button>
 				</div>
-				<iframe class="hero__bg"></iframe>
-				<!--  src='https://my.spline.design/cubetest1-sx06s9Xp4eo6nmjP0w4LVojh/'
-					frameborder='0' -->
+				<iframe class="hero__bg" src='https://my.spline.design/cubetest1-sx06s9Xp4eo6nmjP0w4LVojh/'
+					frameborder='0'></iframe>
 			</section>
 			<!-- TODO add animation -->
 			<!-- TODO add other card bg, add animation, ad active navigation  -->
 			<!-- узнать за сетку( последний елемент не по паттерну, может сделать через модификатор?) -->
-			<!-- <section class="color-section color-section--white" aria-labelledby="core">
+			<section class="color-section color-section--white" aria-labelledby="core">
 				<div class="color-section__container">
-					<div class="color-section__header">
+					<div class="color-section__intro">
 						<div class="color-section__badge badge">
 							Core Features
 						</div>
-						<h2 class="color-section__title title-display" id="core">
+						<h2 class="color-section__title-display title-display" id="core">
 							Key capabilities that make our productunique
 						</h2>
 					</div>
@@ -524,10 +522,10 @@
 						</section>
 					</div>
 				</div>
-			</section> -->
+			</section>
 
 
-			<!-- <section class="color-section color-section--yellow">
+			<section class="color-section color-section--yellow">
 				<div class="color-section__container">
 					<div class="color-section__intro">
 						<div class="color-section__badge badge">
@@ -687,9 +685,9 @@
 						</section>
 					</div>
 				</div>
-			</section> -->
+			</section>
 
-			<!-- <section class="color-section color-section--black">
+			<section class="color-section color-section--black">
 				<div class="color-section__container">
 					<div class="color-section__intro">
 						<div class="color-section__badge badge">
@@ -779,10 +777,9 @@
 						</section>
 					</div>
 				</div>
-			</section> -->
+			</section>
 
 
-			<!-- TODO add navigation -->
 			<section class="last-cases">
 				<div class="last-cases__container">
 					<div class="last-cases__header ">
@@ -793,139 +790,10 @@
 							class="last-cases__button button button--yellow-border ">
 							All posts
 						</a>
-
 					</div>
 					<div class="last-cases__slider-box">
 						<div class="last-cases__slider swiper-cases">
 							<div class="last-cases__wrapper swiper-wrapper">
-								<div class="last-cases__slide slide-cases swiper-slide">
-									<a href="#" class="slide-cases__image-link">
-										<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article1.jpg"
-											alt="post thumbnail"></a>
-									<div class="slide-cases__row">
-										<div class="slide-cases__category">
-											Engineering
-										</div>
-										<div class="slide-cases__about">
-											<div class="slide-cases__date">
-												Jun 21, 2025
-											</div>
-											<div class="slide-cases__author">
-												<img class="slide-cases__avatar" loading="lazy" src="@img/home/last-cases/author1.png"
-													alt="Bruce Johnston">
-												<div class="slide-cases__name">
-													Bruce Johnston
-												</div>
-											</div>
-										</div>
-
-									</div>
-									<h3 class="slide-cases__title">
-										<a href="">The Swedbank Outage shows that Change Controls don't work</a>
-									</h3>
-									<p class="slide-cases__text">
-										This week I’ve been reading through the recent judgment from the Swedish FSA on the Swedbank
-										outage. If you’re
-										unfamiliar with this story, Swedbank had a major outage in April 2022 that was caused by an
-										unapproved change to their
-										IT systems. It temporarily left nearly a million.
-									</p>
-								</div>
-								<div class="last-cases__slide slide-cases swiper-slide">
-									<a href="#" class="slide-cases__image-link">
-										<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article2.jpg"
-											alt="post thumbnail"></a>
-									<div class="slide-cases__row">
-										<div class="slide-cases__category">
-											Use Cases
-										</div>
-										<div class="slide-cases__about">
-											<div class="slide-cases__date">
-												Jun 15, 2025
-											</div>
-											<div class="slide-cases__author">
-												<img class="slide-cases__avatar" loading="lazy" src="@img/home/last-cases/author2.png"
-													alt="Bruce Johnston">
-												<div class="slide-cases__name">
-													Josh Clemm
-												</div>
-											</div>
-										</div>
-
-									</div>
-									<h3 class="slide-cases__title">
-										<a href="">Brief History of Scaling Uber</a>
-									</h3>
-									<p class="slide-cases__text">
-										On a cold evening in Paris in 2008, Travis Kalanick and Garrett Camp couldn't get a cab. That's when
-										the idea for Uber
-										was born. How great would it be if you could "push a button and get a ride?"
-									</p>
-								</div>
-								<div class="last-cases__slide slide-cases swiper-slide">
-									<a href="#" class="slide-cases__image-link">
-										<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article3.jpg"
-											alt="post thumbnail"></a>
-									<div class="slide-cases__row">
-										<div class="slide-cases__category">
-											Distributed Algorithm
-										</div>
-										<div class="slide-cases__about">
-											<div class="slide-cases__date">
-												Jun 08, 2025
-											</div>
-											<div class="slide-cases__author">
-												<img class="slide-cases__avatar" loading="lazy" src="@img/home/last-cases/author3.png"
-													alt="Bruce Johnston">
-												<div class="slide-cases__name">
-													Bruce Johnston
-												</div>
-											</div>
-										</div>
-
-									</div>
-									<h3 class="slide-cases__title">
-										<a href="">Gossip Protocol Explained</a>
-									</h3>
-									<p class="slide-cases__text">
-										A centralized state management service such as Apache Zookeeper can be configured as the service
-										discovery to keep track
-										of the state of every node in the system.
-									</p>
-								</div>
-								<div class="last-cases__slide slide-cases swiper-slide">
-									<a href="#" class="slide-cases__image-link">
-										<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article4.jpg"
-											alt="post thumbnail"></a>
-									<div class="slide-cases__row">
-										<div class="slide-cases__category">
-											Use Cases
-										</div>
-										<div class="slide-cases__about">
-											<div class="slide-cases__date">
-												Jun 15, 2025
-											</div>
-											<div class="slide-cases__author">
-												<img class="slide-cases__avatar" loading="lazy" src="@img/home/last-cases/author4.png"
-													alt="Bruce Johnston">
-												<div class="slide-cases__name">
-													Josh Clemm
-												</div>
-											</div>
-										</div>
-
-									</div>
-									<h3 class="slide-cases__title">
-										<a href="">Brief History of Scaling Uber</a>
-									</h3>
-									<p class="slide-cases__text">
-										On a cold evening in Paris in 2008, Travis Kalanick and Garrett Camp couldn't get a cab. That's when
-										the idea for Uber
-										was born. How great would it be if you could "push a button and get a ride?"
-									</p>
-								</div>
-
-								<!-- repeat -->
 								<div class="last-cases__slide slide-cases swiper-slide">
 									<a href="#" class="slide-cases__image-link">
 										<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article1.jpg"
@@ -1057,35 +925,25 @@
 							<div class="last-cases__navigation navigation">
 								<div class="navigation__buttons">
 									<button type="button" class="navigation__button navigation__button--prev " aria-label="button prev">
-										<svg xmlns="http://www.w3.org/2000/svg" width="35" height="34" fill="none">
-											<g clip-path="url(#a)">
-												<path fill="#fff"
-													d="M17.8 9.2a1 1 0 0 1 0 1.4L12.4 16h11.8a1 1 0 0 1 0 2H12.4l5.4 5.3a1 1 0 0 1-1.4 1.4l-7-7-.3-.3a1 1 0 0 1 .2-1.1l7-7.1a1 1 0 0 1 1.5 0Z" />
-											</g>
-											<defs>
-												<clipPath id="a">
-													<path fill="#fff" d="M0 0h24v24H0z" transform="scale(-1 1) rotate(-45 3.5 49.6)" />
-												</clipPath>
-											</defs>
+										<svg>
+											<use xlink:href="@img/icons/icons.svg#arrow-left"></use>
 										</svg>
 									</button>
 									<button type="button" class="navigation__button navigation__button--next" aria-label="button next">
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-											<path fill="#000"
-												d="M8.3 1.2a1 1 0 0 0 0 1.4L13.7 8H2a1 1 0 0 0 0 2h11.7l-5.4 5.3a1 1 0 1 0 1.4 1.4l7.1-7 .2-.3a1 1 0 0 0-.2-1.1l-7-7.1a1 1 0 0 0-1.5 0Z" />
+										<svg>
+											<use xlink:href="@img/icons/icons.svg#arrow-right"></use>
 										</svg>
 									</button>
 								</div>
-
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- <section class="cta" aria-labelledby="cta">
+			<section class="cta" aria-labelledby="cta">
 				<div class="cta__container">
-					<img loading="lazy"  src="@img/home/cta/cta-bg.png" class="cta__bg" alt="bg">
+					<img loading="lazy" src="@img/home/cta/cta-bg.png" class="cta__bg" alt="bg">
 					<div class="cta__content">
 						<h2 class="cta__title" id="cta">
 							Be an Early User
@@ -1105,7 +963,7 @@
 						</div>
 					</div>
 				</div>
-			</section> -->
+			</section>
 
 		</main>
 		@@include('html/_footer.htm',{})

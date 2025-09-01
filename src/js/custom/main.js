@@ -3,6 +3,7 @@
 
 // import "../custom/media-action.js";
 
+import Dropdown from '../libs/dropdown.js';
 
 
 window.onload = () => {
@@ -15,5 +16,10 @@ window.onload = () => {
 		if (items.length < 5) return
 		list.classList.add('section-about__list--accent')
 	});
+
+	// dropdowns
+	// document.querySelectorAll('[data-js-dropdown=""]').forEach((element) => {
+	// 	new Dropdown(element);
+	// });
 
 }

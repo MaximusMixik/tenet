@@ -4,22 +4,20 @@
 
 <body>
 	<div class="wrapper ">
-		@@include('html/_header.htm',{})
+		@@include('html/_header-white.htm',{})
 		<main class="page">
-			<section class="error">
-				<div class="error__container">
-					<div class="error__content ">
-						<div class="error__image">
-							<img src="@img/404/404.svg" alt="error image">
-						</div>
-						<h1 class="error__title heading-2">
-							Seite nicht gefunden
+			<section class="not-found">
+				<div class="not-found__container">
+					<div class="not-found__content ">
+						<img class="not-found__image" src="@img/404/404.svg" alt="not-found image">
+						<h1 class="not-found__title title-3">
+							Page not found
 						</h1>
-						<div class="error__text">
-							Die Seite ist veraltet, wurde gelöscht oder existiert nicht.
-						</div>
-						<a href="home.html" class="error__button button button--blue">
-							Zurück zur Startseite
+						<p class="not-found__text">
+							The page is out of date, has been deleted or does not exist.
+						</p>
+						<a href="home.html" class="not-found__button button button--yellow">
+							Back to Homepage
 						</a>
 					</div>
 				</div>

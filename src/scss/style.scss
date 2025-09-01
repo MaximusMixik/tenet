@@ -180,4 +180,7 @@ body {
 @import "footer";
 
 // Підключення стилів окремих сторінок
-@import "home";
+@import "pages/home";
+@import "pages/about";
+@import "pages/blog";
+@import "pages/not-found";

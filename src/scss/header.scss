@@ -15,6 +15,27 @@
 		padding-block: toRem(24);
 		min-height: toRem(90);
 	}
+
+	// .header--white
+	&--white {
+		color: var(--black);
+		position: static;
+		.header__logo img:last-of-type {
+			display: block;
+		}
+
+		.menu__button {
+			color: var(--black);
+		}
+
+		.icon-menu {
+			span,
+			&::before,
+			&::after {
+				background-color: var(--black);
+			}
+		}
+	}
 	// .header__container
 	&__container {
 		display: flex;
@@ -253,13 +274,7 @@
 		}
 	}
 }
-.lang {
-	@media (max-width: $tablet) {
-		// border-block: toRem(1) solid var(--grey4);
-		padding-block: toRem(24);
-		padding-left: toRem(18);
-	}
-}
+
 
 //Burger Icon
 .icon-menu {

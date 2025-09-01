@@ -1,0 +1,226 @@
+.blog-section {
+	@media (min-width: $mobile) {
+		padding-block: toRem(100) toRem(150);
+	}
+	@media (max-width: $mobile) {
+		padding-block: toRem(50) toRem(140);
+	}
+	// .blog-section__container
+	&__container {
+	}
+	// .blog-section__header
+	&__header {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: toRem(80);
+		align-items: center;
+		&:not(:last-child) {
+			margin-bottom: toRem(80);
+		}
+	}
+	// .blog-section__decor
+	&__decor {
+		position: absolute;
+		width: toRem(360);
+		height: toRem(360);
+
+		z-index: -1;
+		@media (min-width: $tablet) {
+			top: toRem(-148);
+			left: toRem(315);
+		}
+		@media (max-width: $tablet) {
+			top: toRem(-153);
+			left: toRem(-84);
+		}
+		@media (max-width: $mobile) {
+			left: toRem(72);
+		}
+		@media (max-width: $mobileSmall) {
+			left: 0;
+		}
+	}
+	// .blog-section__title
+	&__title {
+		@include adaptiveValue("font-size", 64, 54);
+	}
+	// .blog-section__categories
+	&__categories {
+	}
+	// .blog-section__grid
+	&__grid {
+		display: grid;
+		@media (min-width: $mobileSmall) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: toRem(32) toRem(16);
+		}
+		@media (min-width: $mobile) {
+			grid-template-columns: repeat(3, 1fr);
+			gap: toRem(32) toRem(24);
+		}
+		@media (max-width: $mobileSmall) {
+			gap: toRem(40);
+		}
+
+		&:not(:last-child) {
+			@media (min-width: $mobileSmall) {
+				margin-bottom: toRem(160);
+			}
+			@media (max-width: $mobileSmall) {
+				margin-bottom: toRem(80);
+			}
+		}
+	}
+}
+.categories {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: toRem(8);
+	// .categories__link
+	&__link {
+		padding: toRem(12) toRem(18);
+		min-height: toRem(43);
+		border-radius: toRem(50);
+		font-family: $fontFamilyMonaSans;
+		font-weight: 600;
+		font-size: toRem(16);
+		text-transform: capitalize;
+		color: var(--black);
+		border: toRem(2) solid var(--flax);
+		transition: all 0.3s ease;
+
+		&.active {
+			background-color: var(--flax);
+			pointer-events: none;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				border: toRem(2) solid #ead7a4;
+				box-shadow: inset 0 0 0 toRem(2) #ead7a4;
+			}
+		}
+	}
+}
+
+.custom-pagination {
+	// .custom-pagination__list
+	&__list {
+		display: flex;
+		justify-content: center;
+		gap: toRem(12);
+		color: var(--black);
+		@media (max-width: $mobileSmall) {
+			& > :nth-child(8),
+			& > :nth-child(7),
+			& > :nth-child(6),
+			& > :nth-child(2) {
+				display: none;
+			}
+		}
+
+		& a,
+		& span {
+			min-width: toRem(49);
+			min-height: toRem(49);
+			padding: toRem(8);
+			display: grid;
+			place-items: center;
+			border-radius: 50%;
+			border: toRem(2) solid var(--flax);
+
+			font-family: $fontFamilyMonaSans;
+			font-weight: 600;
+			font-size: toRem(16);
+			text-transform: capitalize;
+			text-align: center;
+		}
+		& svg {
+			transition: all 0.3s ease;
+		}
+		& a {
+			@media (any-hover: hover) {
+				transition: all 0.3s ease;
+				&:hover {
+					border: toRem(2) solid #ead7a4;
+					box-shadow: inset 0 0 0 toRem(2) #ead7a4;
+				}
+			}
+		}
+	}
+
+	// .custom-pagination__current
+	&__current {
+		pointer-events: none;
+		& span {
+			background-color: var(--flax);
+		}
+	}
+	// .custom-pagination__dots
+	&__dots {
+		@media (max-width: $mobile) {
+			display: none;
+		}
+		& span {
+			border-color: transparent;
+		}
+	}
+	// .custom-pagination__next
+	&__next {
+		@media (max-width: $mobileSmall) {
+			& a {
+				&::after {
+					content: "|";
+					font-size: toRem(20);
+					margin-top: toRem(-2);
+
+					line-height: 1;
+					color: var(--flax);
+				}
+			}
+		}
+	}
+	// .custom-pagination__prev
+	&__prev {
+		@media (max-width: $mobileSmall) {
+			& a {
+				&::before {
+					content: "|";
+					font-size: toRem(20);
+					margin-top: toRem(-2);
+					line-height: 1;
+					color: var(--flax);
+				}
+			}
+		}
+	}
+	&__prev,
+	&__next {
+		min-width: toRem(50);
+		min-height: toRem(50);
+
+		& a {
+			border-color: transparent;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			@media (any-hover: hover) {
+				&:hover {
+					border: toRem(2) solid transparent;
+					box-shadow: inset 0 0 0 toRem(2) transparent;
+					& svg {
+						color: var(--flax);
+					}
+				}
+			}
+		}
+		& svg {
+			width: toRem(18);
+			height: toRem(18);
+			flex-shrink: 0;
+			color: var(--satin-gold);
+		}
+	}
+}
