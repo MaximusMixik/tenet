@@ -16,6 +16,7 @@
 						</h1>
 						<div class="blog-section__categories categories">
 							<a href="" class="categories__link active">
+								<!-- dynamical current category -->
 								All
 							</a>
 							<a href="" class="categories__link ">
@@ -38,6 +39,14 @@
 							</a>
 						</div>
 
+						<button data-popup="#categories" class="blog-section__button button button--yellow-border">
+							<!-- dynamical current category -->
+							All
+							<svg>
+								<use xlink:href="@img/icons/icons.svg#chewron-down"></use>
+							</svg>
+						</button>
+
 					</div>
 					<div class="blog-section__grid">
 						<div class="slide-cases ">
@@ -45,7 +54,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article1.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Engineering
 								</div>
 								<div class="slide-cases__about">
@@ -77,7 +86,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article2.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -108,7 +117,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article3.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Distributed Algorithm
 								</div>
 								<div class="slide-cases__about">
@@ -139,7 +148,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article4.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -170,7 +179,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article1.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Engineering
 								</div>
 								<div class="slide-cases__about">
@@ -202,7 +211,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article2.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -233,7 +242,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article3.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Distributed Algorithm
 								</div>
 								<div class="slide-cases__about">
@@ -264,7 +273,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article4.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -295,7 +304,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article1.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Engineering
 								</div>
 								<div class="slide-cases__about">
@@ -327,7 +336,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article2.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -358,7 +367,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article3.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Distributed Algorithm
 								</div>
 								<div class="slide-cases__about">
@@ -389,7 +398,7 @@
 								<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article4.jpg"
 									alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -446,6 +455,7 @@
 		</main>
 		@@include('html/_footer.htm',{})
 	</div>
+	@@include('html/_popup.htm',{})
 	@@include('html/_js.htm',{})
 </body>
 

@@ -67,10 +67,10 @@ html {
 	scroll-behavior: smooth;
 	// scroll-margin-top: toRem(-90);
 	@media (min-width: $mobile) {
-		scroll-padding-top: toRem(120);
+		scroll-padding-top: toRem(60);
 	}
 	@media (max-width: $mobile) {
-		scroll-padding-top: toRem(70);
+		scroll-padding-top: toRem(40);
 	}
 }
 // Стилі тега BODY
@@ -184,3 +184,4 @@ body {
 @import "pages/about";
 @import "pages/blog";
 @import "pages/not-found";
+@import "pages/article";

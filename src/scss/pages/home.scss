@@ -313,6 +313,8 @@
 	}
 	// .last-cases__title
 	&__title {
+		span {
+		}
 	}
 	// .last-cases__button
 	&__button {
@@ -345,6 +347,9 @@
 		// &:not(:has(.swiper-button-lock)) {
 		// 	margin-top: toRem(32);
 		// }
+		@media (max-width: $mobile) {
+			display: none;
+		}
 	}
 }
 
@@ -403,17 +408,6 @@
 	}
 	// .slide-cases__category
 	&__category {
-		border-radius: toRem(50);
-		padding: toRem(8) toRem(16);
-		display: grid;
-		place-items: center;
-		max-width: max-content;
-		background-color: #f7f1e4;
-		text-align: center;
-		font-family: $fontFamilyMonaSans;
-		font-weight: 500;
-		font-size: toRem(14);
-		color: var(--black);
 	}
 	// .slide-cases__about
 	&__about {

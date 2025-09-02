@@ -3,92 +3,77 @@
 
 // Блок зі спойлерами
 .spollers {
-	display: grid;
-	gap: 15px;
-}
-// Спойлер
-.spollers__item {
-	font-size: toRem(20);
-}
-// Заголовок спойлера
-.spollers__title {
-	width: 100%;
-	cursor: default;
-	text-align: left;
-	border: 1px solid #eee;
-	padding: toRem(10) toRem(15);
-	border-radius: toRem(5);
-	position: relative;
-	list-style: none;
-	&::marker,
-	&::-webkit-details-marker {
-		display: none;
+	// .spollers__item
+	&__item {
+		border-top: toRem(1) solid #ebe8e0;
+		padding: toRem(24) toRem(8) toRem(24) 0;
+		-webkit-tap-highlight-color: transparent;
 	}
-	._spoller-init & {
-		cursor: pointer;
-		&::before,
-		&::after {
-			content: "";
-			position: absolute;
-			right: 10px;
-			top: 50%;
-			background-color: #000;
-			height: 2px;
-			width: 15px;
-			transition: transform 0.5s ease 0s;
-		}
-		&::before {
-			transform: translate(-75%, -50%) rotate(40deg);
-		}
-		&::after {
-			transform: translate(0, -50%) rotate(-40deg);
+	// .spollers__title
+	&__title {
+		display: flex;
+		gap: toRem(32);
+		align-items: center;
+		justify-content: space-between;
+		font-family: $fontFamilyMonaSans;
+		font-weight: 600;
+		font-size: toRem(20);
+		color: var(--black);
+		width: 100%;
+		text-align: left;
+		position: relative;
+		list-style: none;
+
+		& svg {
+			width: toRem(24);
+			flex-shrink: 0;
+			height: toRem(24);
+			color: var(--satin-gold);
+			transition: transform 0.3s ease;
 		}
 		&._spoller-active {
-			&::before {
-				transform: translateX(-75%) rotate(-40deg);
-			}
-			&::after {
-				transform: rotate(40deg);
+			svg {
+				transform: rotate(180deg);
 			}
 		}
-		/*
+		&::marker,
+		&::-webkit-details-marker {
+			display: none;
+		}
 		._spoller-init & {
-			position: relative;
-			width: 100%;
-			text-align: left;
-			&::before,
-			&::after {
-				content: "";
-				position: absolute;
-				right: 0;
-				top: toRem(12);
-				height: toRem(1);
-				transition: all 0.3s ease 0s;
-				width: toRem(10);
-				background-color: #000;
-			}
-			&::before {
-				transform: rotate(40deg);
-				right: toRem(7);
-			}
-			&::after {
-				transform: rotate(-40deg);
-			}
+			cursor: pointer;
+
+			// &::before,
+			// &::after {
+			// 	content: "";
+			// 	position: absolute;
+			// 	right: 0;
+			// 	top: toRem(8);
+			// 	border-radius: toRem(8);
+			// 	height: toRem(2);
+			// 	transition: all 0.3s ease 0s;
+			// 	width: toRem(10);
+			// 	background-color: var(--satin-gold);
+			// }
+			// &::before {
+			// 	transform: rotate(50deg);
+			// 	right: toRem(5);
+			// }
+			// &::after {
+			// 	transform: rotate(-50deg);
+			// }
 		}
 		&._spoller-active {
-			&::before {
-				transform: rotate(-40deg);
-			}
-			&::after {
-				transform: rotate(40deg);
-			}
+			// &::before {
+			// 	transform: rotate(-40deg);
+			// }
+			// &::after {
+			// 	transform: rotate(40deg);
+			// }
 		}
-		*/
 	}
-}
-// Контент спойлера
-.spollers__body {
-	padding: toRem(20);
-	border-radius: toRem(5);
-	border: 1px solid #eee;
+	// .spollers__body
+	&__body {
+		padding-top: toRem(16);
+	}
 }

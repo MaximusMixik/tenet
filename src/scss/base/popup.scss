@@ -20,7 +20,7 @@ body::after {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	padding: 30px 10px;
+	padding: toRem(30) toRem(16);
 	transition: visibility 0.8s ease 0s;
 	visibility: hidden;
 	pointer-events: none;
@@ -50,12 +50,39 @@ body::after {
 	visibility: hidden;
 	transform: scale(0);
 	transition: transform 0.3s ease 0s;
-	background-color: #eee;
-	padding: 20px;
+	background-color: var(--white);
+	padding: toRem(32) toRem(24);
 	width: 100%;
-	max-width: 900px;
-	border-radius: 20px;
+	max-width: toRem(900);
+	border-radius: toRem(12);
 	.lock & {
 		visibility: visible;
+	}
+}
+.popup__close {
+	position: absolute;
+	width: toRem(16);
+	height: toRem(16);
+	max-width: 100%;
+	top: toRem(12);
+	right: toRem(12);
+	svg {
+		width: 100%;
+		height: 100%;
+		fill: var(--flax);
+	}
+}
+
+// in blog
+.popup-categories {
+	display: grid;
+	gap: toRem(32);
+	// .popup-categories__link
+	&__link {
+		font-family: $fontFamilyMonaSans;
+		font-weight: 600;
+		font-size: toRem(16);
+		text-transform: capitalize;
+		color: var(--black);
 	}
 }

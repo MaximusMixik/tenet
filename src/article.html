@@ -1,0 +1,512 @@
+@@include('html/_head.htm',{
+"title":"Article"
+})
+
+<body>
+	<div class="wrapper ">
+		@@include('html/_header-white.htm',{})
+
+		<main class="page">
+			<article class="article">
+				<div class="article__about">
+					<div class="article__container">
+						<div class="article__category category">
+							Engineering
+						</div>
+						<h1 class="article__title title-2">
+							The Swedbank Outage shows that Change Controls don't work
+						</h1>
+						<div class="article__info">
+							<img class="article__author-avatar" loading="lazy" src="@img/home/last-cases/author1.png"
+								alt="Bruce Johnston">
+							<div class="article__author-name">
+								Bruce Johnston
+							</div>
+							<div class="article__date">
+								Jun 21, 2025
+							</div>
+						</div>
+						<div class="breadcrumbs">
+							<a href="home.html">Home</a>
+							<span>/</span>
+							<a href="blog.html">Blog</a>
+							<span>/</span>
+							<a href="#">Engineering</a>
+							<span>/</span>
+							<span>The Swedbank Outage shows that Change Controls don't work</span>
+						</div>
+					</div>
+					<img src="@img/article/bg.svg" alt="bg" class="article__bg">
+
+				</div>
+				<div class="article__row">
+					<div class="article__container">
+						<aside class="article__sidebar sidebar-article">
+							<h2 class="sidebar-article__title">
+								In thisArticle
+							</h2>
+							<nav class="sidebar-article__navigation">
+								<ul class="sidebar-article__list">
+									<li class="sidebar-article__item">
+										<a href="#htmx" class="sidebar-article__link">What is HTMX?</a>
+									</li>
+									<!-- active -->
+									<li class="sidebar-article__item">
+										<a href="#tutorial" class="sidebar-article__link ">HTMX Tutorial: Building a full-stack app
+											with HTMX
+											and
+											Node.js</a>
+									</li>
+									<li class="sidebar-article__item">
+										<a href="#create" class="sidebar-article__link">Creating a HTMX project</a>
+									</li>
+									<li class="sidebar-article__item">
+										<a href="#hx-get" class="sidebar-article__link">Basic content loading with hx-get</a>
+									</li>
+									<li class="sidebar-article__item">
+										<a href="#hx-post" class="sidebar-article__link">Form submission without page reloading with
+											hx-post</a>
+									</li>
+									<li class="sidebar-article__item">
+										<a href="#hx-trigger" class="sidebar-article__link">Infinite scrolling with hx-trigger</a>
+									</li>
+
+								</ul>
+							</nav>
+
+
+						</aside>
+						<div class="article__body">
+							<div class="article__content content">
+								<img src="@img/home/last-cases/article1.jpg" alt="post thumbnail">
+								<p>This week I’ve been reading through the recent judgment from the Swedish FSA on the Swedbank outage.
+									If
+									you’re
+									unfamiliar with this story, <a href="link">Swedbank had a major outage in April 2022</a> that was
+									caused
+									by
+									an unapproved change to their
+									IT systems. It temporarily left nearly a million.</p>
+
+								<h3 id="htmx">What is HTMX?</h3>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a maximus.
+									Curabitur vehicula
+									tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+									pellentesque,
+									varius nisl
+									nec, dignissim magna. Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla sodales.
+									Pellentesque et metus
+									non felis luctus cursus et sed eros. Aliquam leo nisl, posuere ac tincidunt in, condimentum sed
+									lectus.
+									Vivamus a arcu
+									aliquam, ullamcorper odio a, ultricies orci. Maecenas ac pellentesque risus. Nam imperdiet eros et
+									consequat volutpat.
+									Nam velit nulla, consequat vel euismod sit amet, vulputate ac ligula. Sed ultrices vel dolor in
+									posuere.
+
+
+
+								</p>
+								<p>Praesent aliquam libero eu imperdiet molestie. Pellentesque et purus non libero vehicula eleifend
+									vestibulum nec lectus.
+									Nulla orci nibh, tincidunt et sagittis convallis, sagittis id purus. Suspendisse ut erat vitae lectus
+									molestie fermentum
+									vel sit amet nulla. Cras porttitor porta tincidunt. Ut vel mi a urna blandit ornare eget ut risus.
+									Donec
+									non dolor a mi
+									dictum eleifend. Aliquam vitae imperdiet ante. Pellentesque condimentum id mi sit amet bibendum.
+									Maecenas
+									ac orci
+									hendrerit enim aliquam euismod quis vitae turpis. Aliquam erat volutpat. Duis porta fermentum ante nec
+									laoreet. Donec
+									vehicula dolor mi, at lobortis lacus finibus non. Nullam ac tristique sem. Nam elementum purus
+									pharetra,
+									lacinia ipsum
+									sed, dictum massa. Mauris fringilla at justo eget hendrerit.</p>
+
+								<blockquote>
+									<h5>Ready to see these features in action?</h5>
+									<p><a href="#">Register now</a> for our Product Roundup Webinar where <strong>TENET</strong> product
+										experts will share live demos of
+										our latest features and preview what's coming next on our roadmap.</p>
+								</blockquote>
+
+								<h4>What is the Healthy Backlog Initiative?</h4>
+
+								<ul>
+									<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a
+										maximus.
+										Curabitur vehicula
+										tincidunt convallis. </li>
+									<li>
+										Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam pellentesque, varius nisl
+										nec,
+										dignissim magna.
+										<ul>
+											<li>Pellentesque et metus non felis luctus cursus et sed eros.</li>
+											<li>Pellentesque et metus non felis luctus cursus et sed eros.</li>
+										</ul>
+									</li>
+									<li>Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla sodales. Pellentesque et metus
+										non
+										felis luctus
+										cursus et sederos. </li>
+								</ul>
+
+								<h5>How does this change benefit you?</h5>
+								<ol>
+									<li><strong>Lorem ipsum dolor sit amet,</strong> consectetur adipiscing elit. Proin malesuada
+										fringilla lectus a maximus.
+										Curabitur vehicula tincidunt convallis.</li>
+									<li><strong>Donec iaculis mi at velit</strong> rhoncus, at venenatis ex gravida. Sed eu quam
+										pellentesque, varius nisl nec,
+										dignissim magna.
+										<ol>
+											<li>Pellentesque et metus non felis luctus cursus et sed eros.</li>
+											<li>Pellentesque et metus non felis luctus cursus et sed eros.</li>
+										</ol>
+									</li>
+									<li><strong>Vestibulum bibendum lacus</strong> id orci dignissim, vel consectetur nulla sodales.
+										Pellentesque et metus non
+										felis luctus cursus et sed eros.</li>
+
+								</ol>
+
+								<h6>
+									Looking forward
+								</h6>
+
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a maximus.
+									Curabitur vehicula
+									tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+									pellentesque, varius nisl
+									nec, dignissim magna.</p>
+
+								<h3 id="tutorial">
+									HTMX Tutorial: Building a full-stack app with HTMX and Node.js
+								</h3>
+
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a maximus.
+									Curabitur vehicula
+									tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+									pellentesque, varius nisl
+									nec, dignissim magna. Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla sodales.
+									Pellentesque et metus
+									non felis luctus cursus et sed eros. Aliquam leo nisl, posuere ac tincidunt in, condimentum sed
+									lectus. Vivamus a arcu
+									aliquam, ullamcorper odio a, ultricies orci. Maecenas ac pellentesque risus. Nam imperdiet eros et
+									consequat volutpat.
+									Nam velit nulla, consequat vel euismod sit amet, vulputate ac ligula. Sed ultrices vel dolor in
+									posuere.</p>
+							</div>
+
+							<!-- faq -->
+							<div class="article__faq faq">
+								<h3 class="faq__title">FAQ</h3>
+								<div data-spollers class="faq__spollers spollers">
+									<details class="spollers__item" data-open>
+										<summary class="spollers__title">
+											<span>
+												What is HTMX?
+											</span>
+											<svg>
+												<use xlink:href="@img/icons/icons.svg#chewron-down"></use>
+											</svg>
+										</summary>
+										<div class="spollers__body">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a
+												maximus. Curabitur vehicula
+												tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+												pellentesque, varius nisl
+												nec, dignissim magna. Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla
+												sodales. Pellentesque et metus
+												non felis luctus cursus et sed eros. Aliquam leo nisl, posuere ac tincidunt in, condimentum sed
+												lectus. Vivamus a arcu
+												aliquam, ullamcorper odio a, ultricies orci. Maecenas ac pellentesque risus. Nam imperdiet eros
+												et consequat volutpat.
+												Nam velit nulla, consequat vel euismod sit amet, vulputate ac ligula. Sed ultrices vel dolor in
+												posuere.</p>
+										</div>
+									</details>
+									<details class="spollers__item">
+										<summary class="spollers__title">
+											<span>
+												HTMX Tutorial: Building a full-stack app with HTMX and Node.js?
+											</span>
+											<svg>
+												<use xlink:href="@img/icons/icons.svg#chewron-down"></use>
+											</svg>
+										</summary>
+										<div class="spollers__body">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a
+												maximus. Curabitur vehicula
+												tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+												pellentesque, varius nisl
+												nec, dignissim magna. Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla
+												sodales. Pellentesque et metus
+												non felis luctus cursus et sed eros. Aliquam leo nisl, posuere ac tincidunt in, condimentum sed
+												lectus. Vivamus a arcu
+												aliquam, ullamcorper odio a, ultricies orci. Maecenas ac pellentesque risus. Nam imperdiet eros
+												et consequat volutpat.
+												Nam velit nulla, consequat vel euismod sit amet, vulputate ac ligula. Sed ultrices vel dolor in
+												posuere.</p>
+										</div>
+									</details>
+									<details class="spollers__item">
+										<summary class="spollers__title">
+											<span>
+												Creating a HTMX project?
+											</span>
+											<svg>
+												<use xlink:href="@img/icons/icons.svg#chewron-down"></use>
+											</svg>
+										</summary>
+										<div class="spollers__body">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a
+												maximus. Curabitur vehicula
+												tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+												pellentesque, varius nisl
+												nec, dignissim magna. Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla
+												sodales. Pellentesque et metus
+												non felis luctus cursus et sed eros. Aliquam leo nisl, posuere ac tincidunt in, condimentum sed
+												lectus. Vivamus a arcu
+												aliquam, ullamcorper odio a, ultricies orci. Maecenas ac pellentesque risus. Nam imperdiet eros
+												et consequat volutpat.
+												Nam velit nulla, consequat vel euismod sit amet, vulputate ac ligula. Sed ultrices vel dolor in
+												posuere.</p>
+										</div>
+									</details>
+									<details class="spollers__item">
+										<summary class="spollers__title">
+											<span>
+												Basic content loading with hx-get?
+											</span>
+											<svg>
+												<use xlink:href="@img/icons/icons.svg#chewron-down"></use>
+											</svg>
+										</summary>
+										<div class="spollers__body">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a
+												maximus. Curabitur vehicula
+												tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+												pellentesque, varius nisl
+												nec, dignissim magna. Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla
+												sodales. Pellentesque et metus
+												non felis luctus cursus et sed eros. Aliquam leo nisl, posuere ac tincidunt in, condimentum sed
+												lectus. Vivamus a arcu
+												aliquam, ullamcorper odio a, ultricies orci. Maecenas ac pellentesque risus. Nam imperdiet eros
+												et consequat volutpat.
+												Nam velit nulla, consequat vel euismod sit amet, vulputate ac ligula. Sed ultrices vel dolor in
+												posuere.</p>
+										</div>
+									</details>
+									<details class="spollers__item">
+										<summary class="spollers__title">
+											<span>
+												Form submission without page reloading with hx-post?
+											</span>
+											<svg>
+												<use xlink:href="@img/icons/icons.svg#chewron-down"></use>
+											</svg>
+										</summary>
+										<div class="spollers__body">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a
+												maximus. Curabitur vehicula
+												tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+												pellentesque, varius nisl
+												nec, dignissim magna. Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla
+												sodales. Pellentesque et metus
+												non felis luctus cursus et sed eros. Aliquam leo nisl, posuere ac tincidunt in, condimentum sed
+												lectus. Vivamus a arcu
+												aliquam, ullamcorper odio a, ultricies orci. Maecenas ac pellentesque risus. Nam imperdiet eros
+												et consequat volutpat.
+												Nam velit nulla, consequat vel euismod sit amet, vulputate ac ligula. Sed ultrices vel dolor in
+												posuere.</p>
+										</div>
+									</details>
+									<details class="spollers__item">
+										<summary class="spollers__title">
+											<span>
+												Infinite scrolling with hx-trigger?
+											</span>
+											<svg>
+												<use xlink:href="@img/icons/icons.svg#chewron-down"></use>
+											</svg>
+										</summary>
+										<div class="spollers__body">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada fringilla lectus a
+												maximus. Curabitur vehicula
+												tincidunt convallis. Donec iaculis mi at velit rhoncus, at venenatis ex gravida. Sed eu quam
+												pellentesque, varius nisl
+												nec, dignissim magna. Vestibulum bibendum lacus id orci dignissim, vel consectetur nulla
+												sodales. Pellentesque et metus
+												non felis luctus cursus et sed eros. Aliquam leo nisl, posuere ac tincidunt in, condimentum sed
+												lectus. Vivamus a arcu
+												aliquam, ullamcorper odio a, ultricies orci. Maecenas ac pellentesque risus. Nam imperdiet eros
+												et consequat volutpat.
+												Nam velit nulla, consequat vel euismod sit amet, vulputate ac ligula. Sed ultrices vel dolor in
+												posuere.</p>
+										</div>
+									</details>
+								</div>
+							</div>
+
+							<!-- tags -->
+							<ul class="article__tags tags">
+								<li class="tags__item">
+									#Swedbank
+								</li>
+								<li class="tags__item">
+									#Outage
+								</li>
+								<li class="tags__item">
+									#Controls
+								</li>
+							</ul>
+							<a href="blog.html" class="article__button button button--yellow-border">
+								<svg>
+									<use xlink:href="@img/icons/icons.svg#arrow-left"></use>
+								</svg>
+								Back to Articles
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</article>
+
+			<section class="last-cases">
+				<div class="last-cases__container">
+					<div class="last-cases__header ">
+						<h2 class="last-cases__title ">
+							More Articles in <span>Engineering</span>
+						</h2>
+					</div>
+					<div class="last-cases__slider-box">
+						<div class="last-cases__slider swiper-cases">
+							<div class="last-cases__wrapper swiper-wrapper">
+								<div class="last-cases__slide slide-cases swiper-slide">
+									<a href="#" class="slide-cases__image-link">
+										<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article1.jpg"
+											alt="post thumbnail"></a>
+									<div class="slide-cases__row">
+										<div class="slide-cases__category category">
+											Engineering
+										</div>
+										<div class="slide-cases__about">
+											<div class="slide-cases__date">
+												Jun 21, 2025
+											</div>
+											<div class="slide-cases__author">
+												<img class="slide-cases__avatar" loading="lazy" src="@img/home/last-cases/author1.png"
+													alt="Bruce Johnston">
+												<div class="slide-cases__name">
+													Bruce Johnston
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<h3 class="slide-cases__title">
+										<a href="">The Swedbank Outage shows that Change Controls don't work</a>
+									</h3>
+									<p class="slide-cases__text">
+										This week I’ve been reading through the recent judgment from the Swedish FSA on the Swedbank
+										outage. If you’re
+										unfamiliar with this story, Swedbank had a major outage in April 2022 that was caused by an
+										unapproved change to their
+										IT systems. It temporarily left nearly a million.
+									</p>
+								</div>
+								<div class="last-cases__slide slide-cases swiper-slide">
+									<a href="#" class="slide-cases__image-link">
+										<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article2.jpg"
+											alt="post thumbnail"></a>
+									<div class="slide-cases__row">
+										<div class="slide-cases__category category">
+											Use Cases
+										</div>
+										<div class="slide-cases__about">
+											<div class="slide-cases__date">
+												Jun 15, 2025
+											</div>
+											<div class="slide-cases__author">
+												<img class="slide-cases__avatar" loading="lazy" src="@img/home/last-cases/author2.png"
+													alt="Bruce Johnston">
+												<div class="slide-cases__name">
+													Josh Clemm
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<h3 class="slide-cases__title">
+										<a href="">Brief History of Scaling Uber</a>
+									</h3>
+									<p class="slide-cases__text">
+										On a cold evening in Paris in 2008, Travis Kalanick and Garrett Camp couldn't get a cab. That's when
+										the idea for Uber
+										was born. How great would it be if you could "push a button and get a ride?"
+									</p>
+								</div>
+								<div class="last-cases__slide slide-cases swiper-slide">
+									<a href="#" class="slide-cases__image-link">
+										<img class="slide-cases__image" loading="lazy" src="@img/home/last-cases/article3.jpg"
+											alt="post thumbnail"></a>
+									<div class="slide-cases__row">
+										<div class="slide-cases__category category">
+											Distributed Algorithm
+										</div>
+										<div class="slide-cases__about">
+											<div class="slide-cases__date">
+												Jun 08, 2025
+											</div>
+											<div class="slide-cases__author">
+												<img class="slide-cases__avatar" loading="lazy" src="@img/home/last-cases/author3.png"
+													alt="Bruce Johnston">
+												<div class="slide-cases__name">
+													Bruce Johnston
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<h3 class="slide-cases__title">
+										<a href="">Gossip Protocol Explained</a>
+									</h3>
+									<p class="slide-cases__text">
+										A centralized state management service such as Apache Zookeeper can be configured as the service
+										discovery to keep track
+										of the state of every node in the system.
+									</p>
+								</div>
+							</div>
+
+							<div class="last-cases__navigation navigation">
+								<div class="navigation__buttons">
+									<button type="button" class="navigation__button navigation__button--prev " aria-label="button prev">
+										<svg>
+											<use xlink:href="@img/icons/icons.svg#arrow-left"></use>
+										</svg>
+									</button>
+									<button type="button" class="navigation__button navigation__button--next" aria-label="button next">
+										<svg>
+											<use xlink:href="@img/icons/icons.svg#arrow-right"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

@@ -22,8 +22,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250901075621">
-	<script src="js/app.min.js?_v=20250901075621" defer></script>
+	<link rel="stylesheet" href="css/style.min.css?_v=20250902193842">
+	<script src="js/app.min.js?_v=20250902193842" defer></script>
 </head>
 
 <body>
@@ -95,7 +95,7 @@
 							<li class="socials__item">
 								<a href="#" class="socials__link" aria-label="x link">
 									<svg>
-										<use xlink:href="img/icons/icons.svg#x"></use>
+										<use xlink:href="img/icons/icons.svg#twitter"></use>
 									</svg>
 								</a>
 							</li>
@@ -123,6 +123,7 @@
 						</h1>
 						<div class="blog-section__categories categories">
 							<a href="" class="categories__link active">
+								<!-- dynamical current category -->
 								All
 							</a>
 							<a href="" class="categories__link ">
@@ -145,13 +146,21 @@
 							</a>
 						</div>
 
+						<button data-popup="#categories" class="blog-section__button button button--yellow-border">
+							<!-- dynamical current category -->
+							All
+							<svg>
+								<use xlink:href="img/icons/icons.svg#chewron-down"></use>
+							</svg>
+						</button>
+
 					</div>
 					<div class="blog-section__grid">
 						<div class="slide-cases ">
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article1.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Engineering
 								</div>
 								<div class="slide-cases__about">
@@ -181,7 +190,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article2.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -210,7 +219,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article3.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Distributed Algorithm
 								</div>
 								<div class="slide-cases__about">
@@ -239,7 +248,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article4.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -268,7 +277,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article1.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Engineering
 								</div>
 								<div class="slide-cases__about">
@@ -298,7 +307,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article2.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -327,7 +336,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article3.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Distributed Algorithm
 								</div>
 								<div class="slide-cases__about">
@@ -356,7 +365,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article4.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -385,7 +394,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article1.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Engineering
 								</div>
 								<div class="slide-cases__about">
@@ -415,7 +424,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article2.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -444,7 +453,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article3.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Distributed Algorithm
 								</div>
 								<div class="slide-cases__about">
@@ -473,7 +482,7 @@
 							<a href="#" class="slide-cases__image-link">
 								<img class="slide-cases__image" loading="lazy" src="img/home/last-cases/article4.webp" alt="post thumbnail"></a>
 							<div class="slide-cases__row">
-								<div class="slide-cases__category">
+								<div class="slide-cases__category category">
 									Use Cases
 								</div>
 								<div class="slide-cases__about">
@@ -577,7 +586,7 @@
 						<li class="socials__item">
 							<a href="#" class="socials__link">
 								<svg>
-									<use xlink:href="img/icons/icons.svg#x"></use>
+									<use xlink:href="img/icons/icons.svg#twitter"></use>
 								</svg>
 							</a>
 						</li>
@@ -593,6 +602,56 @@
 			</div>
 			<img src="img/footer-bg.svg" alt="footer-bg" class="footer__bg">
 		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">
+				<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+					<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+				</svg>
+			</button>
+			<div class="popup__text">
+				Popup content
+			</div>
+		</div>
+	</div>
+</div> -->
+	<div id="categories" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">
+					<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+						<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+					</svg>
+				</button>
+				<div class="popup-categories">
+					<a href="" class="popup-categories__link ">
+						All
+					</a>
+					<a href="" class="popup-categories__link ">
+						Engineering
+					</a>
+					<a href="" class="popup-categories__link ">
+						Use Cases
+					</a>
+					<a href="" class="popup-categories__link ">
+						Distributed Algorithm
+					</a>
+					<a href="" class="popup-categories__link ">
+						Updates
+					</a>
+					<a href="" class="popup-categories__link ">
+						Data Analytics
+					</a>
+					<a href="" class="popup-categories__link ">
+						Data Analytics
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>
