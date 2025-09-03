@@ -339,6 +339,95 @@ body::after {
   -o-object-fit: contain;
   object-fit: contain
 }
+.cookie {
+  position: fixed;
+  z-index: 10;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  box-shadow: 0 0 2.5rem 0 rgba(0,0,0,.14);
+  background-color: var(--white);
+  border-radius: 1.125rem;
+  padding: 1.5rem 1.5rem 1rem;
+  transition: all .5s ease
+}
+.cookie>:not(:last-child) {
+  margin-bottom: 1.5rem
+}
+.cookie.hidden {
+  -webkit-transform: translateX(-140%);
+  transform: translateX(-140%);
+  opacity: 0;
+  pointer-events: none
+}
+.cookie__text {
+  font-size: .9375rem
+}
+.info {
+  position: absolute;
+  width: 100%;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  z-index: 3;
+  top: 0;
+  left: 0
+}
+.info--fade-out .info__container {
+  height: 0;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%)
+}
+.info__container {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  max-width: 120rem;
+  padding: .625rem 1rem;
+  background: linear-gradient(225deg,#f3e9ce 0,#fff 41.85%,#f7f6f3 55.35%,#eaf6f9 67.93%,#f7f6f3 77.92%);
+  min-height: 2.75rem;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  transition: all .3s ease
+}
+.info__content {
+  font-weight: 700;
+  flex: 1 1 auto;
+  font-size: .875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .5rem
+}
+.info__content span {
+  font-weight: 500
+}
+.info__content a {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: MonaSans,sans-serif;
+  font-weight: 600;
+  font-size: .8125rem;
+  text-align: center;
+  color: var(--satin-gold)
+}
+.info__content a svg {
+  width: .4375rem;
+  height: .75rem
+}
+.info__close {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center
+}
+.info__close svg {
+  width: .75rem;
+  height: .75rem;
+  color: var(--black)
+}
 .category {
   border-radius: 3.125rem;
   padding: .5rem 1rem;
@@ -748,15 +837,11 @@ h6 {
   color: var(--grey2)
 }
 .header {
-  position: absolute;
-  width: 100%;
-  height: -moz-fit-content;
-  height: -webkit-fit-content;
-  height: fit-content;
-  top: 0;
-  z-index: 10;
-  left: 0;
-  color: var(--white)
+  color: var(--white);
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2
 }
 .header--white {
   color: var(--black);
@@ -775,6 +860,7 @@ h6 {
 }
 .header__container {
   display: flex;
+  width: 100%;
   align-items: center
 }
 .header__logo img {
@@ -785,6 +871,9 @@ h6 {
 }
 .header__logo img:last-of-type {
   display: none
+}
+.info--fade-out+.header .menu__body::before {
+  height: 5.625rem
 }
 .menu {
   position: relative;
@@ -2143,6 +2232,14 @@ button.swiper-pagination-bullet {
   [class*=__container] {
     padding-inline: 2rem
   }
+  .cookie {
+    bottom: 2rem;
+    left: 2rem;
+    max-width: 25rem
+  }
+  .cookie__button {
+    margin-left: auto
+  }
   .color-section__decor {
     -webkit-transform: translateY(-40%) translateX(-50%);
     transform: translateY(-40%) translateX(-50%)
@@ -2213,6 +2310,10 @@ button.swiper-pagination-bullet {
   html {
     scroll-padding-top: 3.75rem
   }
+  .info__content {
+    justify-content: center;
+    align-items: center
+  }
   .title-2,
   h2 {
     font-size: 3rem
@@ -2228,8 +2329,11 @@ button.swiper-pagination-bullet {
     padding: 2rem 4.5rem 3.5rem 2rem
   }
   .header {
-    padding-block: 3rem;
-    min-height: 9.375rem
+    padding-block: 3rem
+  }
+  .header:not(.header--white) {
+    min-height: 9.25rem;
+    margin-bottom: -9.75rem
   }
   .header__logo {
     width: 10.25rem;
@@ -2677,8 +2781,11 @@ button.swiper-pagination-bullet {
     flex: 1 1 auto
   }
   .header {
-    padding-block: 1.5rem;
-    min-height: 5.625rem
+    padding-block: 1.5rem
+  }
+  .header:not(.header--white) {
+    min-height: 5.625rem;
+    margin-bottom: -5.625rem
   }
   .header__logo {
     width: 8.75rem;
@@ -2773,6 +2880,17 @@ button.swiper-pagination-bullet {
   [class*=__container] {
     padding-inline: 1rem
   }
+  .cookie {
+    bottom: 1rem;
+    inset-inline: 1rem;
+    width: calc(100% - 32px)
+  }
+  .cookie__button {
+    width: 100%
+  }
+  .info__content a {
+    flex: 1 1 auto
+  }
   .color-section--white {
     padding-block: 7.5rem 3.75rem
   }
@@ -2794,13 +2912,13 @@ button.swiper-pagination-bullet {
     border-bottom-left-radius: 0;
     width: 100%;
     height: 100%;
-    padding: 6.9375rem 1rem
+    padding: 6.9375rem 1rem 1.875rem
   }
   .menu__body::before {
     content: "";
     position: fixed;
     width: 100%;
-    height: 5.625rem;
+    height: 9.375rem;
     top: 0;
     right: -100%;
     z-index: 2;

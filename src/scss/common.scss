@@ -1,3 +1,128 @@
+.cookie {
+	position: fixed;
+	z-index: 10;
+	height: fit-content;
+	box-shadow: 0 0 toRem(40) 0 rgba(0, 0, 0, 0.14);
+	background-color: var(--white);
+	border-radius: toRem(18);
+	padding: toRem(24) toRem(24) toRem(16);
+
+	transition: all 0.5s ease;
+
+	& > :not(:last-child) {
+		margin-bottom: toRem(24);
+	}
+	@media (min-width: $mobileSmall) {
+		bottom: toRem(32);
+		left: toRem(32);
+		max-width: toRem(400);
+	}
+	@media (max-width: $mobileSmall) {
+		bottom: toRem(16);
+		inset-inline: toRem(16);
+		width: calc(100% - 32px);
+	}
+
+	&.hidden {
+		transform: translateX(-140%);
+		opacity: 0;
+		pointer-events: none;
+		// display: none;
+	}
+	// .cookie__text
+	&__text {
+		font-size: toRem(15);
+	}
+	// .cookie__button
+	&__button {
+		@media (min-width: $mobileSmall) {
+			margin-left: auto;
+		}
+		@media (max-width: $mobileSmall) {
+			width: 100%;
+		}
+	}
+}
+
+.info {
+	position: absolute;
+	width: 100%;
+	height: fit-content;
+	z-index: 3;
+	top: 0;
+	left: 0;
+
+	// info--show
+	&--show {
+	}
+	// .info.info--fade-out
+	&--fade-out {
+		.info__container {
+			height: 0;
+			transform: translateY(-100%);
+		}
+	}
+	// .info__container
+	&__container {
+		display: flex;
+		align-items: center;
+		gap: toRem(8);
+		max-width: toRem(1920);
+		padding: toRem(10) toRem(16);
+		background: linear-gradient(225deg, #f3e9ce 0%, #fff 41.85%, #f7f6f3 55.35%, #eaf6f9 67.93%, #f7f6f3 77.92%);
+		min-height: toRem(44);
+		height: fit-content;
+		transition: all 0.3s ease;
+	}
+	// .info__content
+	&__content {
+		font-weight: 700;
+		flex: 1 1 auto;
+		font-size: toRem(14);
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(4) toRem(8);
+		@media (min-width: $mobile) {
+			justify-content: center;
+			align-items: center;
+		}
+
+		span {
+			font-weight: 500;
+		}
+		& a {
+			display: flex;
+			align-items: center;
+			gap: toRem(8);
+			font-family: $fontFamilyMonaSans;
+			font-weight: 600;
+			font-size: toRem(13);
+			text-align: center;
+			color: var(--satin-gold);
+			@media (max-width: $mobileSmall) {
+				flex: 1 1 auto;
+			}
+			& svg {
+				width: toRem(7);
+				height: toRem(12);
+			}
+		}
+	}
+	// .info__close
+	&__close {
+		flex-shrink: 0;
+		width: toRem(24);
+		height: toRem(24);
+		display: grid;
+		place-items: center;
+		& svg {
+			width: toRem(12);
+			height: toRem(12);
+			color: var(--black);
+		}
+	}
+}
+
 .category {
 	border-radius: toRem(50);
 	padding: toRem(8) toRem(16);

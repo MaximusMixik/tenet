@@ -1,25 +1,37 @@
 .header {
-	position: absolute;
-	width: 100%;
-	height: fit-content;
-	top: 0;
-	z-index: 10;
-	left: 0;
+	// position: absolute;
+	// width: 100%;
+	// height: fit-content;
+	// top: 0;
+	// z-index: 10;
+	// left: 0;
 	color: var(--white);
-
+	display: flex;
+	align-items: flex-end;
+	position: relative;
+	z-index: 2;
 	@media (min-width: $mobile) {
 		padding-block: toRem(48);
-		min-height: toRem(150);
 	}
 	@media (max-width: $mobile) {
 		padding-block: toRem(24);
-		min-height: toRem(90);
+	}
+	&:not(.header--white) {
+		@media (min-width: $mobile) {
+			min-height: toRem(148);
+			margin-bottom: toRem(-156);
+		}
+		@media (max-width: $mobile) {
+			min-height: toRem(90);
+			margin-bottom: toRem(-90);
+		}
 	}
 
 	// .header--white
 	&--white {
 		color: var(--black);
 		position: static;
+
 		.header__logo img:last-of-type {
 			display: block;
 		}
@@ -39,6 +51,7 @@
 	// .header__container
 	&__container {
 		display: flex;
+		width: 100%;
 		align-items: center;
 		@media (min-width: $tablet) {
 			gap: toRem(170);
@@ -95,6 +108,12 @@
 		@media (min-width: $tablet) {
 			flex: 1 1 auto;
 		}
+	}
+}
+
+.info--fade-out + .header {
+	.menu__body::before {
+		height: toRem(90);
 	}
 }
 .menu {
@@ -156,13 +175,14 @@
 			border-bottom-left-radius: 0;
 			width: 100%;
 			height: 100%;
-			padding: toRem(111) toRem(16);
+			padding: toRem(111) toRem(16) toRem(30);
 
 			&::before {
 				content: "";
 				position: fixed;
 				width: 100%;
-				height: toRem(90);
+				// height: toRem(90);
+				height: toRem(150);
 				top: 0;
 				right: -100%;
 				z-index: 2;
@@ -274,7 +294,6 @@
 		}
 	}
 }
-
 
 //Burger Icon
 .icon-menu {
