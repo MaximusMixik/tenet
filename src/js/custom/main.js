@@ -6,16 +6,16 @@ import ArticleNavigation from "./article-navigation.js";
 
 // import Dropdown from '../libs/dropdown.js';
 
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-gsap.registerPlugin(ScrollTrigger);
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+// gsap.registerPlugin(ScrollTrigger);
 
-// SplitType
-import SplitType from "split-type";
+// // SplitType
+// import SplitType from "split-type";
 
-// Lenis
-import Lenis from "@studio-freight/lenis";
-// import Lenis from 'lenis'
+// // Lenis
+// import Lenis from "@studio-freight/lenis";
+// // import Lenis from 'lenis'
 
 function setCookie(name, value, days) {
 	const date = new Date();
@@ -186,49 +186,51 @@ window.onload = () => {
 	// // }
 
 	// // requestAnimationFrame(raf)
-	gsap.registerPlugin(ScrollTrigger)
 
-	const splitTypes = document.querySelectorAll('.reveal-type')
+	//! need add animations
+	// gsap.registerPlugin(ScrollTrigger)
 
-	splitTypes.forEach((char, i) => {
+	// const splitTypes = document.querySelectorAll('.reveal-type')
 
-		const bg = char.dataset.bgColor
-		const fg = char.dataset.fgColor
+	// splitTypes.forEach((char, i) => {
 
-		const text = new SplitType(char, { types: 'chars' })
+	// 	const bg = char.dataset.bgColor
+	// 	const fg = char.dataset.fgColor
 
-		gsap.fromTo(text.chars,
-			{
-				color: bg,
-			},
-			{
-				color: fg,
-				duration: 0.3,
-				stagger: 0.02,
-				scrollTrigger: {
-					trigger: char,
-					start: 'top 80%',
-					end: 'top 20%',
-					scrub: true,
-					markers: false,
-					toggleActions: 'play play reverse reverse'
-				}
-			})
-	})
+	// 	const text = new SplitType(char, { types: 'chars' })
+
+	// 	gsap.fromTo(text.chars,
+	// 		{
+	// 			color: bg,
+	// 		},
+	// 		{
+	// 			color: fg,
+	// 			duration: 0.3,
+	// 			stagger: 0.02,
+	// 			scrollTrigger: {
+	// 				trigger: char,
+	// 				start: 'top 80%',
+	// 				end: 'top 20%',
+	// 				scrub: true,
+	// 				markers: false,
+	// 				toggleActions: 'play play reverse reverse'
+	// 			}
+	// 		})
+	// })
 
 
-	const lenis = new Lenis()
+	// const lenis = new Lenis()
 
-	lenis.on('scroll', (e) => {
-		console.log(e)
-	})
+	// lenis.on('scroll', (e) => {
+	// 	console.log(e)
+	// })
 
-	function raf(time) {
-		lenis.raf(time)
-		requestAnimationFrame(raf)
-	}
+	// function raf(time) {
+	// 	lenis.raf(time)
+	// 	requestAnimationFrame(raf)
+	// }
 
-	requestAnimationFrame(raf)
+	// requestAnimationFrame(raf)
 
 
 }
