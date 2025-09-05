@@ -41,9 +41,8 @@
 			left: 0;
 		}
 	}
-	// .blog-section__title
+	// 
 	&__title {
-		@include adaptiveValue("font-size", 64, 54);
 	}
 	// .blog-section__categories
 	&__categories {

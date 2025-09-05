@@ -33,7 +33,7 @@
 		position: static;
 
 		.header__logo img:last-of-type {
-			display: block;
+			display: block !important;
 		}
 
 		.menu__button {

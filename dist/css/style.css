@@ -339,6 +339,67 @@ body::after {
   -o-object-fit: contain;
   object-fit: contain
 }
+.title-1,
+.title-2,
+.title-3,
+.title-4,
+.title-5,
+.title-6,
+.title-display,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: MonaSans,sans-serif;
+  font-weight: 600
+}
+.title-1 span,
+.title-2 span,
+.title-3 span,
+.title-4 span,
+.title-5 span,
+.title-6 span,
+.title-display span,
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  color: var(--satin-gold)
+}
+.title-display {
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.33
+}
+.title-1,
+h1 {
+  line-height: 1
+}
+.title-2,
+h2 {
+  line-height: 1
+}
+.title-3,
+h3 {
+  line-height: 1;
+  font-size: 2.125rem
+}
+.title-4,
+h4 {
+  font-size: 1.625rem
+}
+.title-5,
+h5 {
+  font-size: 1.25rem
+}
+.title-6,
+h6 {
+  font-size: 1rem
+}
 .cookie {
   position: fixed;
   z-index: 10;
@@ -510,79 +571,6 @@ body::after {
   font-family: MonaSans,sans-serif;
   font-size: 1rem
 }
-.title-1,
-.title-2,
-.title-3,
-.title-4,
-.title-5,
-.title-6,
-.title-display,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: MonaSans,sans-serif
-}
-.title-1 span,
-.title-2 span,
-.title-3 span,
-.title-4 span,
-.title-5 span,
-.title-6 span,
-.title-display span,
-h1 span,
-h2 span,
-h3 span,
-h4 span,
-h5 span,
-h6 span {
-  color: var(--satin-gold)
-}
-.title-display {
-  font-weight: 500;
-  text-align: center;
-  line-height: 1.33
-}
-.title-1,
-.title-2,
-.title-3,
-.title-4,
-.title-5,
-.title-6,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600
-}
-.title-1,
-h1 {
-  font-size: 4rem;
-  line-height: 1
-}
-.title-2,
-h2 {
-  line-height: 1
-}
-.title-3,
-h3 {
-  line-height: 1;
-  font-size: 2.125rem
-}
-.title-4,
-.title-5,
-h4,
-h5 {
-  font-size: 1.25rem
-}
-.title-6,
-h6 {
-  font-size: 1rem
-}
 .color-section--white {
   background-color: var(--white)
 }
@@ -752,9 +740,6 @@ h6 {
 .content span {
   color: var(--satin-gold)
 }
-.content h4 {
-  font-size: 1.625rem
-}
 .content p {
   margin-block: 2rem
 }
@@ -848,7 +833,7 @@ h6 {
   position: static
 }
 .header--white .header__logo img:last-of-type {
-  display: block
+  display: block!important
 }
 .header--white .menu__button {
   color: var(--black)
@@ -1011,23 +996,22 @@ h6 {
 }
 .menu-about {
   backdrop-filter: blur(.5rem);
-  border-radius: 3.125rem;
   padding: 1rem;
-  max-width: 63.9375rem;
   margin-inline: auto;
   background-color: rgba(255,255,255,.6);
   position: sticky;
   z-index: 10;
-  top: 0
+  top: 1.5rem
 }
 .menu-about__list {
-  border: .125rem solid #f2ead4;
-  border-radius: 3.125rem;
-  padding: .375rem .5rem;
-  min-height: 3.75rem;
   display: flex;
   flex-wrap: nowrap;
-  gap: .5rem
+  justify-content: center;
+  gap: .5rem;
+  overflow-x: auto
+}
+.menu-about__list>* {
+  flex-shrink: 0
 }
 .menu-about__link {
   font-family: MonaSans,sans-serif;
@@ -1058,22 +1042,17 @@ h6 {
 .menu-about__link.active svg path {
   fill: var(--white)
 }
-.section-about {
-  padding-block: 12.5rem
-}
-.section-about:first-child {
-  padding-top: 2.5rem;
-  padding-bottom: 12.5rem
+.menu-about+.section-about {
+  padding-top: 2.5rem
 }
 .section-about__body {
   position: relative;
-  display: grid;
-  grid-template-columns: 18.375rem 1fr;
-  gap: 4.875rem
+  gap: 2rem 4.875rem
 }
 .section-about__bg {
   position: absolute;
   width: 141.375rem;
+  max-width: none;
   height: auto;
   top: 0;
   left: 50%;
@@ -1087,23 +1066,10 @@ h6 {
 .section-about__description {
   font-size: 1.0625rem
 }
-.section-about__list {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: .5rem
-}
-.section-about__list--accent>:nth-child(3n) {
-  grid-column: span 2
-}
-.section-about__list--accent>:nth-child(3n) .article-about__text,
-.section-about__list--accent>:nth-child(3n) .article-about__title {
-  max-width: 32.5rem
-}
 .article-about {
   position: relative;
   border-radius: .75rem;
   overflow: hidden;
-  padding: 2rem 4.5rem 3.5rem 2rem;
   border: .1875rem solid transparent;
   height: 100%;
   transition: border-color .5s ease
@@ -1587,6 +1553,25 @@ h6 {
   border-radius: .75rem;
   padding: .375rem .625rem;
   min-height: 1.9375rem
+}
+.test section {
+  height: 100vh;
+  padding: 0 clamp(4rem,12vw,20rem);
+  display: grid;
+  place-content: center
+}
+.test section p {
+  font-size: clamp(2rem,5vw,8rem)
+}
+.test section:nth-of-type(1) {
+  border-bottom: 1px solid #000
+}
+.test section:nth-of-type(3) {
+  background: #ff0
+}
+.test section:nth-of-type(4) {
+  background: #1d1d1d;
+  color: #fff
 }
 .swiper {
   overflow: hidden
@@ -2244,6 +2229,9 @@ button.swiper-pagination-bullet {
     -webkit-transform: translateY(-40%) translateX(-50%);
     transform: translateY(-40%) translateX(-50%)
   }
+  .article-about {
+    padding: 2rem 4.5rem 3.5rem 2rem
+  }
   .services-preview__navigation {
     margin-top: 1.5rem
   }
@@ -2302,21 +2290,33 @@ button.swiper-pagination-bullet {
   .navigation__scrollbar {
     display: none
   }
+  .section-about__wrapper {
+    display: grid!important;
+    grid-template-columns: repeat(2,1fr)!important;
+    gap: .5rem
+  }
+  .section-about__wrapper--accent>:nth-child(3n) {
+    grid-column: span 2!important
+  }
+  .section-about__wrapper--accent>:nth-child(3n) .article-about__text,
+  .section-about__wrapper--accent>:nth-child(3n) .article-about__title {
+    max-width: 32.5rem!important
+  }
   .cta__content {
     max-width: 75%
   }
 }
 @media (min-width:48.06125em) {
   html {
-    scroll-padding-top: 3.75rem
-  }
-  .info__content {
-    justify-content: center;
-    align-items: center
+    scroll-padding-top: 7.5rem
   }
   .title-2,
   h2 {
     font-size: 3rem
+  }
+  .info__content {
+    justify-content: center;
+    align-items: center
   }
   .color-section--white {
     padding-block: 15rem 5rem
@@ -2451,6 +2451,13 @@ button.swiper-pagination-bullet {
   .footer {
     padding-block: 6.25rem 5rem
   }
+  .section-about {
+    padding-block: 12.5rem
+  }
+  .section-about__body {
+    display: grid;
+    grid-template-columns: 18.375rem 1fr
+  }
   .cta__container {
     padding: 7.5rem 9rem
   }
@@ -2569,7 +2576,7 @@ button.swiper-pagination-bullet {
   h1 {
     font-size: 4rem
   }
-  .content h1 {
+  .hero__title {
     font-size: 4rem
   }
   .services-preview {
@@ -2578,17 +2585,33 @@ button.swiper-pagination-bullet {
   .services-preview {
     padding-bottom: 10rem
   }
-  .about-intro__title {
-    font-size: 4rem
-  }
-  .blog-section__title {
-    font-size: 4rem
-  }
   .not-found__image {
     width: 41.0625rem
   }
   .not-found__image {
     height: 13.75rem
+  }
+}
+@media (min-width:64em) {
+  .menu-about {
+    border-radius: 3.125rem;
+    max-width: 63.9375rem;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content
+  }
+  .menu-about__list {
+    border: .125rem solid #f2ead4;
+    border-radius: 3.125rem;
+    padding: .375rem .5rem;
+    min-height: 3.75rem
+  }
+}
+@media (max-width:64em) {
+  .menu-about__list {
+    padding-bottom: .375rem;
+    padding-inline: 2rem;
+    margin-inline: -4rem
   }
 }
 @media (max-width:61.99875em) {
@@ -2715,6 +2738,13 @@ button.swiper-pagination-bullet {
   .footer {
     padding-block: 6.25rem 2.5rem
   }
+  .section-about {
+    padding-block: 7.5rem
+  }
+  .section-about__body {
+    display: flex;
+    flex-direction: column
+  }
   .about-intro__content {
     max-width: 29rem
   }
@@ -2761,7 +2791,7 @@ button.swiper-pagination-bullet {
 }
 @media (max-width:48.06125em) {
   html {
-    scroll-padding-top: 2.5rem
+    scroll-padding-top: 6.25rem
   }
   .title-2,
   h2 {
@@ -2868,6 +2898,12 @@ button.swiper-pagination-bullet {
   .bottom-footer__actions {
     flex-direction: column-reverse
   }
+  .section-about__navigation {
+    padding-top: 2rem
+  }
+  .section-about__navigation .navigation__scrollbar {
+    background-color: var(--grey4)!important
+  }
   .last-cases__wrapper {
     display: grid!important;
     gap: 2.5rem
@@ -2929,6 +2965,10 @@ button.swiper-pagination-bullet {
   .menu-open .menu__body::before {
     right: 0;
     opacity: 1
+  }
+  .article-about {
+    padding: 2rem;
+    min-height: 18rem
   }
   .services-preview__button {
     margin-top: 2rem
@@ -3015,9 +3055,9 @@ button.swiper-pagination-bullet {
   }
   .title-1,
   h1 {
-    font-size: 2.625rem
+    font-size: 3.375rem
   }
-  .content h1 {
+  .hero__title {
     font-size: 2.625rem
   }
   .services-preview {
@@ -3025,12 +3065,6 @@ button.swiper-pagination-bullet {
   }
   .services-preview {
     padding-bottom: 5rem
-  }
-  .about-intro__title {
-    font-size: 3.375rem
-  }
-  .blog-section__title {
-    font-size: 3.375rem
   }
   .not-found__image {
     width: 20.5rem
@@ -3045,9 +3079,9 @@ button.swiper-pagination-bullet {
   }
   .title-1,
   h1 {
-    font-size: clamp(2.625rem ,2.0725446429rem + 2.4553571429vw ,4rem)
+    font-size: clamp(3.375rem ,3.1238839286rem + 1.1160714286vw ,4rem)
   }
-  .content h1 {
+  .hero__title {
     font-size: clamp(2.625rem ,2.0725446429rem + 2.4553571429vw ,4rem)
   }
   .services-preview {
@@ -3055,12 +3089,6 @@ button.swiper-pagination-bullet {
   }
   .services-preview {
     padding-bottom: clamp(5rem ,2.9910714286rem + 8.9285714286vw ,10rem)
-  }
-  .about-intro__title {
-    font-size: clamp(3.375rem ,3.1238839286rem + 1.1160714286vw ,4rem)
-  }
-  .blog-section__title {
-    font-size: clamp(3.375rem ,3.1238839286rem + 1.1160714286vw ,4rem)
   }
   .not-found__image {
     width: clamp(20.5rem ,12.23828125rem + 36.71875vw ,41.0625rem)

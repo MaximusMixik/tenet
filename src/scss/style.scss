@@ -67,10 +67,10 @@ html {
 	scroll-behavior: smooth;
 	// scroll-margin-top: toRem(-90);
 	@media (min-width: $mobile) {
-		scroll-padding-top: toRem(60);
+		scroll-padding-top: toRem(120);
 	}
 	@media (max-width: $mobile) {
-		scroll-padding-top: toRem(40);
+		scroll-padding-top: toRem(100);
 	}
 }
 // Стилі тега BODY
@@ -185,3 +185,30 @@ body {
 @import "pages/blog";
 @import "pages/not-found";
 @import "pages/article";
+
+// test
+.test {
+	section {
+		height: 100vh;
+		padding: 0 clamp(4rem, 12vw, 20rem);
+		display: grid;
+		place-content: center;
+
+		p {
+			font-size: clamp(2rem, 5vw, 8rem);
+		}
+
+		&:nth-of-type(1) {
+			border-bottom: 1px solid black;
+		}
+
+		&:nth-of-type(3) {
+			background: #ffff00;
+		}
+
+		&:nth-of-type(4) {
+			background: rgb(29, 29, 29);
+			color: white;
+		}
+	}
+}

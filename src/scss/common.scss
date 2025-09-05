@@ -1,3 +1,68 @@
+.title-display,
+h1,
+.title-1,
+h2,
+.title-2,
+.title-3,
+h3,
+.title-4,
+h4,
+.title-5,
+h5,
+.title-6,
+h6 {
+	font-family: $fontFamilyMonaSans;
+	font-weight: 600;
+
+	& span {
+		color: var(--satin-gold);
+	}
+}
+
+.title-display {
+	font-weight: 500;
+	text-align: center;
+	line-height: 1.33;
+	@include adaptiveValue("font-size", 110, 64);
+}
+
+h1,
+.title-1 {
+	line-height: 1;
+	// @include adaptiveValue("font-size", 64, 42);
+	@include adaptiveValue("font-size", 64, 54);
+}
+h2,
+.title-2 {
+	line-height: 1;
+	@media (min-width: $mobile) {
+		font-size: toRem(48);
+	}
+	@media (max-width: $mobile) {
+		font-size: toRem(42);
+	}
+}
+.title-3,
+h3 {
+	line-height: 1;
+	font-size: toRem(34);
+}
+
+.title-4,
+h4 {
+	font-size: toRem(26);
+}
+
+.title-5,
+h5 {
+	font-size: toRem(20);
+}
+
+.title-6,
+h6 {
+	font-size: toRem(16);
+}
+
 .cookie {
 	position: fixed;
 	z-index: 10;
@@ -253,84 +318,6 @@
 		}
 	}
 }
-.title-display,
-h1,
-.title-1,
-h2,
-.title-2,
-.title-3,
-h3,
-.title-4,
-h4,
-.title-5,
-h5,
-.title-6,
-h6 {
-	font-family: $fontFamilyMonaSans;
-	& span {
-		color: var(--satin-gold);
-	}
-}
-
-.title-display {
-	font-weight: 500;
-	text-align: center;
-	line-height: 1.33;
-	@include adaptiveValue("font-size", 110, 64);
-}
-
-h1,
-.title-1,
-h2,
-.title-2,
-.title-3,
-h3,
-.title-4,
-h4,
-.title-5,
-h5,
-.title-6,
-h6 {
-	font-weight: 600;
-}
-h1,
-.title-1 {
-	font-size: toRem(64);
-	line-height: 1;
-	@include adaptiveValue("font-size", 64, 42);
-}
-h2,
-.title-2 {
-	line-height: 1;
-	@media (min-width: $mobile) {
-		font-size: toRem(48);
-	}
-	@media (max-width: $mobile) {
-		font-size: toRem(42);
-	}
-}
-.title-3,
-h3 {
-	line-height: 1;
-	font-size: toRem(34);
-}
-
-// .title-4,
-// h4{
-// font-size: toRem(26);
-// }
-
-.title-4,
-h4,
-.title-5,
-h5 {
-	font-size: toRem(20);
-}
-
-.title-6,
-h6 {
-	font-size: toRem(16);
-}
 
 .color-section {
 	// .color-section--white
@@ -437,6 +424,10 @@ h6 {
 	}
 	// .color-section__container
 	&__container {
+	}
+
+	// color-section__title-display
+	&__title-display {
 	}
 
 	// color-section__intro
@@ -805,13 +796,6 @@ h6 {
 	a {
 		color: var(--satin-gold);
 	}
-	h1 {
-		@include adaptiveValue("font-size", 64, 42);
-	}
-	h4 {
-		font-size: toRem(26);
-	}
-
 	p {
 		margin-block: toRem(32);
 	}

@@ -89,11 +89,13 @@
 		"webpack-stream": "latest"
 	},
 	"dependencies": {
-		"gsap": "^3.12.7",
+		"@studio-freight/lenis": "^1.0.42",
+		"gsap": "^3.13.0",
 		"gulp-cheerio": "^1.0.0",
 		"isotope-layout": "^3.0.6",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"simplebar": "latest"
+		"simplebar": "latest",
+		"split-type": "^0.3.4"
 	}
 }

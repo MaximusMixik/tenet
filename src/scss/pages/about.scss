@@ -78,8 +78,6 @@
 	}
 	// .about-intro__title
 	&__title {
-		@include adaptiveValue("font-size", 64, 54);
-
 		&:not(:last-child) {
 			margin-bottom: toRem(40);
 		}

@@ -2,11 +2,20 @@
 // import "../files/gsap-animations.js";
 
 // import "../custom/media-action.js";
-import ArticleNavigation from "../custom/article-navigation.js";
+import ArticleNavigation from "./article-navigation.js";
 
 // import Dropdown from '../libs/dropdown.js';
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+gsap.registerPlugin(ScrollTrigger);
 
+// SplitType
+import SplitType from "split-type";
+
+// Lenis
+import Lenis from "@studio-freight/lenis";
+// import Lenis from 'lenis'
 
 function setCookie(name, value, days) {
 	const date = new Date();
@@ -52,6 +61,8 @@ function topActions() {
 	// При загрузке страницы
 	if (sessionStorage.getItem('infoBlockState') === 'hidden') {
 		infoBlock.style.display = 'none';
+		infoBlock.classList.add('info--fade-out');
+
 		return
 	}
 
@@ -102,19 +113,122 @@ window.onload = () => {
 	}
 
 
-	const sectionsLists = document.querySelectorAll('.section-about__list')
+	const sectionsLists = document.querySelectorAll('.section-about__wrapper')
 
 	if (!sectionsLists.length) return
 
 	sectionsLists.forEach(list => {
-		const items = list.querySelectorAll('.section-about__item')
+		const items = list.querySelectorAll('.section-about__slide')
 		if (items.length < 5) return
-		list.classList.add('section-about__list--accent')
+		list.classList.add('section-about__wrapper--accent')
 	});
 
 	// dropdowns
 	// document.querySelectorAll('[data-js-dropdown=""]').forEach((element) => {
 	// 	new Dropdown(element);
 	// });
+
+
+	// gsap animations
+	// GSAP + ScrollTrigger
+
+
+	// ---- твой код ----
+	// const splitTypes = document.querySelectorAll('.reveal-type')
+
+	// splitTypes.forEach((char) => {
+	// 	const bg = char.dataset.bgColor
+	// 	const fg = char.dataset.fgColor
+
+	// 	const text = new SplitType(char, { types: 'chars' })
+
+	// 	gsap.fromTo(text.chars,
+	// 		{ color: bg },
+	// 		{
+	// 			color: fg,
+	// 			duration: 0.3,
+	// 			stagger: 0.02,
+	// 			scrollTrigger: {
+	// 				trigger: char,
+	// 				start: 'top 80%',
+	// 				end: 'top 20%',
+	// 				scrub: true,
+	// 				markers: false,
+	// 				toggleActions: 'play play reverse reverse'
+	// 			}
+	// 		}
+	// 	)
+	// })
+
+	//!! draft
+	// // Initialize Lenis
+	// // Initialize a new Lenis instance for smooth scrolling
+	// const lenis = new Lenis();
+	// // {easing:()=>()}
+
+	// // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+	// lenis.on('scroll', ScrollTrigger.update);
+
+	// // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+	// // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+	// gsap.ticker.add((time) => {
+	// 	lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+	// });
+
+	// // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+	// gsap.ticker.lagSmoothing(0);
+	// // // Lenis init
+	// // const lenis = new Lenis()
+
+	// // function raf(time) {
+	// // 	lenis.raf(time)
+	// // 	requestAnimationFrame(raf)
+	// // }
+
+	// // requestAnimationFrame(raf)
+	gsap.registerPlugin(ScrollTrigger)
+
+	const splitTypes = document.querySelectorAll('.reveal-type')
+
+	splitTypes.forEach((char, i) => {
+
+		const bg = char.dataset.bgColor
+		const fg = char.dataset.fgColor
+
+		const text = new SplitType(char, { types: 'chars' })
+
+		gsap.fromTo(text.chars,
+			{
+				color: bg,
+			},
+			{
+				color: fg,
+				duration: 0.3,
+				stagger: 0.02,
+				scrollTrigger: {
+					trigger: char,
+					start: 'top 80%',
+					end: 'top 20%',
+					scrub: true,
+					markers: false,
+					toggleActions: 'play play reverse reverse'
+				}
+			})
+	})
+
+
+	const lenis = new Lenis()
+
+	lenis.on('scroll', (e) => {
+		console.log(e)
+	})
+
+	function raf(time) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
+	}
+
+	requestAnimationFrame(raf)
+
 
 }
