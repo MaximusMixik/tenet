@@ -202,16 +202,33 @@ h6 {
 	color: var(--black);
 }
 .badge {
-	font-weight: 600;
-	font-size: toRem(16);
-	color: var(--badge-txt);
 	border-radius: toRem(50);
 	padding: toRem(14) toRem(22);
 	min-height: toRem(47);
+	overflow: hidden;
 	margin-inline: auto;
 	max-width: fit-content;
 	background-color: var(--flax-hover);
-	font-family: $fontFamilyMonaSans;
+	position: relative;
+
+	// .badge__bg
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		inset: 0;
+		object-fit: cover;
+		z-index: 1;
+	}
+	// .badge__text
+	&__text {
+		font-family: $fontFamilyMonaSans;
+		font-weight: 600;
+		font-size: toRem(16);
+		color: var(--badge-txt);
+		position: relative;
+		z-index: 2;
+	}
 }
 
 .socials {
@@ -322,7 +339,7 @@ h6 {
 .color-section {
 	// .color-section--white
 	&--white {
-		background-color: var(--white);
+		// background-color: var(--white);
 		@media (min-width: $mobile) {
 			padding-block: toRem(240) toRem(80);
 		}
@@ -338,9 +355,6 @@ h6 {
 	}
 	&--yellow,
 	&--black {
-		// &:not(:last-child) {
-		// 	margin-bottom: toRem(200);
-		// }
 		@media (min-width: $mobile) {
 			padding-block: toRem(280);
 		}
@@ -350,18 +364,13 @@ h6 {
 	}
 	// .color-section--yellow
 	&--yellow {
-		background-color: #ebe9e2;
-
-		// ! from
-		// color: #dcd8cc;
+		// background-color: #ebe9e2;
 	}
 	// .color-section--black
 	&--black {
-		background-color: #111718;
-		color: var(--white);
+		// background-color: #111718;
+		// color: var(--white);
 
-		// ! from
-		// color: #233033;
 		.color-section-slide__text,
 		.color-section__text {
 			font-weight: 500;

@@ -22,8 +22,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250905182051">
-	<script src="js/app.min.js?_v=20250905182051" defer></script>
+	<link rel="stylesheet" href="css/style.min.css?_v=20250905193521">
+	<script src="js/app.min.js?_v=20250905193521" defer></script>
 </head>
 
 <body>
@@ -155,7 +155,29 @@
 				</div>
 				<img class="hero__bg" src="img/home/hero/bg.webp" alt="background">
 			</section>
+			<!-- <div class="test">
+	<section>
+		<h1>Scroll down for awesomeness.</h1>
+	</section>
 
+	<section>
+		<p class="reveal-type" data-bg-color="#cccccc" data-fg-color="teal">Systematically ushering in a new
+			generation
+			of amazing designers from across the globe.</p>
+	</section>
+
+	<section>
+		<p class="reveal-type" data-bg-color="#b6b600" data-fg-color="black">Modern UI designers will expand their
+			skillsets to include frontend.</p>
+	</section>
+
+	<section>
+		<p class="reveal-type" data-bg-color="#353535" data-fg-color="red">The web isn't static anymore, interactivity
+			and motion now dominate.</p>
+	</section>
+
+	<section></section>
+</div> -->
 			<!-- TODO  add animation, add active navigation  -->
 			<!-- узнать за сетку( последний елемент не по паттерну, может сделать через модификатор?) -->
 
@@ -163,9 +185,10 @@
 				<div class="color-section__container">
 					<div class="color-section__intro">
 						<div class="color-section__badge badge">
-							Core Features
+							<span class="badge__text">Core Features</span>
+							<img src="img/badge-bg.svg" alt="background" class="badge__bg">
 						</div>
-						<h2 class="color-section__title-display title-display" id="core">
+						<h2 class="color-section__title-display title-display " data-fg-color="black" data-bg-color="#ebe9e2" id="core">
 							Key capabilities that make our product unique
 						</h2>
 					</div>
@@ -690,20 +713,19 @@
 					</div>
 				</div>
 			</section>
-
-
-			<section class="color-section color-section--yellow">
+			<section class="color-section color-section--yellow" data-bg="#ebe9e2" data-fg="black">
 				<div class="color-section__container">
 					<div class="color-section__intro">
 						<div class="color-section__badge badge">
-							Monetization
+							<span class="badge__text">Monetization</span>
+							<img src="img/badge-bg.svg" alt="background" class="badge__bg">
 						</div>
-						<h2 class="color-section__title-display title-display">
+						<h2 class="color-section__title-display title-display" data-fg-color="black" data-bg-color="#dcd8cc">
 							Flexible Options to Grow Your Revenue Stream
 						</h2>
 					</div>
 					<div class="color-section__content">
-						<section class="color-section" aria-labelledby="monetization">
+						<section class="color-section" aria-labelledby="monetization" data-fg-color="black" data-bg-color="#dcd8cc">
 							<div class="color-section__header ">
 								<h3 class=" title-2 color-section__title" id="monetization">
 									<img loading="lazy" class="color-section__decor" src="img/home/monetization/decor.svg" alt="decor">
@@ -842,13 +864,14 @@
 				</div>
 			</section>
 
-			<section class="color-section color-section--black">
+			<section class="color-section color-section--black" data-bg="#111718" data-fg="white">
 				<div class="color-section__container">
 					<div class="color-section__intro">
 						<div class="color-section__badge badge">
-							Tech
+							<span class="badge__text">Tech</span>
+							<img src="img/badge-bg.svg" alt="background" class="badge__bg">
 						</div>
-						<h2 class="color-section__title-display title-display">
+						<h2 class="color-section__title-display title-display" data-fg-color="white" data-bg-color="#233033">
 							Future-Proof Engineering You Can Rely On
 						</h2>
 					</div>
@@ -934,7 +957,7 @@
 				</div>
 			</section>
 
-			<section class="last-cases">
+			<section class="last-cases" data-bg="white" data-fg="black">
 				<div class="last-cases__container">
 					<div class="last-cases__header ">
 						<h2 class="last-cases__title ">
@@ -1109,7 +1132,6 @@
 					</div>
 				</div>
 			</section>
-
 		</main>
 		<footer class="footer">
 			<div class="footer__container">

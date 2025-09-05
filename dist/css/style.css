@@ -504,18 +504,33 @@ h6 {
   color: var(--black)
 }
 .badge {
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--badge-txt);
   border-radius: 3.125rem;
   padding: .875rem 1.375rem;
   min-height: 2.9375rem;
+  overflow: hidden;
   margin-inline: auto;
   max-width: -moz-fit-content;
   max-width: -webkit-fit-content;
   max-width: fit-content;
   background-color: var(--flax-hover);
-  font-family: MonaSans,sans-serif
+  position: relative
+}
+.badge__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  z-index: 1
+}
+.badge__text {
+  font-family: MonaSans,sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--badge-txt);
+  position: relative;
+  z-index: 2
 }
 .socials {
   display: flex;
@@ -570,16 +585,6 @@ h6 {
   font-weight: 600;
   font-family: MonaSans,sans-serif;
   font-size: 1rem
-}
-.color-section--white {
-  background-color: var(--white)
-}
-.color-section--yellow {
-  background-color: #ebe9e2
-}
-.color-section--black {
-  background-color: #111718;
-  color: var(--white)
 }
 .color-section--black .color-section-slide__text,
 .color-section--black .color-section__text {
