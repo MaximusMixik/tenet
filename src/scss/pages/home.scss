@@ -110,6 +110,7 @@
 		font-size: toRem(16);
 		text-transform: capitalize;
 		color: var(--black);
+		cursor: pointer;
 
 		border-radius: toRem(50);
 		padding: toRem(10) toRem(16);
@@ -157,6 +158,15 @@
 	@media (max-width: $tablet) {
 		padding-block: toRem(120);
 	}
+
+	// .section-about__header,
+	// .section-about__slider {
+	// 	transition: opacity 3s ease-out;
+
+	// 	.section-animate & {
+	// 		opacity: 1;
+	// 	}
+	// }
 
 	// .section-about__body
 	&__body {
