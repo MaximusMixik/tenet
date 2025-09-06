@@ -337,7 +337,7 @@ window.onload = () => {
 
 	// Анимация фона body (или полосы wrapper-а)
 	// Проходимся по секциям
-	document.querySelectorAll('.color-section').forEach((section) => {
+	document.querySelectorAll('.change-color').forEach((section) => {
 		const bg = section.dataset.bg
 		const fg = section.dataset.fg
 
@@ -350,7 +350,7 @@ window.onload = () => {
 				trigger: section,
 				// start: "top center",
 				// end: "bottom center",
-				start: 'top 80%',
+				start: 'top 60%',
 				end: 'top 20%',
 				scrub: true
 			}
