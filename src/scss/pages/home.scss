@@ -66,7 +66,6 @@
 }
 .menu-about {
 	backdrop-filter: blur(toRem(8));
-	padding: toRem(16);
 	margin-inline: auto;
 	background-color: rgba(255, 255, 255, 0.6);
 	position: sticky;
@@ -76,15 +75,23 @@
 		border-radius: toRem(50);
 		max-width: toRem(1023);
 		width: fit-content;
+		padding: toRem(16);
 	}
+	// @media (max-width: toEm(1024)) {
+	// }
 
 	// .menu-about__list
 	&__list {
 		display: flex;
 		flex-wrap: nowrap;
-		justify-content: center;
 		gap: toRem(8);
 		overflow-x: auto;
+		@media (min-width: $mobile) {
+			justify-content: center;
+		}
+		@media (max-width: $mobile) {
+			justify-content: start;
+		}
 		& > * {
 			flex-shrink: 0;
 		}
@@ -96,7 +103,8 @@
 		}
 		@media (max-width: toEm(1024)) {
 			padding-bottom: toRem(6);
-			padding-inline: toRem(32);
+			// padding-inline: toRem(32);
+			padding-inline: toRem(64);
 			margin-inline: toRem(-64);
 		}
 	}

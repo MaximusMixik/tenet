@@ -35,17 +35,19 @@ function getCookie(name) {
 }
 
 function cookiesActions() {
+
 	const notification = document.querySelector('.cookie');
 	const closeButton = document.querySelector('.cookie__button ');
 
+
 	if (!notification) return
+
 
 	//! Проверяем, есть ли куки для уведомления
 	if (getCookie('notification_hidden') === 'true') {
 		notification.style.display = 'none';
 		notification.classList.add('hidden');
 	}
-
 	// Событие нажатия на кнопку
 	closeButton.addEventListener('click', () => {
 		notification.classList.add('hidden');
@@ -301,8 +303,10 @@ function initialiseLenisScroll() {
 }
 
 window.onload = () => {
-	gsap.registerPlugin(ScrollTrigger);
 
+	cookiesActions()
+	topActions()
+	initActiveNavigation();
 	const article = document.querySelectorAll('.article__container')
 	if (article) {
 		new ArticleNavigation
@@ -324,13 +328,14 @@ window.onload = () => {
 	// 	new Dropdown(element);
 	// });
 
-	topActions()
-	cookiesActions()
-	initActiveNavigation();
+
+	gsap.registerPlugin(ScrollTrigger);
 	splitTitle()
 	initSVGLineAnimations();
 	changeBackground();
 	// initialiseLenisScroll()
+
+
 }
 
 // const lenis = new Lenis({

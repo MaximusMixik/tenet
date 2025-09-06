@@ -10756,7 +10756,9 @@
         }));
     }
     window.onload = () => {
-        gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
+        cookiesActions();
+        topActions();
+        initActiveNavigation();
         const article = document.querySelectorAll(".article__container");
         if (article) new ArticleNavigation;
         const sectionsLists = document.querySelectorAll(".section-about__wrapper");
@@ -10766,9 +10768,7 @@
             if (items.length < 5) return;
             list.classList.add("section-about__wrapper--accent");
         }));
-        topActions();
-        cookiesActions();
-        initActiveNavigation();
+        gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
         splitTitle();
         initSVGLineAnimations();
         changeBackground();

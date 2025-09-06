@@ -1001,7 +1001,6 @@ h6 {
 }
 .menu-about {
   backdrop-filter: blur(.5rem);
-  padding: 1rem;
   margin-inline: auto;
   background-color: rgba(255,255,255,.6);
   position: sticky;
@@ -1011,7 +1010,6 @@ h6 {
 .menu-about__list {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
   gap: .5rem;
   overflow-x: auto
 }
@@ -2351,6 +2349,9 @@ button.swiper-pagination-bullet {
   .hero__text {
     font-size: 1.0625rem
   }
+  .menu-about__list {
+    justify-content: center
+  }
   .cta {
     padding-inline: 2rem
   }
@@ -2604,7 +2605,8 @@ button.swiper-pagination-bullet {
     max-width: 63.9375rem;
     width: -moz-fit-content;
     width: -webkit-fit-content;
-    width: fit-content
+    width: fit-content;
+    padding: 1rem
   }
   .menu-about__list {
     border: .125rem solid #f2ead4;
@@ -2616,7 +2618,7 @@ button.swiper-pagination-bullet {
 @media (max-width:64em) {
   .menu-about__list {
     padding-bottom: .375rem;
-    padding-inline: 2rem;
+    padding-inline: 4rem;
     margin-inline: -4rem
   }
 }
@@ -2832,6 +2834,9 @@ button.swiper-pagination-bullet {
   }
   .hero__text {
     font-size: 1rem
+  }
+  .menu-about__list {
+    justify-content: start
   }
   .last-cases {
     padding-top: 15rem
