@@ -7,7 +7,8 @@ import ArticleNavigation from "./article-navigation.js";
 // import Dropdown from '../libs/dropdown.js';
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import ScrollTrigger from "gsap/ScrollTrigger.js";
+// import SplitText from "gsap/SplitText.js";
 
 
 // SplitType
@@ -186,7 +187,41 @@ function splitTitle() {
 		)
 	})
 }
+
+
 // test
+// function splitTitle() {
+// 	const splitList = document.querySelectorAll('.reveal-type, .title-display')
+// 	splitList.forEach(el => {
+// 		const bg = el.dataset.bgColor
+// 		const fg = el.dataset.fgColor
+
+// 		let split = new SplitText(el, {
+// 			type: "chars, words, lines",
+// 		})
+// 		gsap.fromTo(split.chars,
+// 			{
+// 				color: bg
+// 			},
+// 			{
+// 				color: fg,
+// 				stagger: 0.03,
+// 				scrollTrigger: {
+// 					trigger: el,
+// 					start: 'top 80%',
+// 					end: 'top 20%',
+// 					scrub: 0.5,
+// 					markers: false,
+// 					toggleActions: 'play none none reverse',
+// 					// play — при входе в зону,
+// 					// none — при выходе,
+// 					// none — при обратном входе,
+// 					// none — при обратном выходе.
+// 				}
+// 			})
+// 	})
+
+// }
 function initSVGLineAnimations() {
 	// gsap.registerPlugin(ScrollTrigger);
 
@@ -245,42 +280,42 @@ function initSVGLineAnimations() {
 	});
 }
 
-function changeBackground() {
-	// Анимация фона body (или полосы wrapper-а)
-	// Проходимся по секциям
-	document.querySelectorAll('.change-color').forEach((section) => {
-		const bg = section.dataset.bg
-		const fg = section.dataset.fg
-		// Анимируем фон самой секции
-		gsap.to(section, {
-			backgroundColor: bg,
-			color: fg, // поменяет базовый цвет текста
-			ease: "none",
-			scrollTrigger: {
-				trigger: section,
-				// start: "top center",
-				// end: "bottom center",
-				start: 'top 60%',
-				end: 'top 20%',
-				scrub: true
-			}
-		})
+// function changeBackground() {
+// 	// Анимация фона body (или полосы wrapper-а)
+// 	// Проходимся по секциям
+// 	document.querySelectorAll('.change-color').forEach((section) => {
+// 		const bg = section.dataset.bg
+// 		const fg = section.dataset.fg
+// 		// Анимируем фон самой секции
+// 		gsap.to(section, {
+// 			backgroundColor: bg,
+// 			color: fg, // поменяет базовый цвет текста
+// 			ease: "none",
+// 			scrollTrigger: {
+// 				trigger: section,
+// 				// start: "top center",
+// 				// end: "bottom center",
+// 				start: 'top 60%',
+// 				end: 'top 20%',
+// 				scrub: true
+// 			}
+// 		})
 
-		// Дополнительно — плавно меняем цвет у вложенного текста/иконок
-		gsap.to(section.querySelectorAll("h2, h3, h4, p, span, .color-section__text"), {
-			color: fg,
+// 		// Дополнительно — плавно меняем цвет у вложенного текста/иконок
+// 		gsap.to(section.querySelectorAll("h2, h3, h4, p, span, .color-section__text"), {
+// 			color: fg,
 
-			ease: "none",
-			scrollTrigger: {
-				trigger: section,
-				start: "top center",
-				end: "bottom center",
-				scrub: true
-			}
-		})
-	})
+// 			ease: "none",
+// 			scrollTrigger: {
+// 				trigger: section,
+// 				start: "top center",
+// 				end: "bottom center",
+// 				scrub: true
+// 			}
+// 		})
+// 	})
 
-}
+// }
 function initialiseLenisScroll() {
 
 	const lenis = new Lenis({
@@ -332,7 +367,7 @@ window.onload = () => {
 	gsap.registerPlugin(ScrollTrigger);
 	splitTitle()
 	initSVGLineAnimations();
-	changeBackground();
+	// changeBackground();
 	// initialiseLenisScroll()
 
 

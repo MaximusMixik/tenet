@@ -10728,33 +10728,6 @@
             });
         }));
     }
-    function changeBackground() {
-        document.querySelectorAll(".change-color").forEach((section => {
-            const bg = section.dataset.bg;
-            const fg = section.dataset.fg;
-            gsapWithCSS.to(section, {
-                backgroundColor: bg,
-                color: fg,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top 60%",
-                    end: "top 20%",
-                    scrub: true
-                }
-            });
-            gsapWithCSS.to(section.querySelectorAll("h2, h3, h4, p, span, .color-section__text"), {
-                color: fg,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true
-                }
-            });
-        }));
-    }
     window.onload = () => {
         cookiesActions();
         topActions();
@@ -10771,7 +10744,6 @@
         gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
         splitTitle();
         initSVGLineAnimations();
-        changeBackground();
     };
     window["FLS"] = true;
     addLoadedClass();

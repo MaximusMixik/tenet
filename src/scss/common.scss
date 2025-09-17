@@ -141,7 +141,6 @@ h6 {
 	}
 	// .info__content
 	&__content {
-		font-weight: 700;
 		flex: 1 1 auto;
 		font-size: toRem(14);
 		display: flex;
@@ -152,9 +151,6 @@ h6 {
 			align-items: center;
 		}
 
-		span {
-			font-weight: 500;
-		}
 		& a {
 			display: flex;
 			align-items: center;
@@ -293,7 +289,8 @@ h6 {
 
 		@media (any-hover: hover) {
 			&:hover {
-				box-shadow: inset 0 0 0 toRem(2) #ead7a4;
+				border-color: var(--flax-hover);
+				box-shadow: inset 0 0 0 toRem(2) var(--flax-hover);
 			}
 		}
 	}
@@ -339,7 +336,7 @@ h6 {
 .color-section {
 	// .color-section--white
 	&--white {
-		// background-color: var(--white);
+		background-color: var(--white);
 		@media (min-width: $mobile) {
 			padding-block: toRem(240) toRem(80);
 		}
@@ -364,12 +361,12 @@ h6 {
 	}
 	// .color-section--yellow
 	&--yellow {
-		// background-color: #ebe9e2;
+		background-color: #ebe9e2;
 	}
 	// .color-section--black
 	&--black {
-		// background-color: #111718;
-		// color: var(--white);
+		background-color: #111718;
+		color: var(--white);
 
 		.color-section-slide__text,
 		.color-section__text {
@@ -481,18 +478,20 @@ h6 {
 	// .color-section__decor
 	&__decor {
 		position: absolute;
-		width: toRem(280);
-		height: toRem(80);
+		width: toRem(374);
+		height: toRem(34);
 		top: 0;
 		left: 0;
 		object-fit: contain;
 		z-index: -1;
-		@media (min-width: $mobileSmall) {
-			transform: translateY(-40%) translateX(-50%);
-		}
-		@media (max-width: $mobileSmall) {
-			transform: translateY(-40%) translateX(-25%);
-		}
+		transform: translateY(-10%) translateX(-50%) rotate(-15deg);
+
+		// @media (min-width: $mobileSmall) {
+		// 	transform: translateY(-10%) translateX(-50%) rotate(-15deg);
+		// }
+		// @media (max-width: $mobileSmall) {
+		// 	transform: translateY(-40%) translateX(-25%) rotate(-15deg);
+		// }
 	}
 	// .color-section__title
 	&__title {
@@ -675,11 +674,16 @@ h6 {
 		}
 	}
 }
-
+.language {
+	font-family: $fontFamilyMonaSans;
+	font-weight: 600;
+	font-size: toRem(14);
+}
 @media (min-width: $tablet) {
 	.language {
 		cursor: pointer;
 		position: relative;
+
 		@media (any-hover: hover) {
 			&:hover {
 				color: var(--black);

@@ -134,7 +134,7 @@
 				color 0.3s ease;
 
 			&:hover {
-				color: var(--flax);
+				color: var(--satin-gold);
 			}
 		}
 		& svg {
@@ -256,9 +256,9 @@
 	border-radius: toRem(12);
 	overflow: hidden;
 
-	border: toRem(3) solid transparent;
+	// border: toRem(3) solid transparent;
 	height: 100%;
-	transition: border-color 0.5s ease;
+	transition: box-shadow 0.5s ease;
 
 	@media (min-width: $mobileSmall) {
 		padding: toRem(32) toRem(72) toRem(56) toRem(32);
@@ -270,7 +270,8 @@
 
 	@media (any-hover: hover) {
 		&:hover {
-			border-color: var(--flax);
+			// border-color: var(--flax);
+			box-shadow: inset 0 0 0 toRem(3) var(--flax);
 		}
 	}
 	&:not(:has(> .article-about__bg)) {

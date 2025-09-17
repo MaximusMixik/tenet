@@ -453,15 +453,11 @@ h6 {
   transition: all .3s ease
 }
 .info__content {
-  font-weight: 700;
   flex: 1 1 auto;
   font-size: .875rem;
   display: flex;
   flex-wrap: wrap;
   gap: .25rem .5rem
-}
-.info__content span {
-  font-weight: 500
 }
 .info__content a {
   display: flex;
@@ -586,6 +582,16 @@ h6 {
   font-family: MonaSans,sans-serif;
   font-size: 1rem
 }
+.color-section--white {
+  background-color: var(--white)
+}
+.color-section--yellow {
+  background-color: #ebe9e2
+}
+.color-section--black {
+  background-color: #111718;
+  color: var(--white)
+}
 .color-section--black .color-section-slide__text,
 .color-section--black .color-section__text {
   font-weight: 500;
@@ -659,13 +665,15 @@ h6 {
 }
 .color-section__decor {
   position: absolute;
-  width: 17.5rem;
-  height: 5rem;
+  width: 23.375rem;
+  height: 2.125rem;
   top: 0;
   left: 0;
   -o-object-fit: contain;
   object-fit: contain;
-  z-index: -1
+  z-index: -1;
+  -webkit-transform: translateY(-10%) translateX(-50%) rotate(-15deg);
+  transform: translateY(-10%) translateX(-50%) rotate(-15deg)
 }
 .color-section__title {
   max-width: -moz-fit-content;
@@ -726,6 +734,11 @@ h6 {
 }
 .navigation__button.swiper-button-disabled svg {
   color: var(--grey4)
+}
+.language {
+  font-family: MonaSans,sans-serif;
+  font-weight: 600;
+  font-size: .875rem
 }
 .language__current {
   display: flex;
@@ -1074,9 +1087,8 @@ h6 {
   position: relative;
   border-radius: .75rem;
   overflow: hidden;
-  border: .1875rem solid transparent;
   height: 100%;
-  transition: border-color .5s ease
+  transition: box-shadow .5s ease
 }
 .article-about:not(:has(>.article-about__bg)) {
   background-color: var(--card-bg2)
@@ -2229,10 +2241,6 @@ button.swiper-pagination-bullet {
   .cookie__button {
     margin-left: auto
   }
-  .color-section__decor {
-    -webkit-transform: translateY(-40%) translateX(-50%);
-    transform: translateY(-40%) translateX(-50%)
-  }
   .article-about {
     padding: 2rem 4.5rem 3.5rem 2rem
   }
@@ -2941,10 +2949,6 @@ button.swiper-pagination-bullet {
   .color-section--white {
     padding-block: 7.5rem 3.75rem
   }
-  .color-section__decor {
-    -webkit-transform: translateY(-40%) translateX(-25%);
-    transform: translateY(-40%) translateX(-25%)
-  }
   .header__logo {
     position: relative;
     z-index: 2
@@ -3116,7 +3120,8 @@ button.swiper-pagination-bullet {
     background-color: var(--flax-hover)
   }
   .button--yellow-border:hover {
-    box-shadow: inset 0 0 0 .125rem #ead7a4
+    border-color: var(--flax-hover);
+    box-shadow: inset 0 0 0 .125rem var(--flax-hover)
   }
   .button--border-white:hover {
     box-shadow: inset 0 0 0 .125rem #f7f0de;
@@ -3147,10 +3152,10 @@ button.swiper-pagination-bullet {
     transition: background-color .3s ease,color .3s ease
   }
   .menu-about__link:hover {
-    color: var(--flax)
+    color: var(--satin-gold)
   }
   .article-about:hover {
-    border-color: var(--flax)
+    box-shadow: inset 0 0 0 .1875rem var(--flax)
   }
   .slide-cases__image-link:hover .slide-cases__image {
     border: .25rem solid var(--satin-gold)
