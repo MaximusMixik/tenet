@@ -109,7 +109,7 @@
 	// .about-intro__grid
 	&__grid {
 		display: grid;
-		@media (min-width: $mobile) {
+		@media (min-width: $mobileSmall) {
 			grid-template-columns: repeat(3, 1fr);
 		}
 		@media (min-width: $tablet) {
@@ -144,7 +144,7 @@
 	// .team-item__initials
 	&__initials {
 		&:not(:last-child) {
-			margin-bottom: toRem(8);
+			margin-bottom: toRem(6);
 		}
 	}
 	// .team-item__position

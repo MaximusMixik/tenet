@@ -8,14 +8,14 @@ import ArticleNavigation from "./article-navigation.js";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
-// import SplitText from "gsap/SplitText.js";
+import SplitText from "gsap/SplitText.js";
 
 
 // SplitType
-import SplitType from "split-type";
+// import SplitType from "split-type";
 
 // Lenis
-import Lenis from "@studio-freight/lenis";
+// import Lenis from "@studio-freight/lenis";
 
 function setCookie(name, value, days) {
 	const date = new Date();
@@ -96,7 +96,6 @@ function topActions() {
 	});
 }
 
-
 // animations
 // 1. Функционал активной навигации
 function initActiveNavigation() {
@@ -133,95 +132,98 @@ function initActiveNavigation() {
 	});
 
 	// Обработчики кликов по навигации (плавная прокрутка уже работает на CSS)
-	menuLinks.forEach(link => {
-		link.addEventListener('click', (e) => {
-			e.preventDefault();
-			const targetId = link.getAttribute('href').substring(1);
-			const targetSection = document.getElementById(targetId);
+	// menuLinks.forEach(link => {
+	// 	link.addEventListener('click', (e) => {
+	// 		e.preventDefault();
+	// 		const targetId = link.getAttribute('href').substring(1);
+	// 		const targetSection = document.getElementById(targetId);
 
-			if (targetSection) {
-				const rect = targetSection.getBoundingClientRect();
-				const currentScroll = window.pageYOffset;
-				const targetTop = currentScroll + rect.top;
+	// 		if (targetSection) {
+	// 			const rect = targetSection.getBoundingClientRect();
+	// 			const currentScroll = window.pageYOffset;
+	// 			const targetTop = currentScroll + rect.top;
 
-				// Определяем направление прокрутки
-				const scrollingDown = targetTop > currentScroll;
-				const offset = scrollingDown ? 1000 : -400; // +1000 вниз, -1000 вверх
+	// 			// Определяем направление прокрутки
+	// 			// const scrollingDown = targetTop > currentScroll;
+	// 			// const offset = scrollingDown ? 1000 : -400; // +1000 вниз, -1000 вверх
 
-				const targetPosition = targetTop + offset;
+	// 			// const targetPosition = targetTop + offset;
+	// 			const targetPosition = targetTop;
 
-				window.scrollTo({
-					top: Math.max(0, targetPosition), // не даем уйти в минус
-					behavior: 'smooth'
-				});
-			}
-		});
-	});
+	// 			window.scrollTo({
+	// 				top: Math.max(0, targetPosition), // не даем уйти в минус
+	// 				behavior: 'smooth'
+	// 			});
+	// 		}
+	// 	});
+	// });
 }
 
-function splitTitle() {
-	// Анимация текста
-	const splitTypes = document.querySelectorAll('.reveal-type, .title-display')
+// function splitTitle() {
+// 	// Анимация текста
+// 	const splitTypes = document.querySelectorAll('.reveal-type, .title-display')
 
-	splitTypes.forEach((char) => {
-		const bg = char.dataset.bgColor
-		const fg = char.dataset.fgColor
+// 	splitTypes.forEach((char) => {
+// 		const bg = char.dataset.bgColor
+// 		const fg = char.dataset.fgColor
 
-		const text = new SplitType(char, { types: 'chars' })
+// 		const text = new SplitType(char, { types: 'chars words ' })
 
-		gsap.fromTo(
-			text.chars,
-			{ color: bg },
-			{
-				color: fg,
-				duration: 0.3,
-				stagger: 0.02,
-				scrollTrigger: {
-					trigger: char,
-					start: 'top 80%',
-					end: 'top 20%',
-					scrub: 0.5,
-					markers: false
-				}
-			}
-		)
-	})
-}
+// 		gsap.fromTo(
+// 			text.chars,
+// 			{ color: bg },
+// 			{
+// 				color: fg,
+// 				// duration: 0.3,
+// 				stagger: 0.02,
+// 				scrollTrigger: {
+// 					trigger: char,
+// 					start: 'top 80%',
+// 					end: 'top 20%',
+// 					// scrub: 0.5,
+// 					scrub: 2,
+// 					markers: false
+// 				}
+// 			}
+// 		)
+// 	})
+// }
 
 
 // test
-// function splitTitle() {
-// 	const splitList = document.querySelectorAll('.reveal-type, .title-display')
-// 	splitList.forEach(el => {
-// 		const bg = el.dataset.bgColor
-// 		const fg = el.dataset.fgColor
+function splitTitle() {
+	const splitList = document.querySelectorAll('.reveal-type, .title-display')
+	splitList.forEach(el => {
+		const bg = el.dataset.bgColor
+		const fg = el.dataset.fgColor
 
-// 		let split = new SplitText(el, {
-// 			type: "chars, words, lines",
-// 		})
-// 		gsap.fromTo(split.chars,
-// 			{
-// 				color: bg
-// 			},
-// 			{
-// 				color: fg,
-// 				stagger: 0.03,
-// 				scrollTrigger: {
-// 					trigger: el,
-// 					start: 'top 80%',
-// 					end: 'top 20%',
-// 					scrub: 0.5,
-// 					markers: false,
-// 					toggleActions: 'play none none reverse',
-// 					// play — при входе в зону,
-// 					// none — при выходе,
-// 					// none — при обратном входе,
-// 					// none — при обратном выходе.
-// 				}
-// 			})
-// 	})
+		let split = new SplitText(el, {
+			type: "chars, words, lines",
+		})
+		gsap.fromTo(split.chars,
+			{
+				color: bg
+			},
+			{
+				color: fg,
+				stagger: 0.03,
+				scrollTrigger: {
+					trigger: el,
+					start: 'top 80%',
+					end: 'top 20%',
+					// scrub: 0.5,
+					scrub: 2,
+					markers: false,
+					toggleActions: 'play none none reverse',
+					// play — при входе в зону,
+					// none — при выходе,
+					// none — при обратном входе,
+					// none — при обратном выходе.
+				}
+			})
+	})
 
-// }
+}
 function initSVGLineAnimations() {
 	// gsap.registerPlugin(ScrollTrigger);
 
@@ -246,21 +248,31 @@ function initSVGLineAnimations() {
 		strokePath.setAttribute("stroke-dasharray", length);
 		strokePath.setAttribute("stroke-dashoffset", length);
 
-		const content = section.querySelectorAll('.section-about__header, .section-about__slider');
+		// const content = section.querySelectorAll('.section-about__header, .section-about__slider');
 		// gsap.set(content, { opacity: 0, y: 40 });
-		gsap.set(content, { opacity: 0, y: 150 });
+		// gsap.set(content, { opacity: 0, y: 150 });
 
 		// === Timeline: сначала линия, потом контент ===
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: section,
-				start: "top 10%",
-				end: "+=200%",     // длина всей анимации
-				scrub: true,
-				pin: true,
-				// markers: true,
+				start: "top 80%",
+				end: "bottom 20%",     // длина всей анимации
+				scrub: 3,
+				// pin: true,
+				markers: false,
 			}
 		});
+		// const tl = gsap.timeline({
+		// 	scrollTrigger: {
+		// 		trigger: section,
+		// 		start: "top 10%",
+		// 		end: "+=200%",     // длина всей анимации
+		// 		scrub: true,
+		// 		pin: true,
+		// 		// markers: true,
+		// 	}
+		// });
 
 		// 1. Прорисовка линии до 50%
 		tl.to(strokePath, {
@@ -270,11 +282,11 @@ function initSVGLineAnimations() {
 		});
 
 		// 2. Появление контента (после снятия пина)
-		tl.to(content, {
-			opacity: 1,
-			y: 0,
-			duration: 2,
-		});
+		// tl.to(content, {
+		// 	opacity: 1,
+		// 	y: 0,
+		// 	duration: 2,
+		// });
 
 
 	});
@@ -316,26 +328,26 @@ function initSVGLineAnimations() {
 // 	})
 
 // }
-function initialiseLenisScroll() {
+// function initialiseLenisScroll() {
 
-	const lenis = new Lenis({
-		smoothWheel: true,
-		// duration: 1.2,
-		duration: 0.5,
-		lerp: 0.8,
-		smooth: true,
-		smoothTouch: false,
-		normalizeWheel: true
-	});
+// 	const lenis = new Lenis({
+// 		smoothWheel: true,
+// 		// duration: 1.2,
+// 		duration: 0.5,
+// 		lerp: 0.8,
+// 		smooth: true,
+// 		smoothTouch: false,
+// 		normalizeWheel: true
+// 	});
 
-	lenis.on('scroll', ScrollTrigger.update);
+// 	lenis.on('scroll', ScrollTrigger.update);
 
-	gsap.ticker.add((time) => {
-		lenis.raf(time * 1000);
-	});
+// 	gsap.ticker.add((time) => {
+// 		lenis.raf(time * 1000);
+// 	});
 
-	gsap.ticker.lagSmoothing(0);
-}
+// 	gsap.ticker.lagSmoothing(0);
+// }
 
 window.onload = () => {
 
@@ -364,7 +376,7 @@ window.onload = () => {
 	// });
 
 
-	gsap.registerPlugin(ScrollTrigger);
+	gsap.registerPlugin(ScrollTrigger, SplitText);
 	splitTitle()
 	initSVGLineAnimations();
 	// changeBackground();

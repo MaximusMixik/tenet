@@ -35,7 +35,12 @@
 	}
 	// .not-found__text
 	&__text {
-		font-size: toRem(17);
+		@media (min-width: $mobile) {
+			font-size: toRem(17);
+		}
+		@media (max-width: $mobile) {
+			font-size: toRem(16);
+		}
 		&:not(:last-child) {
 			margin-bottom: toRem(40);
 		}

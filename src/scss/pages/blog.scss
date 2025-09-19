@@ -41,7 +41,7 @@
 			left: 0;
 		}
 	}
-	// 
+	//
 	&__title {
 	}
 	// .blog-section__categories
@@ -182,7 +182,7 @@
 	}
 	// .custom-pagination__dots
 	&__dots {
-		@media (max-width: $mobile) {
+		@media (max-width: $mobileSmall) {
 			display: none;
 		}
 		& span {

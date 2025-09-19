@@ -382,14 +382,9 @@
                     return;
                 }
             }.bind(this));
-            if (this.options.hashSettings.goHash) {
-                window.addEventListener("hashchange", function() {
-                    if (window.location.hash) this._openToHash(); else this.close(this.targetOpen.selector);
-                }.bind(this));
-                window.addEventListener("load", function() {
-                    if (window.location.hash) this._openToHash();
-                }.bind(this));
-            }
+            if (this.options.hashSettings.goHash) window.addEventListener("hashchange", function() {
+                if (window.location.hash) ; else this.close(this.targetOpen.selector);
+            }.bind(this));
         }
         open(selectorValue) {
             if (bodyLockStatus) {
@@ -471,11 +466,6 @@
         }
         _getHash() {
             if (this.options.hashSettings.location) this.hash = this.targetOpen.selector.includes("#") ? this.targetOpen.selector : this.targetOpen.selector.replace(".", "#");
-        }
-        _openToHash() {
-            let classInHash = document.querySelector(`.${window.location.hash.replace("#", "")}`) ? `.${window.location.hash.replace("#", "")}` : document.querySelector(`${window.location.hash}`) ? `${window.location.hash}` : null;
-            const buttons = document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) ? document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) : document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash.replace(".", "#")}"]`);
-            if (buttons && classInHash) this.open(classInHash);
         }
         _setHash() {
             history.pushState("", "", this.hash);
@@ -4505,7 +4495,7 @@
     }, _isFuncOrString = function _isFuncOrString(value) {
         return _isFunction(value) || _isString(value);
     }, _isTypedArray = typeof ArrayBuffer === "function" && ArrayBuffer.isView || function() {}, _isArray = Array.isArray, _strictNumExp = /(?:-?\.?\d|\.)+/gi, _numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g, _numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g, _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi, _relExp = /[+-]=-?[.\d]+/, _delimitedValueExp = /[^,'"\[\]\s]+/gi, _unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i, _globals = {}, _installScope = {}, _install = function _install(scope) {
-        return (_installScope = _merge(scope, _globals)) && gsap_core_gsap;
+        return (_installScope = _merge(scope, _globals)) && gsap;
     }, _missingPlugin = function _missingPlugin(property, value) {
         return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
     }, _warn = function _warn(message, suppress) {
@@ -5056,7 +5046,7 @@
                 name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin";
             }
             _addGlobal(name, Plugin);
-            config.register && config.register(gsap_core_gsap, Plugin, PropTween);
+            config.register && config.register(gsap, Plugin, PropTween);
         } else _registerPluginQueue.push(config);
     }, _255 = 255, _colorLookup = {
         aqua: [ 0, _255, _255 ],
@@ -5211,8 +5201,8 @@
                     if (!_coreInitted && _windowExists()) {
                         _win = _coreInitted = window;
                         _doc = _win.document || {};
-                        _globals.gsap = gsap_core_gsap;
-                        (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap_core_gsap.version);
+                        _globals.gsap = gsap;
+                        (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap.version);
                         _install(_installScope || _win.GreenSockGlobals || !_win.gsap && _win || {});
                         _registerPluginQueue.forEach(_createPlugin);
                     }
@@ -6850,7 +6840,7 @@
             target = toArray(target);
             if (target.length > 1) {
                 var setters = target.map((function(t) {
-                    return gsap_core_gsap.quickSetter(t, property, unit);
+                    return gsap.quickSetter(t, property, unit);
                 })), l = setters.length;
                 return function(value) {
                     var i = l;
@@ -6871,7 +6861,7 @@
         },
         quickTo: function quickTo(target, property, vars) {
             var _setDefaults2;
-            var tween = gsap_core_gsap.to(target, _setDefaults((_setDefaults2 = {}, _setDefaults2[property] = "+=0.1", 
+            var tween = gsap.to(target, _setDefaults((_setDefaults2 = {}, _setDefaults2[property] = "+=0.1", 
             _setDefaults2.paused = true, _setDefaults2.stagger = 0, _setDefaults2), vars || {})), func = function func(value, start, startIsRelative) {
                 return tween.resetTo(property, value, start, startIsRelative);
             };
@@ -7044,7 +7034,7 @@
             }
         };
     };
-    var gsap_core_gsap = _gsap.registerPlugin({
+    var gsap = _gsap.registerPlugin({
         name: "attr",
         init: function init(target, vars, tween, index, targets) {
             var p, pt, v;
@@ -7072,7 +7062,7 @@
             while (i--) this.add(target, i, target[i] || 0, value[i], 0, 0, 0, 0, 0, 1);
         }
     }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap;
-    Tween.version = Timeline.version = gsap_core_gsap.version = "3.13.0";
+    Tween.version = Timeline.version = gsap.version = "3.13.0";
     _coreReady = 1;
     _windowExists() && _wake();
     _easeMap.Power0, _easeMap.Power1, _easeMap.Power2, _easeMap.Power3, _easeMap.Power4, 
@@ -7177,7 +7167,7 @@
             revert: _revertStyle,
             save: _saveStyle
         };
-        target._gsap || gsap_core_gsap.core.getCache(target);
+        target._gsap || gsap.core.getCache(target);
         properties && target.style && target.nodeType && properties.split(",").forEach((function(p) {
             return saver.save(p);
         }));
@@ -7207,7 +7197,7 @@
             _transformOriginProp = _transformProp + "Origin";
             _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0";
             _supports3D = !!_checkPropPrefix("perspective");
-            CSSPlugin_reverting = gsap_core_gsap.core.reverting;
+            CSSPlugin_reverting = gsap.core.reverting;
             _pluginInitted = 1;
         }
     }, _getReparentedCloneBBox = function _getReparentedCloneBBox(target) {
@@ -7918,8 +7908,8 @@
             _getMatrix
         }
     };
-    gsap_core_gsap.utils.checkPrefix = _checkPropPrefix;
-    gsap_core_gsap.core.getStyleSaver = _getStyleSaver;
+    gsap.utils.checkPrefix = _checkPropPrefix;
+    gsap.core.getStyleSaver = _getStyleSaver;
     (function(positionAndScale, rotation, others, aliases) {
         var all = _forEachName(positionAndScale + "," + rotation + "," + others, (function(name) {
             _transformProps[name] = 1;
@@ -7937,8 +7927,8 @@
     _forEachName("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective", (function(name) {
         _config.units[name] = "px";
     }));
-    gsap_core_gsap.registerPlugin(CSSPlugin);
-    var gsapWithCSS = gsap_core_gsap.registerPlugin(CSSPlugin) || gsap_core_gsap;
+    gsap.registerPlugin(CSSPlugin);
+    var gsapWithCSS = gsap.registerPlugin(CSSPlugin) || gsap;
     gsapWithCSS.core.Tween;
     function _defineProperties(target, props) {
         for (var i = 0; i < props.length; i++) {
@@ -7961,12 +7951,12 @@
  * @license Copyright 2008-2025, GreenSock. All rights reserved.
  * Subject to the terms at https://gsap.com/standard-license
  * @author: Jack Doyle, jack@greensock.com
-*/    var Observer_gsap, Observer_coreInitted, Observer_win, Observer_doc, _docEl, _body, _isTouch, _pointerType, Observer_ScrollTrigger, _root, _normalizer, _eventTypes, Observer_context, _getGSAP = function _getGSAP() {
+*/    var Observer_gsap, Observer_coreInitted, Observer_win, Observer_doc, _docEl, _body, _isTouch, _pointerType, ScrollTrigger, _root, _normalizer, _eventTypes, Observer_context, _getGSAP = function _getGSAP() {
         return Observer_gsap || typeof window !== "undefined" && (Observer_gsap = window.gsap) && Observer_gsap.registerPlugin && Observer_gsap;
     }, _startup = 1, _observers = [], _scrollers = [], _proxies = [], _getTime = Date.now, _bridge = function _bridge(name, value) {
         return value;
     }, _integrate = function _integrate() {
-        var core = Observer_ScrollTrigger.core, data = core.bridge || {}, scrollers = core._scrollers, proxies = core._proxies;
+        var core = ScrollTrigger.core, data = core.bridge || {}, scrollers = core._scrollers, proxies = core._proxies;
         scrollers.push.apply(scrollers, _scrollers);
         proxies.push.apply(proxies, _proxies);
         _scrollers = scrollers;
@@ -8076,8 +8066,8 @@
         var max = Math.max.apply(Math, a), min = Math.min.apply(Math, a);
         return Math.abs(max) >= Math.abs(min) ? max : min;
     }, _setScrollTrigger = function _setScrollTrigger() {
-        Observer_ScrollTrigger = Observer_gsap.core.globals().ScrollTrigger;
-        Observer_ScrollTrigger && Observer_ScrollTrigger.core && _integrate();
+        ScrollTrigger = Observer_gsap.core.globals().ScrollTrigger;
+        ScrollTrigger && ScrollTrigger.core && _integrate();
     }, Observer_initCore = function _initCore(core) {
         Observer_gsap = core || _getGSAP();
         if (!Observer_coreInitted && Observer_gsap && typeof document !== "undefined" && document.body) {
@@ -8108,7 +8098,7 @@
         var _proto = Observer.prototype;
         _proto.init = function init(vars) {
             Observer_coreInitted || Observer_initCore(Observer_gsap) || console.warn("Please gsap.registerPlugin(Observer)");
-            Observer_ScrollTrigger || _setScrollTrigger();
+            ScrollTrigger || _setScrollTrigger();
             var tolerance = vars.tolerance, dragMinimum = vars.dragMinimum, type = vars.type, target = vars.target, lineHeight = vars.lineHeight, debounce = vars.debounce, preventDefault = vars.preventDefault, onStop = vars.onStop, onStopDelay = vars.onStopDelay, ignore = vars.ignore, wheelSpeed = vars.wheelSpeed, event = vars.event, onDragStart = vars.onDragStart, onDragEnd = vars.onDragEnd, onDrag = vars.onDrag, onPress = vars.onPress, onRelease = vars.onRelease, onRight = vars.onRight, onLeft = vars.onLeft, onUp = vars.onUp, onDown = vars.onDown, onChangeX = vars.onChangeX, onChangeY = vars.onChangeY, onChange = vars.onChange, onToggleX = vars.onToggleX, onToggleY = vars.onToggleY, onHover = vars.onHover, onHoverEnd = vars.onHoverEnd, onMove = vars.onMove, ignoreCheck = vars.ignoreCheck, isNormalizer = vars.isNormalizer, onGestureStart = vars.onGestureStart, onGestureEnd = vars.onGestureEnd, onWheel = vars.onWheel, onEnable = vars.onEnable, onDisable = vars.onDisable, onClick = vars.onClick, scrollSpeed = vars.scrollSpeed, capture = vars.capture, allowClicks = vars.allowClicks, lockAxis = vars.lockAxis, onLockAxis = vars.onLockAxis;
             this.target = target = _getTarget(target) || _docEl;
             this.vars = vars;
@@ -9949,625 +9939,289 @@
         }
     };
     ScrollTrigger_getGSAP() && ScrollTrigger_gsap.registerPlugin(ScrollTrigger_ScrollTrigger);
-    (function() {
-        function append() {
-            var length = arguments.length;
-            for (var i = 0; i < length; i++) {
-                var node = i < 0 || arguments.length <= i ? void 0 : arguments[i];
-                if (node.nodeType === 1 || node.nodeType === 11) this.appendChild(node); else this.appendChild(document.createTextNode(String(node)));
-            }
-        }
-        function replaceChildren() {
-            while (this.lastChild) this.removeChild(this.lastChild);
-            if (arguments.length) this.append.apply(this, arguments);
-        }
-        function replaceWith() {
-            var parent = this.parentNode;
-            for (var _len = arguments.length, nodes = new Array(_len), _key = 0; _key < _len; _key++) nodes[_key] = arguments[_key];
-            var i = nodes.length;
-            if (!parent) return;
-            if (!i) parent.removeChild(this);
-            while (i--) {
-                var node = nodes[i];
-                if (typeof node !== "object") node = this.ownerDocument.createTextNode(node); else if (node.parentNode) node.parentNode.removeChild(node);
-                if (!i) parent.replaceChild(node, this); else parent.insertBefore(this.previousSibling, node);
-            }
-        }
-        if (typeof Element !== "undefined") {
-            if (!Element.prototype.append) {
-                Element.prototype.append = append;
-                DocumentFragment.prototype.append = append;
-            }
-            if (!Element.prototype.replaceChildren) {
-                Element.prototype.replaceChildren = replaceChildren;
-                DocumentFragment.prototype.replaceChildren = replaceChildren;
-            }
-            if (!Element.prototype.replaceWith) {
-                Element.prototype.replaceWith = replaceWith;
-                DocumentFragment.prototype.replaceWith = replaceWith;
-            }
-        }
-    })();
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-    }
-    function dist_defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];
-            descriptor.enumerable = descriptor.enumerable || false;
-            descriptor.configurable = true;
-            if ("value" in descriptor) descriptor.writable = true;
-            Object.defineProperty(target, descriptor.key, descriptor);
-        }
-    }
-    function dist_createClass(Constructor, protoProps, staticProps) {
-        if (protoProps) dist_defineProperties(Constructor.prototype, protoProps);
-        if (staticProps) dist_defineProperties(Constructor, staticProps);
-        return Constructor;
-    }
-    function _defineProperty(obj, key, value) {
-        if (key in obj) Object.defineProperty(obj, key, {
-            value,
-            enumerable: true,
-            configurable: true,
-            writable: true
-        }); else obj[key] = value;
-        return obj;
-    }
-    function ownKeys(object, enumerableOnly) {
-        var keys = Object.keys(object);
-        if (Object.getOwnPropertySymbols) {
-            var symbols = Object.getOwnPropertySymbols(object);
-            if (enumerableOnly) symbols = symbols.filter((function(sym) {
-                return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-            }));
-            keys.push.apply(keys, symbols);
-        }
-        return keys;
-    }
-    function _objectSpread2(target) {
-        for (var i = 1; i < arguments.length; i++) {
-            var source = arguments[i] != null ? arguments[i] : {};
-            if (i % 2) ownKeys(Object(source), true).forEach((function(key) {
-                _defineProperty(target, key, source[key]);
-            })); else if (Object.getOwnPropertyDescriptors) Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); else ownKeys(Object(source)).forEach((function(key) {
-                Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-            }));
-        }
-        return target;
-    }
-    function _slicedToArray(arr, i) {
-        return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-    }
-    function _toConsumableArray(arr) {
-        return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-    }
-    function _arrayWithoutHoles(arr) {
-        if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-    }
-    function _arrayWithHoles(arr) {
-        if (Array.isArray(arr)) return arr;
-    }
-    function _iterableToArray(iter) {
-        if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-    }
-    function _iterableToArrayLimit(arr, i) {
-        if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-        var _arr = [];
-        var _n = true;
-        var _d = false;
-        var _e = void 0;
-        try {
-            for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done); _n = true) {
-                _arr.push(_s.value);
-                if (i && _arr.length === i) break;
-            }
-        } catch (err) {
-            _d = true;
-            _e = err;
-        } finally {
-            try {
-                if (!_n && _i["return"] != null) _i["return"]();
-            } finally {
-                if (_d) throw _e;
-            }
-        }
-        return _arr;
-    }
-    function _unsupportedIterableToArray(o, minLen) {
-        if (!o) return;
-        if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-        var n = Object.prototype.toString.call(o).slice(8, -1);
-        if (n === "Object" && o.constructor) n = o.constructor.name;
-        if (n === "Map" || n === "Set") return Array.from(o);
-        if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-    }
-    function _arrayLikeToArray(arr, len) {
-        if (len == null || len > arr.length) len = arr.length;
-        for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-        return arr2;
-    }
-    function _nonIterableSpread() {
-        throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-    }
-    function _nonIterableRest() {
-        throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-    }
-    function dist_extend(target, object) {
-        return Object.getOwnPropertyNames(Object(target)).reduce((function(extended, key) {
-            var currentValue = Object.getOwnPropertyDescriptor(Object(target), key);
-            var newValue = Object.getOwnPropertyDescriptor(Object(object), key);
-            return Object.defineProperty(extended, key, newValue || currentValue);
-        }), {});
-    }
-    function isString(value) {
-        return typeof value === "string";
-    }
-    function isArray(value) {
-        return Array.isArray(value);
-    }
-    function parseSettings() {
-        var settings = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-        var object = dist_extend(settings);
-        var types;
-        if (object.types !== void 0) types = object.types; else if (object.split !== void 0) types = object.split;
-        if (types !== void 0) object.types = (isString(types) || isArray(types) ? String(types) : "").split(",").map((function(type) {
-            return String(type).trim();
-        })).filter((function(type) {
-            return /((line)|(word)|(char))/i.test(type);
-        }));
-        if (object.absolute || object.position) object.absolute = object.absolute || /absolute/.test(settings.position);
-        return object;
-    }
-    function parseTypes(value) {
-        var types = isString(value) || isArray(value) ? String(value) : "";
-        return {
-            none: !types,
-            lines: /line/i.test(types),
-            words: /word/i.test(types),
-            chars: /char/i.test(types)
-        };
-    }
-    function dist_isObject(value) {
-        return value !== null && typeof value === "object";
-    }
-    function dist_isNode(input) {
-        return dist_isObject(input) && /^(1|3|11)$/.test(input.nodeType);
-    }
-    function isLength(value) {
-        return typeof value === "number" && value > -1 && value % 1 === 0;
-    }
-    function isArrayLike(value) {
-        return dist_isObject(value) && isLength(value.length);
-    }
-    function dist_toArray(value) {
-        if (isArray(value)) return value;
-        if (value == null) return [];
-        return isArrayLike(value) ? Array.prototype.slice.call(value) : [ value ];
-    }
-    function getTargetElements(target) {
-        var elements = target;
-        if (isString(target)) if (/^(#[a-z]\w+)$/.test(target.trim())) elements = document.getElementById(target.trim().slice(1)); else elements = document.querySelectorAll(target);
-        return dist_toArray(elements).reduce((function(result, element) {
-            return [].concat(_toConsumableArray(result), _toConsumableArray(dist_toArray(element).filter(dist_isNode)));
-        }), []);
-    }
-    var entries = Object.entries;
-    var expando = "_splittype";
-    var cache = {};
-    var uid = 0;
-    function set(owner, key, value) {
-        if (!dist_isObject(owner)) {
-            console.warn("[data.set] owner is not an object");
-            return null;
-        }
-        var id = owner[expando] || (owner[expando] = ++uid);
-        var data = cache[id] || (cache[id] = {});
-        if (value === void 0) {
-            if (!!key && Object.getPrototypeOf(key) === Object.prototype) cache[id] = _objectSpread2(_objectSpread2({}, data), key);
-        } else if (key !== void 0) data[key] = value;
-        return value;
-    }
-    function get(owner, key) {
-        var id = dist_isObject(owner) ? owner[expando] : null;
-        var data = id && cache[id] || {};
-        if (key === void 0) return data;
-        return data[key];
-    }
-    function remove(element) {
-        var id = element && element[expando];
-        if (id) {
-            delete element[id];
-            delete cache[id];
-        }
-    }
-    function clear() {
-        Object.keys(cache).forEach((function(key) {
-            delete cache[key];
-        }));
-    }
-    function cleanup() {
-        entries(cache).forEach((function(_ref) {
-            var _ref2 = _slicedToArray(_ref, 2), id = _ref2[0], _ref2$ = _ref2[1], isRoot = _ref2$.isRoot, isSplit = _ref2$.isSplit;
-            if (!isRoot || !isSplit) {
-                cache[id] = null;
-                delete cache[id];
-            }
-        }));
-    }
-    function toWords(value) {
-        var separator = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : " ";
-        var string = value ? String(value) : "";
-        return string.trim().replace(/\s+/g, " ").split(separator);
-    }
-    var rsAstralRange = "\\ud800-\\udfff";
-    var rsComboMarksRange = "\\u0300-\\u036f\\ufe20-\\ufe23";
-    var rsComboSymbolsRange = "\\u20d0-\\u20f0";
-    var rsVarRange = "\\ufe0e\\ufe0f";
-    var rsAstral = "[".concat(rsAstralRange, "]");
-    var rsCombo = "[".concat(rsComboMarksRange).concat(rsComboSymbolsRange, "]");
-    var rsFitz = "\\ud83c[\\udffb-\\udfff]";
-    var rsModifier = "(?:".concat(rsCombo, "|").concat(rsFitz, ")");
-    var rsNonAstral = "[^".concat(rsAstralRange, "]");
-    var rsRegional = "(?:\\ud83c[\\udde6-\\uddff]){2}";
-    var rsSurrPair = "[\\ud800-\\udbff][\\udc00-\\udfff]";
-    var rsZWJ = "\\u200d";
-    var reOptMod = "".concat(rsModifier, "?");
-    var rsOptVar = "[".concat(rsVarRange, "]?");
-    var rsOptJoin = "(?:" + rsZWJ + "(?:" + [ rsNonAstral, rsRegional, rsSurrPair ].join("|") + ")" + rsOptVar + reOptMod + ")*";
-    var rsSeq = rsOptVar + reOptMod + rsOptJoin;
-    var rsSymbol = "(?:".concat([ "".concat(rsNonAstral).concat(rsCombo, "?"), rsCombo, rsRegional, rsSurrPair, rsAstral ].join("|"), "\n)");
-    var reUnicode = RegExp("".concat(rsFitz, "(?=").concat(rsFitz, ")|").concat(rsSymbol).concat(rsSeq), "g");
-    var unicodeRange = [ rsZWJ, rsAstralRange, rsComboMarksRange, rsComboSymbolsRange, rsVarRange ];
-    var reHasUnicode = RegExp("[".concat(unicodeRange.join(""), "]"));
-    function asciiToArray(string) {
-        return string.split("");
-    }
-    function hasUnicode(string) {
-        return reHasUnicode.test(string);
-    }
-    function unicodeToArray(string) {
-        return string.match(reUnicode) || [];
-    }
-    function stringToArray(string) {
-        return hasUnicode(string) ? unicodeToArray(string) : asciiToArray(string);
-    }
-    function dist_toString(value) {
-        return value == null ? "" : String(value);
-    }
-    function toChars(string) {
-        var separator = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
-        string = dist_toString(string);
-        if (string && isString(string)) if (!separator && hasUnicode(string)) return stringToArray(string);
-        return string.split(separator);
-    }
-    function dist_createElement(name, attributes) {
-        var element = document.createElement(name);
-        if (!attributes) return element;
-        Object.keys(attributes).forEach((function(attribute) {
-            var rawValue = attributes[attribute];
-            var value = isString(rawValue) ? rawValue.trim() : rawValue;
-            if (value === null || value === "") return;
-            if (attribute === "children") element.append.apply(element, _toConsumableArray(dist_toArray(value))); else element.setAttribute(attribute, value);
-        }));
-        return element;
-    }
-    var dist_defaults = {
-        splitClass: "",
-        lineClass: "line",
-        wordClass: "word",
-        charClass: "char",
-        types: [ "lines", "words", "chars" ],
-        absolute: false,
-        tagName: "div"
-    };
-    function splitWordsAndChars(textNode, settings) {
-        settings = dist_extend(dist_defaults, settings);
-        var types = parseTypes(settings.types);
-        var TAG_NAME = settings.tagName;
-        var VALUE = textNode.nodeValue;
-        var splitText = document.createDocumentFragment();
-        var words = [];
-        var chars = [];
-        if (/^\s/.test(VALUE)) splitText.append(" ");
-        words = toWords(VALUE).reduce((function(result, WORD, idx, arr) {
-            var wordElement;
-            var characterElementsForCurrentWord;
-            if (types.chars) characterElementsForCurrentWord = toChars(WORD).map((function(CHAR) {
-                var characterElement = dist_createElement(TAG_NAME, {
-                    class: "".concat(settings.splitClass, " ").concat(settings.charClass),
-                    style: "display: inline-block;",
-                    children: CHAR
-                });
-                set(characterElement, "isChar", true);
-                chars = [].concat(_toConsumableArray(chars), [ characterElement ]);
-                return characterElement;
-            }));
-            if (types.words || types.lines) {
-                wordElement = dist_createElement(TAG_NAME, {
-                    class: "".concat(settings.wordClass, " ").concat(settings.splitClass),
-                    style: "display: inline-block; ".concat(types.words && settings.absolute ? "position: relative;" : ""),
-                    children: types.chars ? characterElementsForCurrentWord : WORD
-                });
-                set(wordElement, {
-                    isWord: true,
-                    isWordStart: true,
-                    isWordEnd: true
-                });
-                splitText.appendChild(wordElement);
-            } else characterElementsForCurrentWord.forEach((function(characterElement) {
-                splitText.appendChild(characterElement);
-            }));
-            if (idx < arr.length - 1) splitText.append(" ");
-            return types.words ? result.concat(wordElement) : result;
-        }), []);
-        if (/\s$/.test(VALUE)) splitText.append(" ");
-        textNode.replaceWith(splitText);
-        return {
-            words,
-            chars
-        };
-    }
-    function split(node, settings) {
-        var type = node.nodeType;
-        var wordsAndChars = {
-            words: [],
-            chars: []
-        };
-        if (!/(1|3|11)/.test(type)) return wordsAndChars;
-        if (type === 3 && /\S/.test(node.nodeValue)) return splitWordsAndChars(node, settings);
-        var childNodes = dist_toArray(node.childNodes);
-        if (childNodes.length) {
-            set(node, "isSplit", true);
-            if (!get(node).isRoot) {
-                node.style.display = "inline-block";
-                node.style.position = "relative";
-                var nextSibling = node.nextSibling;
-                var prevSibling = node.previousSibling;
-                var text = node.textContent || "";
-                var textAfter = nextSibling ? nextSibling.textContent : " ";
-                var textBefore = prevSibling ? prevSibling.textContent : " ";
-                set(node, {
-                    isWordEnd: /\s$/.test(text) || /^\s/.test(textAfter),
-                    isWordStart: /^\s/.test(text) || /\s$/.test(textBefore)
-                });
-            }
-        }
-        return childNodes.reduce((function(result, child) {
-            var _split = split(child, settings), words = _split.words, chars = _split.chars;
-            return {
-                words: [].concat(_toConsumableArray(result.words), _toConsumableArray(words)),
-                chars: [].concat(_toConsumableArray(result.chars), _toConsumableArray(chars))
-            };
-        }), wordsAndChars);
-    }
-    function getPosition(node, isWord, settings, scrollPos) {
-        if (!settings.absolute) return {
-            top: isWord ? node.offsetTop : null
-        };
-        var parent = node.offsetParent;
-        var _scrollPos = _slicedToArray(scrollPos, 2), scrollX = _scrollPos[0], scrollY = _scrollPos[1];
-        var parentX = 0;
-        var parentY = 0;
-        if (parent && parent !== document.body) {
-            var parentRect = parent.getBoundingClientRect();
-            parentX = parentRect.x + scrollX;
-            parentY = parentRect.y + scrollY;
-        }
-        var _node$getBoundingClie = node.getBoundingClientRect(), width = _node$getBoundingClie.width, height = _node$getBoundingClie.height, x = _node$getBoundingClie.x, y = _node$getBoundingClie.y;
-        var top = y + scrollY - parentY;
-        var left = x + scrollX - parentX;
-        return {
-            width,
-            height,
-            top,
-            left
-        };
-    }
-    function unSplitWords(element) {
-        if (!get(element).isWord) dist_toArray(element.children).forEach((function(child) {
-            return unSplitWords(child);
-        })); else {
-            remove(element);
-            element.replaceWith.apply(element, _toConsumableArray(element.childNodes));
-        }
-    }
-    var createFragment = function createFragment() {
-        return document.createDocumentFragment();
-    };
-    function repositionAfterSplit(element, settings, scrollPos) {
-        var types = parseTypes(settings.types);
-        var TAG_NAME = settings.tagName;
-        var nodes = element.getElementsByTagName("*");
-        var wordsInEachLine = [];
-        var wordsInCurrentLine = [];
-        var lineOffsetY = null;
-        var elementHeight;
-        var elementWidth;
-        var contentBox;
-        var lines = [];
-        var parent = element.parentElement;
-        var nextSibling = element.nextElementSibling;
-        var splitText = createFragment();
-        var cs = window.getComputedStyle(element);
-        var align = cs.textAlign;
-        var fontSize = parseFloat(cs.fontSize);
-        var lineThreshold = fontSize * .2;
-        if (settings.absolute) {
-            contentBox = {
-                left: element.offsetLeft,
-                top: element.offsetTop,
-                width: element.offsetWidth
-            };
-            elementWidth = element.offsetWidth;
-            elementHeight = element.offsetHeight;
-            set(element, {
-                cssWidth: element.style.width,
-                cssHeight: element.style.height
-            });
-        }
-        dist_toArray(nodes).forEach((function(node) {
-            var isWordLike = node.parentElement === element;
-            var _getPosition = getPosition(node, isWordLike, settings, scrollPos), width = _getPosition.width, height = _getPosition.height, top = _getPosition.top, left = _getPosition.left;
-            if (/^br$/i.test(node.nodeName)) return;
-            if (types.lines && isWordLike) {
-                if (lineOffsetY === null || top - lineOffsetY >= lineThreshold) {
-                    lineOffsetY = top;
-                    wordsInEachLine.push(wordsInCurrentLine = []);
-                }
-                wordsInCurrentLine.push(node);
-            }
-            if (settings.absolute) set(node, {
-                top,
-                left,
-                width,
-                height
-            });
-        }));
-        if (parent) parent.removeChild(element);
-        if (types.lines) {
-            lines = wordsInEachLine.map((function(wordsInThisLine) {
-                var lineElement = dist_createElement(TAG_NAME, {
-                    class: "".concat(settings.splitClass, " ").concat(settings.lineClass),
-                    style: "display: block; text-align: ".concat(align, "; width: 100%;")
-                });
-                set(lineElement, "isLine", true);
-                var lineDimensions = {
-                    height: 0,
-                    top: 1e4
-                };
-                splitText.appendChild(lineElement);
-                wordsInThisLine.forEach((function(wordOrElement, idx, arr) {
-                    var _data$get = get(wordOrElement), isWordEnd = _data$get.isWordEnd, top = _data$get.top, height = _data$get.height;
-                    var next = arr[idx + 1];
-                    lineDimensions.height = Math.max(lineDimensions.height, height);
-                    lineDimensions.top = Math.min(lineDimensions.top, top);
-                    lineElement.appendChild(wordOrElement);
-                    if (isWordEnd && get(next).isWordStart) lineElement.append(" ");
-                }));
-                if (settings.absolute) set(lineElement, {
-                    height: lineDimensions.height,
-                    top: lineDimensions.top
-                });
-                return lineElement;
-            }));
-            if (!types.words) unSplitWords(splitText);
-            element.replaceChildren(splitText);
-        }
-        if (settings.absolute) {
-            element.style.width = "".concat(element.style.width || elementWidth, "px");
-            element.style.height = "".concat(elementHeight, "px");
-            dist_toArray(nodes).forEach((function(node) {
-                var _data$get2 = get(node), isLine = _data$get2.isLine, top = _data$get2.top, left = _data$get2.left, width = _data$get2.width, height = _data$get2.height;
-                var parentData = get(node.parentElement);
-                var isChildOfLineNode = !isLine && parentData.isLine;
-                node.style.top = "".concat(isChildOfLineNode ? top - parentData.top : top, "px");
-                node.style.left = isLine ? "".concat(contentBox.left, "px") : "".concat(left - (isChildOfLineNode ? contentBox.left : 0), "px");
-                node.style.height = "".concat(height, "px");
-                node.style.width = isLine ? "".concat(contentBox.width, "px") : "".concat(width, "px");
-                node.style.position = "absolute";
-            }));
-        }
-        if (parent) if (nextSibling) parent.insertBefore(element, nextSibling); else parent.appendChild(element);
-        return lines;
-    }
-    var split_type_dist_defaults = dist_extend(dist_defaults, {});
-    var SplitType = function() {
-        dist_createClass(SplitType, null, [ {
-            key: "clearData",
-            value: function clearData() {
-                clear();
-            }
-        }, {
-            key: "setDefaults",
-            value: function setDefaults(options) {
-                split_type_dist_defaults = dist_extend(split_type_dist_defaults, parseSettings(options));
-                return dist_defaults;
-            }
-        }, {
-            key: "revert",
-            value: function revert(elements) {
-                getTargetElements(elements).forEach((function(element) {
-                    var _data$get = get(element), isSplit = _data$get.isSplit, html = _data$get.html, cssWidth = _data$get.cssWidth, cssHeight = _data$get.cssHeight;
-                    if (isSplit) {
-                        element.innerHTML = html;
-                        element.style.width = cssWidth || "";
-                        element.style.height = cssHeight || "";
-                        remove(element);
+    /*!
+ * SplitText 3.13.0
+ * https://gsap.com
+ *
+ * @license Copyright 2025, GreenSock. All rights reserved. Subject to the terms at https://gsap.com/standard-license.
+ * @author: Jack Doyle
+ */
+    let SplitText_gsap, _fonts, SplitText_coreInitted, _initIfNecessary = () => SplitText_coreInitted || SplitText.register(window.gsap), _charSegmenter = typeof Intl !== "undefined" ? new Intl.Segmenter : 0, SplitText_toArray = r => typeof r === "string" ? SplitText_toArray(document.querySelectorAll(r)) : "length" in r ? Array.from(r) : [ r ], _elements = targets => SplitText_toArray(targets).filter((e => e instanceof HTMLElement)), SplitText_emptyArray = [], SplitText_context = function() {}, _spacesRegEx = /\s+/g, _emojiSafeRegEx = new RegExp("\\p{RI}\\p{RI}|\\p{Emoji}(\\p{EMod}|\\u{FE0F}\\u{20E3}?|[\\u{E0020}-\\u{E007E}]+\\u{E007F})?(\\u{200D}\\p{Emoji}(\\p{EMod}|\\u{FE0F}\\u{20E3}?|[\\u{E0020}-\\u{E007E}]+\\u{E007F})?)*|.", "gu"), _emptyBounds = {
+        left: 0,
+        top: 0,
+        width: 0,
+        height: 0
+    }, _stretchToFitSpecialChars = (collection, specialCharsRegEx) => {
+        if (specialCharsRegEx) {
+            let slots, word, char, combined, charsFound = new Set(collection.join("").match(specialCharsRegEx) || SplitText_emptyArray), i = collection.length;
+            if (charsFound.size) while (--i > -1) {
+                word = collection[i];
+                for (char of charsFound) if (char.startsWith(word) && char.length > word.length) {
+                    slots = 0;
+                    combined = word;
+                    while (char.startsWith(combined += collection[i + ++slots]) && combined.length < char.length) ;
+                    if (slots && combined.length === char.length) {
+                        collection[i] = char;
+                        collection.splice(i + 1, slots);
+                        break;
                     }
-                }));
+                }
             }
-        }, {
-            key: "create",
-            value: function create(target, options) {
-                return new SplitType(target, options);
+        }
+        return collection;
+    }, _disallowInline = element => window.getComputedStyle(element).display === "inline" && (element.style.display = "inline-block"), _insertNodeBefore = (newChild, parent, existingChild) => parent.insertBefore(typeof newChild === "string" ? document.createTextNode(newChild) : newChild, existingChild), _getWrapper = (type, config, collection) => {
+        let className = config[type + "sClass"] || "", {tag = "div", aria = "auto", propIndex = false} = config, display = type === "line" ? "block" : "inline-block", incrementClass = className.indexOf("++") > -1, wrapper = text => {
+            let el = document.createElement(tag), i = collection.length + 1;
+            className && (el.className = className + (incrementClass ? " " + className + i : ""));
+            propIndex && el.style.setProperty("--" + type, i + "");
+            aria !== "none" && el.setAttribute("aria-hidden", "true");
+            if (tag !== "span") {
+                el.style.position = "relative";
+                el.style.display = display;
             }
-        }, {
-            key: "data",
-            get: function get() {
-                return cache;
+            el.textContent = text;
+            collection.push(el);
+            return el;
+        };
+        incrementClass && (className = className.replace("++", ""));
+        wrapper.collection = collection;
+        return wrapper;
+    }, _getLineWrapper = (element, nodes, config, collection) => {
+        let lineWrapper = _getWrapper("line", config, collection), textAlign = window.getComputedStyle(element).textAlign || "left";
+        return (startIndex, endIndex) => {
+            let newLine = lineWrapper("");
+            newLine.style.textAlign = textAlign;
+            element.insertBefore(newLine, nodes[startIndex]);
+            for (;startIndex < endIndex; startIndex++) newLine.appendChild(nodes[startIndex]);
+            newLine.normalize();
+        };
+    }, _splitWordsAndCharsRecursively = (element, config, wordWrapper, charWrapper, prepForCharsOnly, deepSlice, ignore, charSplitRegEx, specialCharsRegEx, isNested) => {
+        var _a;
+        let wordDelimIsNotSpace, wordDelimString, wordDelimSplitter, curNode, words, curWordEl, startsWithSpace, endsWithSpace, j, bounds, curWordChars, clonedNode, curSubNode, tempSubNode, curTextContent, wordText, lastWordText, k, nodes = Array.from(element.childNodes), i = 0, {wordDelimiter, reduceWhiteSpace = true, prepareText} = config, elementBounds = element.getBoundingClientRect(), lastBounds = elementBounds, isPreformatted = !reduceWhiteSpace && window.getComputedStyle(element).whiteSpace.substring(0, 3) === "pre", ignoredPreviousSibling = 0, wordsCollection = wordWrapper.collection;
+        if (typeof wordDelimiter === "object") {
+            wordDelimSplitter = wordDelimiter.delimiter || wordDelimiter;
+            wordDelimString = wordDelimiter.replaceWith || "";
+        } else wordDelimString = wordDelimiter === "" ? "" : wordDelimiter || " ";
+        wordDelimIsNotSpace = wordDelimString !== " ";
+        for (;i < nodes.length; i++) {
+            curNode = nodes[i];
+            if (curNode.nodeType === 3) {
+                curTextContent = curNode.textContent || "";
+                if (reduceWhiteSpace) curTextContent = curTextContent.replace(_spacesRegEx, " "); else if (isPreformatted) curTextContent = curTextContent.replace(/\n/g, wordDelimString + "\n");
+                prepareText && (curTextContent = prepareText(curTextContent, element));
+                curNode.textContent = curTextContent;
+                words = wordDelimString || wordDelimSplitter ? curTextContent.split(wordDelimSplitter || wordDelimString) : curTextContent.match(charSplitRegEx) || SplitText_emptyArray;
+                lastWordText = words[words.length - 1];
+                endsWithSpace = wordDelimIsNotSpace ? lastWordText.slice(-1) === " " : !lastWordText;
+                lastWordText || words.pop();
+                lastBounds = elementBounds;
+                startsWithSpace = wordDelimIsNotSpace ? words[0].charAt(0) === " " : !words[0];
+                startsWithSpace && _insertNodeBefore(" ", element, curNode);
+                words[0] || words.shift();
+                _stretchToFitSpecialChars(words, specialCharsRegEx);
+                deepSlice && isNested || (curNode.textContent = "");
+                for (j = 1; j <= words.length; j++) {
+                    wordText = words[j - 1];
+                    if (!reduceWhiteSpace && isPreformatted && wordText.charAt(0) === "\n") {
+                        (_a = curNode.previousSibling) == null ? void 0 : _a.remove();
+                        _insertNodeBefore(document.createElement("br"), element, curNode);
+                        wordText = wordText.slice(1);
+                    }
+                    if (!reduceWhiteSpace && wordText === "") _insertNodeBefore(wordDelimString, element, curNode); else if (wordText === " ") element.insertBefore(document.createTextNode(" "), curNode); else {
+                        wordDelimIsNotSpace && wordText.charAt(0) === " " && _insertNodeBefore(" ", element, curNode);
+                        if (ignoredPreviousSibling && j === 1 && !startsWithSpace && wordsCollection.indexOf(ignoredPreviousSibling.parentNode) > -1) {
+                            curWordEl = wordsCollection[wordsCollection.length - 1];
+                            curWordEl.appendChild(document.createTextNode(charWrapper ? "" : wordText));
+                        } else {
+                            curWordEl = wordWrapper(charWrapper ? "" : wordText);
+                            _insertNodeBefore(curWordEl, element, curNode);
+                            ignoredPreviousSibling && j === 1 && !startsWithSpace && curWordEl.insertBefore(ignoredPreviousSibling, curWordEl.firstChild);
+                        }
+                        if (charWrapper) {
+                            curWordChars = _charSegmenter ? _stretchToFitSpecialChars([ ..._charSegmenter.segment(wordText) ].map((s => s.segment)), specialCharsRegEx) : wordText.match(charSplitRegEx) || SplitText_emptyArray;
+                            for (k = 0; k < curWordChars.length; k++) curWordEl.appendChild(curWordChars[k] === " " ? document.createTextNode(" ") : charWrapper(curWordChars[k]));
+                        }
+                        if (deepSlice && isNested) {
+                            curTextContent = curNode.textContent = curTextContent.substring(wordText.length + 1, curTextContent.length);
+                            bounds = curWordEl.getBoundingClientRect();
+                            if (bounds.top > lastBounds.top && bounds.left <= lastBounds.left) {
+                                clonedNode = element.cloneNode();
+                                curSubNode = element.childNodes[0];
+                                while (curSubNode && curSubNode !== curWordEl) {
+                                    tempSubNode = curSubNode;
+                                    curSubNode = curSubNode.nextSibling;
+                                    clonedNode.appendChild(tempSubNode);
+                                }
+                                element.parentNode.insertBefore(clonedNode, element);
+                                prepForCharsOnly && _disallowInline(clonedNode);
+                            }
+                            lastBounds = bounds;
+                        }
+                        if (j < words.length || endsWithSpace) _insertNodeBefore(j >= words.length ? " " : wordDelimIsNotSpace && wordText.slice(-1) === " " ? " " + wordDelimString : wordDelimString, element, curNode);
+                    }
+                }
+                element.removeChild(curNode);
+                ignoredPreviousSibling = 0;
+            } else if (curNode.nodeType === 1) {
+                if (ignore && ignore.indexOf(curNode) > -1) {
+                    wordsCollection.indexOf(curNode.previousSibling) > -1 && wordsCollection[wordsCollection.length - 1].appendChild(curNode);
+                    ignoredPreviousSibling = curNode;
+                } else {
+                    _splitWordsAndCharsRecursively(curNode, config, wordWrapper, charWrapper, prepForCharsOnly, deepSlice, ignore, charSplitRegEx, specialCharsRegEx, true);
+                    ignoredPreviousSibling = 0;
+                }
+                prepForCharsOnly && _disallowInline(curNode);
             }
-        }, {
-            key: "defaults",
-            get: function get() {
-                return split_type_dist_defaults;
-            },
-            set: function set(options) {
-                split_type_dist_defaults = dist_extend(split_type_dist_defaults, parseSettings(options));
-            }
-        } ]);
-        function SplitType(elements, options) {
-            _classCallCheck(this, SplitType);
+        }
+    };
+    const _SplitText = class _SplitText {
+        constructor(elements, config) {
             this.isSplit = false;
-            this.settings = dist_extend(split_type_dist_defaults, parseSettings(options));
-            this.elements = getTargetElements(elements);
-            this.split();
-        }
-        dist_createClass(SplitType, [ {
-            key: "split",
-            value: function split$1(options) {
-                var _this = this;
-                this.revert();
-                this.elements.forEach((function(element) {
-                    set(element, "html", element.innerHTML);
-                }));
-                this.lines = [];
-                this.words = [];
-                this.chars = [];
-                var scrollPos = [ window.pageXOffset, window.pageYOffset ];
-                if (options !== void 0) this.settings = dist_extend(this.settings, parseSettings(options));
-                var types = parseTypes(this.settings.types);
-                if (types.none) return;
-                this.elements.forEach((function(element) {
-                    set(element, "isRoot", true);
-                    var _split2 = split(element, _this.settings), words = _split2.words, chars = _split2.chars;
-                    _this.words = [].concat(_toConsumableArray(_this.words), _toConsumableArray(words));
-                    _this.chars = [].concat(_toConsumableArray(_this.chars), _toConsumableArray(chars));
-                }));
-                this.elements.forEach((function(element) {
-                    if (types.lines || _this.settings.absolute) {
-                        var lines = repositionAfterSplit(element, _this.settings, scrollPos);
-                        _this.lines = [].concat(_toConsumableArray(_this.lines), _toConsumableArray(lines));
+            _initIfNecessary();
+            this.elements = _elements(elements);
+            this.chars = [];
+            this.words = [];
+            this.lines = [];
+            this.masks = [];
+            this.vars = config;
+            this._split = () => this.isSplit && this.split(this.vars);
+            let timerId, orig = [], checkWidths = () => {
+                let o, i = orig.length;
+                while (i--) {
+                    o = orig[i];
+                    let w = o.element.offsetWidth;
+                    if (w !== o.width) {
+                        o.width = w;
+                        this._split();
+                        return;
                     }
-                }));
-                this.isSplit = true;
-                window.scrollTo(scrollPos[0], scrollPos[1]);
-                cleanup();
-            }
-        }, {
-            key: "revert",
-            value: function revert() {
-                if (this.isSplit) {
-                    this.lines = null;
-                    this.words = null;
-                    this.chars = null;
-                    this.isSplit = false;
                 }
-                SplitType.revert(this.elements);
+            };
+            this._data = {
+                orig,
+                obs: typeof ResizeObserver !== "undefined" && new ResizeObserver((() => {
+                    clearTimeout(timerId);
+                    timerId = setTimeout(checkWidths, 200);
+                }))
+            };
+            SplitText_context(this);
+            this.split(config);
+        }
+        split(config) {
+            this.isSplit && this.revert();
+            this.vars = config = config || this.vars || {};
+            let onSplitResult, {type = "chars,words,lines", aria = "auto", deepSlice = true, smartWrap, onSplit, autoSplit = false, specialChars, mask} = this.vars, splitLines = type.indexOf("lines") > -1, splitCharacters = type.indexOf("chars") > -1, splitWords = type.indexOf("words") > -1, onlySplitCharacters = splitCharacters && !splitWords && !splitLines, specialCharsRegEx = specialChars && ("push" in specialChars ? new RegExp("(?:" + specialChars.join("|") + ")", "gu") : specialChars), finalCharSplitRegEx = specialCharsRegEx ? new RegExp(specialCharsRegEx.source + "|" + _emojiSafeRegEx.source, "gu") : _emojiSafeRegEx, ignore = !!config.ignore && _elements(config.ignore), {orig, animTime, obs} = this._data;
+            if (splitCharacters || splitWords || splitLines) {
+                this.elements.forEach(((element, index) => {
+                    orig[index] = {
+                        element,
+                        html: element.innerHTML,
+                        ariaL: element.getAttribute("aria-label"),
+                        ariaH: element.getAttribute("aria-hidden")
+                    };
+                    aria === "auto" ? element.setAttribute("aria-label", (element.textContent || "").trim()) : aria === "hidden" && element.setAttribute("aria-hidden", "true");
+                    let i, curWord, smartWrapSpan, nextSibling, chars = [], words = [], lines = [], charWrapper = splitCharacters ? _getWrapper("char", config, chars) : null, wordWrapper = _getWrapper("word", config, words);
+                    _splitWordsAndCharsRecursively(element, config, wordWrapper, charWrapper, onlySplitCharacters, deepSlice && (splitLines || onlySplitCharacters), ignore, finalCharSplitRegEx, specialCharsRegEx, false);
+                    if (splitLines) {
+                        let curNode, nodes = SplitText_toArray(element.childNodes), wrapLine = _getLineWrapper(element, nodes, config, lines), toRemove = [], lineStartIndex = 0, allBounds = nodes.map((n => n.nodeType === 1 ? n.getBoundingClientRect() : _emptyBounds)), lastBounds = _emptyBounds;
+                        for (i = 0; i < nodes.length; i++) {
+                            curNode = nodes[i];
+                            if (curNode.nodeType === 1) if (curNode.nodeName === "BR") {
+                                toRemove.push(curNode);
+                                wrapLine(lineStartIndex, i + 1);
+                                lineStartIndex = i + 1;
+                                lastBounds = allBounds[lineStartIndex];
+                            } else {
+                                if (i && allBounds[i].top > lastBounds.top && allBounds[i].left <= lastBounds.left) {
+                                    wrapLine(lineStartIndex, i);
+                                    lineStartIndex = i;
+                                }
+                                lastBounds = allBounds[i];
+                            }
+                        }
+                        lineStartIndex < i && wrapLine(lineStartIndex, i);
+                        toRemove.forEach((el => {
+                            var _a;
+                            return (_a = el.parentNode) == null ? void 0 : _a.removeChild(el);
+                        }));
+                    }
+                    if (!splitWords) {
+                        for (i = 0; i < words.length; i++) {
+                            curWord = words[i];
+                            if (splitCharacters || !curWord.nextSibling || curWord.nextSibling.nodeType !== 3) if (smartWrap && !splitLines) {
+                                smartWrapSpan = document.createElement("span");
+                                smartWrapSpan.style.whiteSpace = "nowrap";
+                                while (curWord.firstChild) smartWrapSpan.appendChild(curWord.firstChild);
+                                curWord.replaceWith(smartWrapSpan);
+                            } else curWord.replaceWith(...curWord.childNodes); else {
+                                nextSibling = curWord.nextSibling;
+                                if (nextSibling && nextSibling.nodeType === 3) {
+                                    nextSibling.textContent = (curWord.textContent || "") + (nextSibling.textContent || "");
+                                    curWord.remove();
+                                }
+                            }
+                        }
+                        words.length = 0;
+                        element.normalize();
+                    }
+                    this.lines.push(...lines);
+                    this.words.push(...words);
+                    this.chars.push(...chars);
+                }));
+                mask && this[mask] && this.masks.push(...this[mask].map((el => {
+                    let maskEl = el.cloneNode();
+                    el.replaceWith(maskEl);
+                    maskEl.appendChild(el);
+                    el.className && (maskEl.className = el.className.replace(/(\b\w+\b)/g, "$1-mask"));
+                    maskEl.style.overflow = "clip";
+                    return maskEl;
+                })));
             }
-        } ]);
-        return SplitType;
-    }();
+            this.isSplit = true;
+            _fonts && (autoSplit ? _fonts.addEventListener("loadingdone", this._split) : _fonts.status === "loading" && console.warn("SplitText called before fonts loaded"));
+            if ((onSplitResult = onSplit && onSplit(this)) && onSplitResult.totalTime) this._data.anim = animTime ? onSplitResult.totalTime(animTime) : onSplitResult;
+            splitLines && autoSplit && this.elements.forEach(((element, index) => {
+                orig[index].width = element.offsetWidth;
+                obs && obs.observe(element);
+            }));
+            return this;
+        }
+        revert() {
+            var _a, _b;
+            let {orig, anim, obs} = this._data;
+            obs && obs.disconnect();
+            orig.forEach((({element, html, ariaL, ariaH}) => {
+                element.innerHTML = html;
+                ariaL ? element.setAttribute("aria-label", ariaL) : element.removeAttribute("aria-label");
+                ariaH ? element.setAttribute("aria-hidden", ariaH) : element.removeAttribute("aria-hidden");
+            }));
+            this.chars.length = this.words.length = this.lines.length = orig.length = this.masks.length = 0;
+            this.isSplit = false;
+            _fonts == null ? void 0 : _fonts.removeEventListener("loadingdone", this._split);
+            if (anim) {
+                this._data.animTime = anim.totalTime();
+                anim.revert();
+            }
+            (_b = (_a = this.vars).onRevert) == null ? void 0 : _b.call(_a, this);
+            return this;
+        }
+        static create(elements, config) {
+            return new _SplitText(elements, config);
+        }
+        static register(core) {
+            SplitText_gsap = SplitText_gsap || core || window.gsap;
+            if (SplitText_gsap) {
+                SplitText_toArray = SplitText_gsap.utils.toArray;
+                SplitText_context = SplitText_gsap.core.context || SplitText_context;
+            }
+            if (!SplitText_coreInitted && window.innerWidth > 0) {
+                _fonts = document.fonts;
+                SplitText_coreInitted = true;
+            }
+        }
+    };
+    _SplitText.version = "3.13.0";
+    let SplitText = _SplitText;
     function setCookie(name, value, days) {
         const date = new Date;
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1e3);
@@ -10643,46 +10297,27 @@
         sections.forEach((section => {
             observer.observe(section);
         }));
-        menuLinks.forEach((link => {
-            link.addEventListener("click", (e => {
-                e.preventDefault();
-                const targetId = link.getAttribute("href").substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    const rect = targetSection.getBoundingClientRect();
-                    const currentScroll = window.pageYOffset;
-                    const targetTop = currentScroll + rect.top;
-                    const scrollingDown = targetTop > currentScroll;
-                    const offset = scrollingDown ? 1e3 : -400;
-                    const targetPosition = targetTop + offset;
-                    window.scrollTo({
-                        top: Math.max(0, targetPosition),
-                        behavior: "smooth"
-                    });
-                }
-            }));
-        }));
     }
     function splitTitle() {
-        const splitTypes = document.querySelectorAll(".reveal-type, .title-display");
-        splitTypes.forEach((char => {
-            const bg = char.dataset.bgColor;
-            const fg = char.dataset.fgColor;
-            const text = new SplitType(char, {
-                types: "chars"
+        const splitList = document.querySelectorAll(".reveal-type, .title-display");
+        splitList.forEach((el => {
+            const bg = el.dataset.bgColor;
+            const fg = el.dataset.fgColor;
+            let split = new SplitText(el, {
+                type: "chars, words, lines"
             });
-            gsapWithCSS.fromTo(text.chars, {
+            gsapWithCSS.fromTo(split.chars, {
                 color: bg
             }, {
                 color: fg,
-                duration: .3,
-                stagger: .02,
+                stagger: .03,
                 scrollTrigger: {
-                    trigger: char,
+                    trigger: el,
                     start: "top 80%",
                     end: "top 20%",
-                    scrub: .5,
-                    markers: false
+                    scrub: 2,
+                    markers: false,
+                    toggleActions: "play none none reverse"
                 }
             });
         }));
@@ -10702,28 +10337,18 @@
             const length = strokePath.getTotalLength();
             strokePath.setAttribute("stroke-dasharray", length);
             strokePath.setAttribute("stroke-dashoffset", length);
-            const content = section.querySelectorAll(".section-about__header, .section-about__slider");
-            gsapWithCSS.set(content, {
-                opacity: 0,
-                y: 150
-            });
             const tl = gsapWithCSS.timeline({
                 scrollTrigger: {
                     trigger: section,
-                    start: "top 10%",
-                    end: "+=200%",
-                    scrub: true,
-                    pin: true
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    scrub: 3,
+                    markers: false
                 }
             });
             tl.to(strokePath, {
                 strokeDashoffset: length * .5,
                 ease: "none",
-                duration: 2
-            });
-            tl.to(content, {
-                opacity: 1,
-                y: 0,
                 duration: 2
             });
         }));
@@ -10741,11 +10366,11 @@
             if (items.length < 5) return;
             list.classList.add("section-about__wrapper--accent");
         }));
-        gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
+        gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger, SplitText);
         splitTitle();
         initSVGLineAnimations();
     };
-    window["FLS"] = true;
+    window["FLS"] = false;
     addLoadedClass();
     menuInit();
     spollers();

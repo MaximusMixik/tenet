@@ -116,6 +116,7 @@ h6 {
 	z-index: 3;
 	top: 0;
 	left: 0;
+	background: linear-gradient(225deg, #f3e9ce 0%, #fff 41.85%, #f7f6f3 55.35%, #eaf6f9 67.93%, #f7f6f3 77.92%);
 
 	// info--show
 	&--show {
@@ -134,7 +135,6 @@ h6 {
 		gap: toRem(8);
 		max-width: toRem(1920);
 		padding: toRem(10) toRem(16);
-		background: linear-gradient(225deg, #f3e9ce 0%, #fff 41.85%, #f7f6f3 55.35%, #eaf6f9 67.93%, #f7f6f3 77.92%);
 		min-height: toRem(44);
 		height: fit-content;
 		transition: all 0.3s ease;
@@ -373,7 +373,11 @@ h6 {
 			font-weight: 500;
 			color: #73888c;
 		}
-
+		& .color-section__slide {
+			background: linear-gradient(180deg, #1b2527 0%, #151d1e 100%);
+			border: toRem(1) solid transparent;
+			border-radius: toRem(14);
+		}
 		.color-section-slide {
 			position: relative;
 			background: linear-gradient(180deg, #1b2527 0%, #151d1e 100%);
@@ -528,18 +532,18 @@ h6 {
 		padding-top: toRem(32);
 	}
 }
-
+// @@@@@@@@@@@@@
 .color-section-slide {
 	border-radius: toRem(12);
 	height: 100%;
-	@media (min-width: $mobile) {
+	@media (min-width: $mobileSmall) {
 		padding: toRem(32) toRem(72) toRem(56) toRem(32);
 	}
-	@media (max-width: $mobile) {
-		padding: toRem(32);
+	@media (max-width: $mobileSmall) {
+		padding: toRem(32) toRem(32) toRem(56);
 	}
 	@media (max-width: $mobileMd) {
-		min-height: toRem(352);
+		// min-height: toRem(352);
 		border: toRem(3) solid var(--flax);
 	}
 
@@ -598,9 +602,7 @@ h6 {
 		place-items: center;
 		will-change: auto;
 
-		transition:
-			border-color 0.3s ease,
-			box-shadow 0.3s ease;
+		transition: all 0.3s ease;
 		// .navigation__buttons--accent & {
 		// 	border: toRem(2) solid var(--bg-accent-hover);
 		// }
@@ -612,7 +614,7 @@ h6 {
 		}
 		@media (any-hover: hover) {
 			&:hover {
-				// border: toRem(4) solid #ead7a4;
+				border: toRem(2) solid #ead7a4;
 				box-shadow: inset 0 0 0 toRem(2) #ead7a4;
 				// .navigation__buttons--accent & {
 				// 	background-color: var(--bg-primary);
@@ -628,7 +630,7 @@ h6 {
 			border: toRem(2) solid var(--grey4);
 
 			& svg {
-				color: var(--grey4);
+				color: var(--grey2);
 				// .navigation__buttons--accent & {
 				// 	fill: var(--bg-accent-hover);
 				// }

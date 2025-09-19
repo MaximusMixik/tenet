@@ -3,11 +3,13 @@
 	&__about {
 		position: relative;
 		@media (min-width: $tablet) {
-			padding-block: toRem(200) toRem(24);
+			// padding-block: toRem(200) toRem(24);
+			padding-block: toRem(260) toRem(24);
 			margin-top: toRem(-200);
 		}
 		@media (max-width: $tablet) {
-			padding-block: toRem(160) toRem(24);
+			// padding-block: toRem(160) toRem(24);
+			padding-block: toRem(240) toRem(24);
 			margin-top: toRem(-160);
 		}
 	}
@@ -115,6 +117,7 @@
 	&__button {
 		border-radius: toRem(50);
 		min-height: toRem(48);
+		padding: toRem(12) toRem(18);
 		color: var(--black);
 		& svg {
 			color: #c4a141;
@@ -136,7 +139,7 @@
 		top: toRem(20);
 		// .sidebar-article__title
 		&__title {
-			font-family: var(--font-family);
+			font-family: $fontFamilyMonaSans;
 			font-weight: 600;
 			font-size: toRem(26);
 			&:not(:last-child) {

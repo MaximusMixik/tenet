@@ -102,8 +102,10 @@
 			min-height: toRem(60);
 		}
 		@media (max-width: toEm(1024)) {
-			padding-bottom: toRem(6);
+			padding-block: toRem(16);
 			// padding-inline: toRem(32);
+			min-height: toRem(48);
+
 			padding-inline: toRem(64);
 			margin-inline: toRem(-64);
 		}
@@ -141,16 +143,14 @@
 			width: toRem(28);
 			height: toRem(28);
 			flex-shrink: 0;
-
-			& path {
-				transition: fill 0.3s ease;
-			}
+			color: var(--satin-gold);
+			transition: color 0.3s ease;
 		}
 		&.active {
 			background-color: var(--flax);
 			pointer-events: none;
-			& svg path {
-				fill: var(--white);
+			& svg {
+				color: var(--white);
 			}
 		}
 	}
@@ -212,7 +212,12 @@
 	}
 	// .section-about__description
 	&__description {
-		font-size: toRem(17);
+		@media (min-width: $mobile) {
+			font-size: toRem(17);
+		}
+		@media (max-width: $mobile) {
+			font-size: toRem(16);
+		}
 	}
 
 	// .section-about__slider
@@ -236,17 +241,26 @@
 				}
 			}
 		}
+		// @media (max-width: $mobileMd) {
+		// 	align-items: stretch !important;
+		// }
 	}
 	// .section-about__slide
 	&__slide {
+		// display: flex;
+		// align-items: center;
+		// align-self: stretch !important;
+		// height: 100%;
 	}
 	// .section-about__navigation
 	&__navigation {
-		// !!!!!!!!
 		@media (max-width: $mobileMd) {
 			padding-top: toRem(32);
-			.navigation__scrollbar {
-				background-color: var(--grey4) !important;
+			& .navigation__scrollbar {
+				background-color: var(--grey4);
+				& .swiper-scrollbar-drag {
+					background-color: var(--satin-gold);
+				}
 			}
 		}
 	}
@@ -254,18 +268,22 @@
 .article-about {
 	position: relative;
 	border-radius: toRem(12);
+	// display: flex;
+	// flex-direction: column;
 	overflow: hidden;
 
 	// border: toRem(3) solid transparent;
+	// height: 100%;
+	// align-self: stretch !important;
 	height: 100%;
 	transition: box-shadow 0.5s ease;
-
 	@media (min-width: $mobileSmall) {
 		padding: toRem(32) toRem(72) toRem(56) toRem(32);
 	}
 	@media (max-width: $mobileSmall) {
-		padding: toRem(32);
-		min-height: toRem(288);
+		padding: toRem(32) toRem(32) toRem(96);
+
+		// min-height: toRem(288);
 	}
 
 	@media (any-hover: hover) {
@@ -295,9 +313,11 @@
 	}
 	// .article-about__title
 	&__title {
+		flex: 1 1 auto;
 	}
 	// .article-about__text
 	&__text {
+		flex: 1 1 auto;
 		span {
 			font-weight: 700;
 		}
@@ -417,15 +437,30 @@
 		// &:not(:has(.swiper-button-lock)) {
 		// 	margin-top: toRem(32);
 		// }
-		@media (max-width: $mobile) {
+		@media (max-width: $mobileMd) {
 			display: none;
 		}
 	}
 }
 
 .slide-cases {
+	@media (any-hover: hover) {
+		&:hover {
+			// .slide-cases__image {
+			// 	border: toRem(4) solid var(--satin-gold);
+			// }
+			.slide-cases__image-link::before {
+				opacity: 1;
+			}
+			.slide-cases__title {
+				color: var(--satin-gold);
+			}
+		}
+	}
 	// .slide-cases__image-link
 	&__image-link {
+		border-radius: toRem(12);
+		overflow: hidden;
 		display: block;
 		position: relative;
 		width: 100%;
@@ -435,26 +470,29 @@
 		@media (max-width: $mobileSmall) {
 			height: toRem(184);
 		}
-		@media (any-hover: hover) {
-			&:hover {
-				.slide-cases__image {
-					border: toRem(4) solid var(--satin-gold);
-				}
-			}
-		}
-
 		&:not(:last-child) {
 			margin-bottom: toRem(24);
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			inset: 0;
+			border-radius: toRem(12);
+			box-shadow: inset 0 0 0 toRem(4) var(--satin-gold);
+			opacity: 0;
+			z-index: 2;
+			transition: opacity 0.5s ease;
 		}
 	}
 	// .slide-cases__image
 	&__image {
-		border: 0 solid transparent;
-		will-change: auto;
-		transition: border 0.3s ease;
+		// border: 0 solid transparent;
+		// will-change: auto;
+		// transition: border 0.3s ease;
 
 		background-color: lightgray;
-		border-radius: toRem(12);
 		object-fit: cover;
 		position: absolute;
 		width: 100%;
@@ -490,7 +528,7 @@
 			display: flex;
 			justify-content: space-between;
 			flex-direction: row-reverse;
-			align-items: flex-end;
+			align-items: center;
 		}
 	}
 	// .slide-cases__date
@@ -523,13 +561,7 @@
 	&__title {
 		font-size: toRem(26);
 		font-weight: 600;
-		@media (any-hover: hover) {
-			transition: color 0.3s ease;
-
-			&:hover {
-				color: var(--satin-gold);
-			}
-		}
+		transition: color 0.5s ease;
 		&:not(:last-child) {
 			margin-bottom: toRem(12);
 		}
@@ -607,7 +639,12 @@
 	}
 	// .cta__text
 	&__text {
-		font-size: toRem(17);
+		@media (min-width: $mobileSmall) {
+			font-size: toRem(17);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(16);
+		}
 		&:not(:last-child) {
 			margin-bottom: toRem(32);
 		}

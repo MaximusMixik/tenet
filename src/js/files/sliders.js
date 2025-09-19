@@ -262,7 +262,6 @@ function initSliders() {
 				new Swiper(swiperElement, {
 					// Подключаем модули слайдера
 					modules: [Navigation, Scrollbar, Pagination],
-
 					// Основные настройки
 					observer: true,
 					observeParents: true,
@@ -271,6 +270,7 @@ function initSliders() {
 					speed: 1400,
 					effect: 'slide',
 					transitionTimingFunction: 'ease-in-out',
+					// autoHeight: false,
 
 					// Пагинация (если элемент существует)
 					pagination: pagination ? {

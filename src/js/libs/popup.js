@@ -155,17 +155,17 @@ class Popup {
 			// Перевірка зміни адресного рядка
 			window.addEventListener('hashchange', function () {
 				if (window.location.hash) {
-					this._openToHash();
+					// this._openToHash();
 				} else {
 					this.close(this.targetOpen.selector);
 				}
 			}.bind(this))
 
-			window.addEventListener('load', function () {
-				if (window.location.hash) {
-					this._openToHash();
-				}
-			}.bind(this))
+			// window.addEventListener('load', function () {
+			// 	if (window.location.hash) {
+			// 		this._openToHash();
+			// 	}
+			// }.bind(this))
 		}
 	}
 	open(selectorValue) {
@@ -313,19 +313,19 @@ class Popup {
 				this.targetOpen.selector : this.targetOpen.selector.replace('.', '#')
 		}
 	}
-	_openToHash() {
-		let classInHash = document.querySelector(`.${window.location.hash.replace('#', '')}`) ? `.${window.location.hash.replace('#', '')}` :
-			document.querySelector(`${window.location.hash}`) ? `${window.location.hash}` :
-				null;
+	// _openToHash() {
+	// 	let classInHash = document.querySelector(`.${window.location.hash.replace('#', '')}`) ? `.${window.location.hash.replace('#', '')}` :
+	// 		document.querySelector(`${window.location.hash}`) ? `${window.location.hash}` :
+	// 			null;
 
-		const buttons = document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) ? document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) : document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash.replace('.', "#")}"]`);
+	// 	const buttons = document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) ? document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) : document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash.replace('.', "#")}"]`);
 
-		// this.youTubeCode = buttons.getAttribute(this.options.youtubeAttribute) ?
-		// 	buttons.getAttribute(this.options.youtubeAttribute) :
-		// 	null;
+	// 	// this.youTubeCode = buttons.getAttribute(this.options.youtubeAttribute) ?
+	// 	// 	buttons.getAttribute(this.options.youtubeAttribute) :
+	// 	// 	null;
 
-		if (buttons && classInHash) this.open(classInHash);
-	}
+	// 	if (buttons && classInHash) this.open(classInHash);
+	// }
 	// Встановлення хеша
 	_setHash() {
 		history.pushState('', '', this.hash);

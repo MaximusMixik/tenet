@@ -432,7 +432,8 @@ h6 {
   height: fit-content;
   z-index: 3;
   top: 0;
-  left: 0
+  left: 0;
+  background: linear-gradient(225deg,#f3e9ce 0,#fff 41.85%,#f7f6f3 55.35%,#eaf6f9 67.93%,#f7f6f3 77.92%)
 }
 .info--fade-out .info__container {
   height: 0;
@@ -445,7 +446,6 @@ h6 {
   gap: .5rem;
   max-width: 120rem;
   padding: .625rem 1rem;
-  background: linear-gradient(225deg,#f3e9ce 0,#fff 41.85%,#f7f6f3 55.35%,#eaf6f9 67.93%,#f7f6f3 77.92%);
   min-height: 2.75rem;
   height: -moz-fit-content;
   height: -webkit-fit-content;
@@ -597,6 +597,11 @@ h6 {
   font-weight: 500;
   color: #73888c
 }
+.color-section--black .color-section__slide {
+  background: linear-gradient(180deg,#1b2527 0,#151d1e 100%);
+  border: .0625rem solid transparent;
+  border-radius: .875rem
+}
 .color-section--black .color-section-slide {
   position: relative;
   background: linear-gradient(180deg,#1b2527 0,#151d1e 100%);
@@ -720,7 +725,7 @@ h6 {
   display: grid;
   place-items: center;
   will-change: auto;
-  transition: border-color .3s ease,box-shadow .3s ease
+  transition: all .3s ease
 }
 .navigation__button svg {
   pointer-events: none;
@@ -733,7 +738,7 @@ h6 {
   border: .125rem solid var(--grey4)
 }
 .navigation__button.swiper-button-disabled svg {
-  color: var(--grey4)
+  color: var(--grey2)
 }
 .language {
   font-family: MonaSans,sans-serif;
@@ -1047,17 +1052,16 @@ h6 {
 .menu-about__link svg {
   width: 1.75rem;
   height: 1.75rem;
-  flex-shrink: 0
-}
-.menu-about__link svg path {
-  transition: fill .3s ease
+  flex-shrink: 0;
+  color: var(--satin-gold);
+  transition: color .3s ease
 }
 .menu-about__link.active {
   background-color: var(--flax);
   pointer-events: none
 }
-.menu-about__link.active svg path {
-  fill: var(--white)
+.menu-about__link.active svg {
+  color: var(--white)
 }
 .menu-about+.section-about {
   padding-top: 2.5rem
@@ -1079,9 +1083,6 @@ h6 {
 }
 .section-about__header>:not(:last-child) {
   margin-bottom: 1rem
-}
-.section-about__description {
-  font-size: 1.0625rem
 }
 .article-about {
   position: relative;
@@ -1108,6 +1109,12 @@ h6 {
 .article-about__text,
 .article-about__title {
   max-width: 19.875rem
+}
+.article-about__title {
+  flex: 1 1 auto
+}
+.article-about__text {
+  flex: 1 1 auto
 }
 .article-about__text span {
   font-weight: 700
@@ -1146,6 +1153,8 @@ h6 {
   margin-bottom: 2.5rem
 }
 .slide-cases__image-link {
+  border-radius: .75rem;
+  overflow: hidden;
   display: block;
   position: relative;
   width: 100%
@@ -1153,12 +1162,20 @@ h6 {
 .slide-cases__image-link:not(:last-child) {
   margin-bottom: 1.5rem
 }
-.slide-cases__image {
-  border: 0 solid transparent;
-  will-change: auto;
-  transition: border .3s ease;
-  background-color: #d3d3d3;
+.slide-cases__image-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
   border-radius: .75rem;
+  box-shadow: inset 0 0 0 .25rem var(--satin-gold);
+  opacity: 0;
+  z-index: 2;
+  transition: opacity .5s ease
+}
+.slide-cases__image {
+  background-color: #d3d3d3;
   -o-object-fit: cover;
   object-fit: cover;
   position: absolute;
@@ -1199,7 +1216,8 @@ h6 {
 }
 .slide-cases__title {
   font-size: 1.625rem;
-  font-weight: 600
+  font-weight: 600;
+  transition: color .5s ease
 }
 .slide-cases__title:not(:last-child) {
   margin-bottom: .75rem
@@ -1237,9 +1255,6 @@ h6 {
 }
 .cta__title:not(:last-child) {
   margin-bottom: 1rem
-}
-.cta__text {
-  font-size: 1.0625rem
 }
 .cta__text:not(:last-child) {
   margin-bottom: 2rem
@@ -1310,7 +1325,7 @@ h6 {
   margin-bottom: 1.5rem
 }
 .team-item__initials:not(:last-child) {
-  margin-bottom: .5rem
+  margin-bottom: .375rem
 }
 .team-item__position {
   font-weight: 700;
@@ -1470,9 +1485,6 @@ h6 {
 .not-found__title:not(:last-child) {
   margin-bottom: 1rem
 }
-.not-found__text {
-  font-size: 1.0625rem
-}
 .not-found__text:not(:last-child) {
   margin-bottom: 2.5rem
 }
@@ -1541,6 +1553,7 @@ h6 {
 .article__button {
   border-radius: 3.125rem;
   min-height: 3rem;
+  padding: .75rem 1.125rem;
   color: var(--black)
 }
 .article__button svg {
@@ -2241,6 +2254,9 @@ button.swiper-pagination-bullet {
   .cookie__button {
     margin-left: auto
   }
+  .color-section-slide {
+    padding: 2rem 4.5rem 3.5rem 2rem
+  }
   .article-about {
     padding: 2rem 4.5rem 3.5rem 2rem
   }
@@ -2262,6 +2278,12 @@ button.swiper-pagination-bullet {
   .cta__bg {
     height: 100%;
     width: 40%
+  }
+  .cta__text {
+    font-size: 1.0625rem
+  }
+  .about-intro__grid {
+    grid-template-columns: repeat(3,1fr)
   }
   .blog-section__grid {
     grid-template-columns: repeat(2,1fr);
@@ -2337,9 +2359,6 @@ button.swiper-pagination-bullet {
   .color-section--yellow {
     padding-block: 17.5rem
   }
-  .color-section-slide {
-    padding: 2rem 4.5rem 3.5rem 2rem
-  }
   .header {
     padding-block: 3rem
   }
@@ -2360,14 +2379,14 @@ button.swiper-pagination-bullet {
   .menu-about__list {
     justify-content: center
   }
+  .section-about__description {
+    font-size: 1.0625rem
+  }
   .cta {
     padding-inline: 2rem
   }
   .about-intro {
     padding-block: 6.25rem 9.375rem
-  }
-  .about-intro__grid {
-    grid-template-columns: repeat(3,1fr)
   }
   .blog-section {
     padding-block: 6.25rem 9.375rem
@@ -2375,6 +2394,9 @@ button.swiper-pagination-bullet {
   .blog-section__grid {
     grid-template-columns: repeat(3,1fr);
     gap: 2rem 1.5rem
+  }
+  .not-found__text {
+    font-size: 1.0625rem
   }
 }
 @media (min-width:61.99875em) {
@@ -2506,7 +2528,7 @@ button.swiper-pagination-bullet {
     padding-block: 10.5vh 8.5vh
   }
   .article__about {
-    padding-block: 12.5rem 1.5rem;
+    padding-block: 16.25rem 1.5rem;
     margin-top: -12.5rem
   }
   .article__row {
@@ -2529,7 +2551,7 @@ button.swiper-pagination-bullet {
     top: 1.25rem
   }
   .sidebar-article__title {
-    font-family: var(--font-family);
+    font-family: MonaSans,sans-serif;
     font-weight: 600;
     font-size: 1.625rem
   }
@@ -2625,7 +2647,8 @@ button.swiper-pagination-bullet {
 }
 @media (max-width:64em) {
   .menu-about__list {
-    padding-bottom: .375rem;
+    padding-block: 1rem;
+    min-height: 3rem;
     padding-inline: 4rem;
     margin-inline: -4rem
   }
@@ -2787,7 +2810,7 @@ button.swiper-pagination-bullet {
     padding-block: 4.375rem 6.25rem
   }
   .article__about {
-    padding-block: 10rem 1.5rem;
+    padding-block: 15rem 1.5rem;
     margin-top: -10rem
   }
   .article__row {
@@ -2820,9 +2843,6 @@ button.swiper-pagination-bullet {
   .color-section--yellow {
     padding-block: 15rem
   }
-  .color-section-slide {
-    padding: 2rem
-  }
   .color-section-slide__text {
     flex: 1 1 auto
   }
@@ -2846,11 +2866,11 @@ button.swiper-pagination-bullet {
   .menu-about__list {
     justify-content: start
   }
+  .section-about__description {
+    font-size: 1rem
+  }
   .last-cases {
     padding-top: 15rem
-  }
-  .last-cases__navigation {
-    display: none
   }
   .cta {
     padding-inline: 1rem
@@ -2867,8 +2887,8 @@ button.swiper-pagination-bullet {
   .blog-section__decor {
     left: 4.5rem
   }
-  .custom-pagination__dots {
-    display: none
+  .not-found__text {
+    font-size: 1rem
   }
 }
 @media (max-width:40.06125em) {
@@ -2882,7 +2902,6 @@ button.swiper-pagination-bullet {
     color: var(--white)
   }
   .color-section-slide {
-    min-height: 22rem;
     border: .1875rem solid var(--flax)
   }
   .navigation__pagination {
@@ -2921,11 +2940,17 @@ button.swiper-pagination-bullet {
     padding-top: 2rem
   }
   .section-about__navigation .navigation__scrollbar {
-    background-color: var(--grey4)!important
+    background-color: var(--grey4)
+  }
+  .section-about__navigation .navigation__scrollbar .swiper-scrollbar-drag {
+    background-color: var(--satin-gold)
   }
   .last-cases__wrapper {
     display: grid!important;
     gap: 2.5rem
+  }
+  .last-cases__navigation {
+    display: none
   }
   .cta__actions {
     flex-direction: column
@@ -2948,6 +2973,9 @@ button.swiper-pagination-bullet {
   }
   .color-section--white {
     padding-block: 7.5rem 3.75rem
+  }
+  .color-section-slide {
+    padding: 2rem 2rem 3.5rem
   }
   .header__logo {
     position: relative;
@@ -2982,8 +3010,7 @@ button.swiper-pagination-bullet {
     opacity: 1
   }
   .article-about {
-    padding: 2rem;
-    min-height: 18rem
+    padding: 2rem 2rem 6rem
   }
   .services-preview__button {
     margin-top: 2rem
@@ -3004,7 +3031,7 @@ button.swiper-pagination-bullet {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
-    align-items: flex-end
+    align-items: center
   }
   .cta__container {
     padding: 2.5rem 2rem 11.25rem
@@ -3012,6 +3039,9 @@ button.swiper-pagination-bullet {
   .cta__bg {
     width: 65%;
     height: 40%
+  }
+  .cta__text {
+    font-size: 1rem
   }
   .about-intro__bg {
     bottom: 20.8125rem
@@ -3044,6 +3074,9 @@ button.swiper-pagination-bullet {
   .custom-pagination__list>:nth-child(6),
   .custom-pagination__list>:nth-child(7),
   .custom-pagination__list>:nth-child(8) {
+    display: none
+  }
+  .custom-pagination__dots {
     display: none
   }
   .custom-pagination__next a::after {
@@ -3140,6 +3173,7 @@ button.swiper-pagination-bullet {
     color: var(--flax)
   }
   .navigation__button:hover {
+    border: .125rem solid #ead7a4;
     box-shadow: inset 0 0 0 .125rem #ead7a4
   }
   .breadcrumbs a {
@@ -3157,13 +3191,10 @@ button.swiper-pagination-bullet {
   .article-about:hover {
     box-shadow: inset 0 0 0 .1875rem var(--flax)
   }
-  .slide-cases__image-link:hover .slide-cases__image {
-    border: .25rem solid var(--satin-gold)
+  .slide-cases:hover .slide-cases__image-link::before {
+    opacity: 1
   }
-  .slide-cases__title {
-    transition: color .3s ease
-  }
-  .slide-cases__title:hover {
+  .slide-cases:hover .slide-cases__title {
     color: var(--satin-gold)
   }
   .team-item__social:hover svg {
