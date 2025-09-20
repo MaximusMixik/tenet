@@ -96,68 +96,146 @@ function topActions() {
 	});
 }
 
-// animations
 // 1. Функционал активной навигации
+// function initActiveNavigation() {
+// 	const menuLinks = document.querySelectorAll('.menu-about__link');
+// 	const sections = document.querySelectorAll('.sticky-about__section');
+
+// 	// Intersection Observer для отслеживания активных секций
+// 	const observerOptions = {
+// 		root: null,
+// 		rootMargin: '-20% 0px -20% 0px',
+// 		threshold: 0.3
+// 	};
+
+// 	const observer = new IntersectionObserver((entries) => {
+// 		entries.forEach(entry => {
+// 			if (entry.isIntersecting) {
+// 				const sectionId = entry.target.querySelector('.section-about__body').id;
+
+// 				// Убираем активный класс у всех ссылок
+// 				menuLinks.forEach(link => link.classList.remove('active'));
+
+// 				// Добавляем активный класс соответствующей ссылке
+// 				const activeLink = document.querySelector(`.menu-about__link[href="#${sectionId}"]`);
+// 				if (activeLink) {
+// 					activeLink.classList.add('active');
+// 				}
+// 			}
+// 		});
+// 	}, observerOptions);
+
+// 	// Наблюдаем за секциями
+// 	sections.forEach(section => {
+// 		observer.observe(section);
+// 	});
+
+// 	// Обработчики кликов по навигации (плавная прокрутка уже работает на CSS)
+// 	// menuLinks.forEach(link => {
+// 	// 	link.addEventListener('click', (e) => {
+// 	// 		e.preventDefault();
+// 	// 		const targetId = link.getAttribute('href').substring(1);
+// 	// 		const targetSection = document.getElementById(targetId);
+
+// 	// 		if (targetSection) {
+// 	// 			const rect = targetSection.getBoundingClientRect();
+// 	// 			const currentScroll = window.pageYOffset;
+// 	// 			const targetTop = currentScroll + rect.top;
+
+// 	// 			// Определяем направление прокрутки
+// 	// 			// const scrollingDown = targetTop > currentScroll;
+// 	// 			// const offset = scrollingDown ? 1000 : -400; // +1000 вниз, -1000 вверх
+
+// 	// 			// const targetPosition = targetTop + offset;
+// 	// 			const targetPosition = targetTop;
+
+// 	// 			window.scrollTo({
+// 	// 				top: Math.max(0, targetPosition), // не даем уйти в минус
+// 	// 				behavior: 'smooth'
+// 	// 			});
+// 	// 		}
+// 	// 	});
+// 	// });
+// }
 function initActiveNavigation() {
 	const menuLinks = document.querySelectorAll('.menu-about__link');
 	const sections = document.querySelectorAll('.sticky-about__section');
+	const navContainer = document.querySelector('.menu-about__list'); // контейнер с горизонтальным скроллом
+	let isManualScroll = false;
+
+	// Функция скролла до активного элемента
+	function scrollToActiveLink(activeLink) {
+		if (!navContainer || !activeLink || window.innerWidth >= 1024) return;
+
+		const containerRect = navContainer.getBoundingClientRect();
+		const activeRect = activeLink.getBoundingClientRect();
+
+		const relativePosition = activeRect.left - containerRect.left;
+		const centerPosition =
+			relativePosition - containerRect.width / 2 + activeRect.width / 2;
+
+		navContainer.scrollTo({
+			left: navContainer.scrollLeft + centerPosition,
+			behavior: 'smooth',
+		});
+	}
 
 	// Intersection Observer для отслеживания активных секций
 	const observerOptions = {
 		root: null,
 		rootMargin: '-20% 0px -20% 0px',
-		threshold: 0.3
+		threshold: 0.3,
 	};
 
 	const observer = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
+		if (isManualScroll) return; // отключаем авто-скролл если был клик
+
+		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
 				const sectionId = entry.target.querySelector('.section-about__body').id;
 
 				// Убираем активный класс у всех ссылок
-				menuLinks.forEach(link => link.classList.remove('active'));
+				menuLinks.forEach((link) => link.classList.remove('active'));
 
 				// Добавляем активный класс соответствующей ссылке
-				const activeLink = document.querySelector(`.menu-about__link[href="#${sectionId}"]`);
+				const activeLink = document.querySelector(
+					`.menu-about__link[href="#${sectionId}"]`
+				);
 				if (activeLink) {
 					activeLink.classList.add('active');
+					scrollToActiveLink(activeLink);
 				}
 			}
 		});
 	}, observerOptions);
 
 	// Наблюдаем за секциями
-	sections.forEach(section => {
+	sections.forEach((section) => {
 		observer.observe(section);
 	});
 
-	// Обработчики кликов по навигации (плавная прокрутка уже работает на CSS)
-	// menuLinks.forEach(link => {
-	// 	link.addEventListener('click', (e) => {
-	// 		e.preventDefault();
-	// 		const targetId = link.getAttribute('href').substring(1);
-	// 		const targetSection = document.getElementById(targetId);
+	// Обработчик кликов по меню
+	menuLinks.forEach((link) => {
+		link.addEventListener('click', (e) => {
+			isManualScroll = true;
 
-	// 		if (targetSection) {
-	// 			const rect = targetSection.getBoundingClientRect();
-	// 			const currentScroll = window.pageYOffset;
-	// 			const targetTop = currentScroll + rect.top;
+			// убираем активный у всех, ставим только на кликнутый
+			menuLinks.forEach((l) => l.classList.remove('active'));
+			link.classList.add('active');
 
-	// 			// Определяем направление прокрутки
-	// 			// const scrollingDown = targetTop > currentScroll;
-	// 			// const offset = scrollingDown ? 1000 : -400; // +1000 вниз, -1000 вверх
+			// скроллим контейнер до кликнутого
+			scrollToActiveLink(link);
 
-	// 			// const targetPosition = targetTop + offset;
-	// 			const targetPosition = targetTop;
-
-	// 			window.scrollTo({
-	// 				top: Math.max(0, targetPosition), // не даем уйти в минус
-	// 				behavior: 'smooth'
-	// 			});
-	// 		}
-	// 	});
-	// });
+			// через таймаут снова включаем авто-режим (когда якорь уже доехал)
+			setTimeout(() => {
+				isManualScroll = false;
+			}, 800);
+		});
+	});
 }
+
+
+// animations
 
 // function splitTitle() {
 // 	// Анимация текста

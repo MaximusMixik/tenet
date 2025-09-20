@@ -692,12 +692,14 @@ h6 {
   max-width: 39.75rem;
   margin-inline: auto
 }
+.color-section__slide {
+  min-height: 100%
+}
 .color-section__navigation {
   padding-top: 2rem
 }
 .color-section-slide {
-  border-radius: .75rem;
-  height: 100%
+  border-radius: .75rem
 }
 .color-section-slide__icon {
   width: 3rem;
@@ -1084,11 +1086,13 @@ h6 {
 .section-about__header>:not(:last-child) {
   margin-bottom: 1rem
 }
+.section-about__slide {
+  min-height: 100%
+}
 .article-about {
   position: relative;
   border-radius: .75rem;
   overflow: hidden;
-  height: 100%;
   transition: box-shadow .5s ease
 }
 .article-about:not(:has(>.article-about__bg)) {
@@ -1109,12 +1113,6 @@ h6 {
 .article-about__text,
 .article-about__title {
   max-width: 19.875rem
-}
-.article-about__title {
-  flex: 1 1 auto
-}
-.article-about__text {
-  flex: 1 1 auto
 }
 .article-about__text span {
   font-weight: 700
@@ -2254,12 +2252,6 @@ button.swiper-pagination-bullet {
   .cookie__button {
     margin-left: auto
   }
-  .color-section-slide {
-    padding: 2rem 4.5rem 3.5rem 2rem
-  }
-  .article-about {
-    padding: 2rem 4.5rem 3.5rem 2rem
-  }
   .services-preview__navigation {
     margin-top: 1.5rem
   }
@@ -2310,6 +2302,9 @@ button.swiper-pagination-bullet {
     grid-template-columns: repeat(2,1fr);
     gap: 1rem
   }
+  .color-section-slide {
+    padding: 2rem 4.5rem 3.5rem 2rem
+  }
   .navigation {
     align-items: center;
     justify-content: flex-end
@@ -2335,6 +2330,9 @@ button.swiper-pagination-bullet {
   .section-about__wrapper--accent>:nth-child(3n) .article-about__text,
   .section-about__wrapper--accent>:nth-child(3n) .article-about__title {
     max-width: 32.5rem!important
+  }
+  .article-about {
+    padding: 2rem 4.5rem 3.5rem 2rem
   }
   .cta__content {
     max-width: 75%
@@ -2843,9 +2841,6 @@ button.swiper-pagination-bullet {
   .color-section--yellow {
     padding-block: 15rem
   }
-  .color-section-slide__text {
-    flex: 1 1 auto
-  }
   .header {
     padding-block: 1.5rem
   }
@@ -2902,7 +2897,8 @@ button.swiper-pagination-bullet {
     color: var(--white)
   }
   .color-section-slide {
-    border: .1875rem solid var(--flax)
+    border: .1875rem solid var(--flax);
+    padding: 2rem 2rem 6rem
   }
   .navigation__pagination {
     font-family: MonaSans,sans-serif;
@@ -2945,6 +2941,9 @@ button.swiper-pagination-bullet {
   .section-about__navigation .navigation__scrollbar .swiper-scrollbar-drag {
     background-color: var(--satin-gold)
   }
+  .article-about {
+    padding: 2rem 2rem 6rem
+  }
   .last-cases__wrapper {
     display: grid!important;
     gap: 2.5rem
@@ -2973,9 +2972,6 @@ button.swiper-pagination-bullet {
   }
   .color-section--white {
     padding-block: 7.5rem 3.75rem
-  }
-  .color-section-slide {
-    padding: 2rem 2rem 3.5rem
   }
   .header__logo {
     position: relative;
@@ -3008,9 +3004,6 @@ button.swiper-pagination-bullet {
   .menu-open .menu__body::before {
     right: 0;
     opacity: 1
-  }
-  .article-about {
-    padding: 2rem 2rem 6rem
   }
   .services-preview__button {
     margin-top: 2rem

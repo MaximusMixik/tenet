@@ -3081,7 +3081,7 @@
         classes
     };
     const extendedDefaults = {};
-    class swiper_core_Swiper {
+    class Swiper {
         constructor() {
             let el;
             let params;
@@ -3097,7 +3097,7 @@
                     const newParams = utils_extend({}, params, {
                         el: containerEl
                     });
-                    swipers.push(new swiper_core_Swiper(newParams));
+                    swipers.push(new Swiper(newParams));
                 }));
                 return swipers;
             }
@@ -3469,25 +3469,25 @@
             return defaults;
         }
         static installModule(mod) {
-            if (!swiper_core_Swiper.prototype.__modules__) swiper_core_Swiper.prototype.__modules__ = [];
-            const modules = swiper_core_Swiper.prototype.__modules__;
+            if (!Swiper.prototype.__modules__) Swiper.prototype.__modules__ = [];
+            const modules = Swiper.prototype.__modules__;
             if (typeof mod === "function" && modules.indexOf(mod) < 0) modules.push(mod);
         }
         static use(module) {
             if (Array.isArray(module)) {
-                module.forEach((m => swiper_core_Swiper.installModule(m)));
-                return swiper_core_Swiper;
+                module.forEach((m => Swiper.installModule(m)));
+                return Swiper;
             }
-            swiper_core_Swiper.installModule(module);
-            return swiper_core_Swiper;
+            Swiper.installModule(module);
+            return Swiper;
         }
     }
     Object.keys(prototypes).forEach((prototypeGroup => {
         Object.keys(prototypes[prototypeGroup]).forEach((protoMethod => {
-            swiper_core_Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
+            Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
         }));
     }));
-    swiper_core_Swiper.use([ Resize, Observer ]);
+    Swiper.use([ Resize, Observer ]);
     function createElementIfNotDefined(swiper, originalParams, params, checkProps) {
         if (swiper.params.createElements) Object.keys(checkProps).forEach((key => {
             if (!params[key] && params.auto === true) {
@@ -4252,13 +4252,14 @@
         });
     }
     function initSliders() {
-        if (document.querySelector(".swiper-cases") && window.innerWidth > 640) new swiper_core_Swiper(".swiper-cases", {
+        if (document.querySelector(".swiper-cases") && window.innerWidth > 640) new Swiper(".swiper-cases", {
             modules: [ Navigation ],
             observer: true,
             observeParents: true,
             slidesPerView: 1,
             spaceBetween: 24,
             grabCursor: true,
+            autoHeight: true,
             speed: 1400,
             lazy: true,
             effect: "slide",
@@ -4277,19 +4278,6 @@
             },
             on: {}
         });
-        if (document.querySelector(".swiper")) new swiper_core_Swiper(".swiper", {
-            modules: [ Navigation ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            speed: 800,
-            navigation: {
-                prevEl: ".swiper-button-prev",
-                nextEl: ".swiper-button-next"
-            },
-            on: {}
-        });
         if (window.innerWidth < 640) {
             const colorSwipers = document.querySelectorAll(".swiper-color-section");
             if (colorSwipers.length) colorSwipers.forEach(((swiperElement, index) => {
@@ -4298,7 +4286,7 @@
                 swiperElement.setAttribute("data-swiper-id", uniqueId);
                 const pagination = swiperElement.querySelector(".navigation__pagination");
                 const scrollbar = swiperElement.querySelector(".navigation__scrollbar");
-                new swiper_core_Swiper(swiperElement, {
+                new Swiper(swiperElement, {
                     modules: [ Navigation, Scrollbar, Pagination ],
                     observer: true,
                     observeParents: true,
@@ -4307,6 +4295,7 @@
                     speed: 1400,
                     effect: "slide",
                     transitionTimingFunction: "ease-in-out",
+                    autoHeight: true,
                     pagination: pagination ? {
                         el: pagination,
                         type: "fraction",
@@ -4317,13 +4306,7 @@
                     scrollbar: scrollbar ? {
                         el: scrollbar,
                         draggable: true
-                    } : false,
-                    on: {
-                        init: function() {
-                            console.log(`Swiper ${uniqueId} initialized`);
-                        },
-                        slideChange: function() {}
-                    }
+                    } : false
                 });
             }));
         }
@@ -10279,23 +10262,51 @@
     function initActiveNavigation() {
         const menuLinks = document.querySelectorAll(".menu-about__link");
         const sections = document.querySelectorAll(".sticky-about__section");
+        const navContainer = document.querySelector(".menu-about__list");
+        let isManualScroll = false;
+        function scrollToActiveLink(activeLink) {
+            if (!navContainer || !activeLink || window.innerWidth >= 1024) return;
+            const containerRect = navContainer.getBoundingClientRect();
+            const activeRect = activeLink.getBoundingClientRect();
+            const relativePosition = activeRect.left - containerRect.left;
+            const centerPosition = relativePosition - containerRect.width / 2 + activeRect.width / 2;
+            navContainer.scrollTo({
+                left: navContainer.scrollLeft + centerPosition,
+                behavior: "smooth"
+            });
+        }
         const observerOptions = {
             root: null,
             rootMargin: "-20% 0px -20% 0px",
             threshold: .3
         };
         const observer = new IntersectionObserver((entries => {
+            if (isManualScroll) return;
             entries.forEach((entry => {
                 if (entry.isIntersecting) {
                     const sectionId = entry.target.querySelector(".section-about__body").id;
                     menuLinks.forEach((link => link.classList.remove("active")));
                     const activeLink = document.querySelector(`.menu-about__link[href="#${sectionId}"]`);
-                    if (activeLink) activeLink.classList.add("active");
+                    if (activeLink) {
+                        activeLink.classList.add("active");
+                        scrollToActiveLink(activeLink);
+                    }
                 }
             }));
         }), observerOptions);
         sections.forEach((section => {
             observer.observe(section);
+        }));
+        menuLinks.forEach((link => {
+            link.addEventListener("click", (e => {
+                isManualScroll = true;
+                menuLinks.forEach((l => l.classList.remove("active")));
+                link.classList.add("active");
+                scrollToActiveLink(link);
+                setTimeout((() => {
+                    isManualScroll = false;
+                }), 800);
+            }));
         }));
     }
     function splitTitle() {
