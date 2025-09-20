@@ -204,18 +204,19 @@ h6 {
 	overflow: hidden;
 	margin-inline: auto;
 	max-width: fit-content;
-	background-color: var(--flax-hover);
-	position: relative;
-
-	// .badge__bg
-	&__bg {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		inset: 0;
-		object-fit: cover;
-		z-index: 1;
-	}
+	background: var(
+		--badge1_grad,
+		conic-gradient(
+			from 90deg at 50% 50%,
+			#f7f0dc 79.99397099018097deg,
+			#eaf6f9 108.31143021583557deg,
+			#f4f1e8 157.5deg,
+			#faf9ee 280.38461208343506deg,
+			#eaf6f9 302.88461208343506deg,
+			#f5f4ec 320.19230604171753deg,
+			#f8f2e1 360deg
+		)
+	);
 	// .badge__text
 	&__text {
 		font-family: $fontFamilyMonaSans;
@@ -226,7 +227,6 @@ h6 {
 		z-index: 2;
 	}
 }
-
 .socials {
 	display: flex;
 	align-items: center;
@@ -250,7 +250,6 @@ h6 {
 		}
 	}
 }
-
 .button {
 	font-family: $fontFamilyMonaSans;
 	font-weight: 600;

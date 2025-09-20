@@ -1,7 +1,18 @@
 .article {
 	// .article__about
 	&__about {
-		position: relative;
+		// position: relative;
+		background: conic-gradient(
+			from 54deg at 55.21% 52.7%,
+			rgba(247, 240, 220, 0.6) 70.5446344614029deg,
+			rgba(234, 246, 249, 0.6) 87.63097107410431deg,
+			rgba(244, 241, 232, 0.6) 205.14317750930786deg,
+			rgba(250, 249, 238, 0.6) 257.7224349975586deg,
+			rgba(234, 246, 249, 0.6) 272.7864718437195deg,
+			rgba(255, 255, 255, 0.6) 283.58590364456177deg,
+			rgba(248, 242, 225, 0.6) 360deg
+		);
+
 		@media (min-width: $tablet) {
 			// padding-block: toRem(200) toRem(24);
 			padding-block: toRem(260) toRem(24);
@@ -15,11 +26,12 @@
 	}
 	// .article__bg
 	&__bg {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		inset: 0;
-		object-fit: cover;
+		display: none;
+		// position: absolute;
+		// width: 100%;
+		// height: 100%;
+		// inset: 0;
+		// object-fit: cover;
 	}
 	// .article__container
 	&__container {

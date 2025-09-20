@@ -508,17 +508,7 @@ h6 {
   max-width: -moz-fit-content;
   max-width: -webkit-fit-content;
   max-width: fit-content;
-  background-color: var(--flax-hover);
-  position: relative
-}
-.badge__bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  inset: 0;
-  -o-object-fit: cover;
-  object-fit: cover;
-  z-index: 1
+  background: var(--badge1_grad,conic-gradient(from 90deg at 50% 50%,#f7f0dc 79.9939709902deg,#eaf6f9 108.3114302158deg,#f4f1e8 157.5deg,#faf9ee 280.3846120834deg,#eaf6f9 302.8846120834deg,#f5f4ec 320.1923060417deg,#f8f2e1 360deg))
 }
 .badge__text {
   font-family: MonaSans,sans-serif;
@@ -1068,6 +1058,15 @@ h6 {
 .menu-about+.section-about {
   padding-top: 2.5rem
 }
+.section-about:nth-child(3n+1) .article-about:first-child {
+  background: var(--card_bg4,conic-gradient(from -41deg at 50% 50%,#f7f0dc 57.4050396681deg,#eaf6f9 96.2728714943deg,#f4f1e8 146.4270043373deg,#faf9ee 264.743514061deg,#fff 276.5096139908deg,#eaf6f9 292.9646873474deg,#f8f2e1 360deg))
+}
+.section-about:nth-child(3n+2) .article-about:first-child {
+  background: var(--card_bg2,conic-gradient(from -8deg at 50% 50%,#f7f0dc 85.5095851421deg,#eaf6f9 121.5153765678deg,#f4f1e8 216.8504619598deg,#faf9ee 264.743514061deg,#eaf6f9 292.9646873474deg,#fff 320.6783866882deg,#f8f2e1 360deg))
+}
+.section-about:nth-child(3n) .article-about:first-child {
+  background: var(--card_bg3,conic-gradient(from 54deg at 55.21% 52.7%,#f7f0dc 70.5446344614deg,#eaf6f9 87.6309710741deg,#f4f1e8 205.1431775093deg,#faf9ee 257.7224349976deg,#eaf6f9 272.7864718437deg,#fff 283.5859036446deg,#f8f2e1 360deg))
+}
 .section-about__body {
   position: relative;
   gap: 2rem 4.875rem
@@ -1102,13 +1101,7 @@ h6 {
   margin-bottom: .5rem
 }
 .article-about__bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  inset: 0;
-  z-index: -1;
-  -o-object-fit: cover;
-  object-fit: cover
+  display: none
 }
 .article-about__text,
 .article-about__title {
@@ -1487,15 +1480,10 @@ h6 {
   margin-bottom: 2.5rem
 }
 .article__about {
-  position: relative
+  background: conic-gradient(from 54deg at 55.21% 52.7%,rgba(247,240,220,.6) 70.5446344614deg,rgba(234,246,249,.6) 87.6309710741deg,rgba(244,241,232,.6) 205.1431775093deg,rgba(250,249,238,.6) 257.7224349976deg,rgba(234,246,249,.6) 272.7864718437deg,rgba(255,255,255,.6) 283.5859036446deg,rgba(248,242,225,.6) 360deg)
 }
 .article__bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  inset: 0;
-  -o-object-fit: cover;
-  object-fit: cover
+  display: none
 }
 .article__container {
   position: relative;
