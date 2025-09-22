@@ -65,9 +65,7 @@
 	}
 }
 .menu-about {
-	backdrop-filter: blur(toRem(8));
 	margin-inline: auto;
-	background-color: rgba(255, 255, 255, 0.6);
 	position: sticky;
 	z-index: 10;
 	top: toRem(24);
@@ -76,9 +74,9 @@
 		max-width: toRem(1023);
 		width: fit-content;
 		padding: toRem(16);
+		background-color: rgba(255, 255, 255, 0.6);
+		backdrop-filter: blur(toRem(8));
 	}
-	// @media (max-width: toEm(1024)) {
-	// }
 
 	// .menu-about__list
 	&__list {
@@ -108,6 +106,8 @@
 
 			padding-inline: toRem(64);
 			margin-inline: toRem(-64);
+			background-color: rgba(255, 255, 255, 0.6);
+			backdrop-filter: blur(toRem(8));
 		}
 	}
 	// .menu-about__item

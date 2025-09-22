@@ -372,21 +372,20 @@ h6 {
 			font-weight: 500;
 			color: #73888c;
 		}
-		& .color-section__slide {
-			background: linear-gradient(180deg, #1b2527 0%, #151d1e 100%);
-			border: toRem(1) solid transparent;
-			border-radius: toRem(14);
-		}
 		.color-section-slide {
 			position: relative;
-			background: linear-gradient(180deg, #1b2527 0%, #151d1e 100%);
-			border: toRem(1) solid #29383a;
+			z-index: 2;
 			overflow: hidden;
+			background:
+				linear-gradient(#1b2527, #151d1e) padding-box,
+				linear-gradient(to bottom, #2f3f42, #151d1e) border-box;
+			border-radius: toRem(14);
+			border: toRem(1) solid transparent;
 			& > * {
 				position: relative;
-				z-index: 2;
+				z-index: 3;
 			}
-			&::before {
+			&::after {
 				content: "";
 				z-index: 1;
 				position: absolute;
@@ -504,9 +503,14 @@ h6 {
 	}
 	// .color-section__text
 	&__text {
-		font-size: toRem(17);
 		max-width: toRem(636);
 		margin-inline: auto;
+		@media (min-width: $mobile) {
+			font-size: toRem(17);
+		}
+		@media (max-width: $mobile) {
+			font-size: toRem(16);
+		}
 	}
 	// .color-section__slider
 	&__slider {
@@ -710,7 +714,7 @@ h6 {
 
 		// .language__current
 		&__current {
-			padding: toRem(17) toRem(18) toRem(7);
+			padding: toRem(17) toRem(18);
 			transition: all 0.3s ease;
 
 			position: relative;

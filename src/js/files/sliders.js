@@ -35,7 +35,7 @@ function initSliders() {
 			slidesPerView: 1,
 			spaceBetween: 24,
 			grabCursor: true,
-			autoHeight: true,
+			autoHeight: false,
 			speed: 1400,
 
 			// Скорость прокрутки

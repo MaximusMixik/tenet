@@ -587,22 +587,19 @@ h6 {
   font-weight: 500;
   color: #73888c
 }
-.color-section--black .color-section__slide {
-  background: linear-gradient(180deg,#1b2527 0,#151d1e 100%);
-  border: .0625rem solid transparent;
-  border-radius: .875rem
-}
 .color-section--black .color-section-slide {
   position: relative;
-  background: linear-gradient(180deg,#1b2527 0,#151d1e 100%);
-  border: .0625rem solid #29383a;
-  overflow: hidden
+  z-index: 2;
+  overflow: hidden;
+  background: linear-gradient(#1b2527,#151d1e) padding-box,linear-gradient(to bottom,#2f3f42,#151d1e) border-box;
+  border-radius: .875rem;
+  border: .0625rem solid transparent
 }
 .color-section--black .color-section-slide>* {
   position: relative;
-  z-index: 2
+  z-index: 3
 }
-.color-section--black .color-section-slide::before {
+.color-section--black .color-section-slide::after {
   content: "";
   z-index: 1;
   position: absolute;
@@ -678,7 +675,6 @@ h6 {
   margin-inline: auto
 }
 .color-section__text {
-  font-size: 1.0625rem;
   max-width: 39.75rem;
   margin-inline: auto
 }
@@ -1010,9 +1006,7 @@ h6 {
   object-fit: cover
 }
 .menu-about {
-  backdrop-filter: blur(.5rem);
   margin-inline: auto;
-  background-color: rgba(255,255,255,.6);
   position: sticky;
   z-index: 10;
   top: 1.5rem
@@ -2345,6 +2339,9 @@ button.swiper-pagination-bullet {
   .color-section--yellow {
     padding-block: 17.5rem
   }
+  .color-section__text {
+    font-size: 1.0625rem
+  }
   .header {
     padding-block: 3rem
   }
@@ -2407,7 +2404,7 @@ button.swiper-pagination-bullet {
     opacity: 1
   }
   .language__current {
-    padding: 1.0625rem 1.125rem .4375rem;
+    padding: 1.0625rem 1.125rem;
     transition: all .3s ease;
     position: relative;
     z-index: 2
@@ -2622,7 +2619,9 @@ button.swiper-pagination-bullet {
     width: -moz-fit-content;
     width: -webkit-fit-content;
     width: fit-content;
-    padding: 1rem
+    padding: 1rem;
+    background-color: rgba(255,255,255,.6);
+    backdrop-filter: blur(.5rem)
   }
   .menu-about__list {
     border: .125rem solid #f2ead4;
@@ -2636,7 +2635,9 @@ button.swiper-pagination-bullet {
     padding-block: 1rem;
     min-height: 3rem;
     padding-inline: 4rem;
-    margin-inline: -4rem
+    margin-inline: -4rem;
+    background-color: rgba(255,255,255,.6);
+    backdrop-filter: blur(.5rem)
   }
 }
 @media (max-width:61.99875em) {
@@ -2828,6 +2829,9 @@ button.swiper-pagination-bullet {
   .color-section--black,
   .color-section--yellow {
     padding-block: 15rem
+  }
+  .color-section__text {
+    font-size: 1rem
   }
   .header {
     padding-block: 1.5rem
