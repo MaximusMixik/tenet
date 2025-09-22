@@ -981,6 +981,7 @@ h6 {
   display: flex;
   align-items: center;
   flex-direction: column;
+  pointer-events: none;
   gap: 1rem;
   text-align: center;
   z-index: 1;
@@ -995,7 +996,8 @@ h6 {
   font-weight: 700
 }
 .hero__button {
-  margin-top: 1rem
+  margin-top: 1rem;
+  pointer-events: all
 }
 .hero__bg {
   position: absolute;
@@ -1093,9 +1095,6 @@ h6 {
 }
 .article-about>:not(:last-child) {
   margin-bottom: .5rem
-}
-.article-about__bg {
-  display: none
 }
 .article-about__text,
 .article-about__title {
